@@ -790,18 +790,18 @@
                     <td class="number-col" style="color:#2ecc71;">$4.48M</td>
                 </tr>
                 <tr>
-                    <td class="product-col">TTS</td>
-                    <td class="decision-cell"><span class="decision-tag tag-validate">Validate</span></td>
-                    <td class="rationale-col">Generic TTS unwinnable (ElevenLabs, Google, Amazon). Accent-controlled TTS is white space nobody occupies. Needs 5 voice-agent-builder interviews before commit.</td>
-                    <td class="number-col">$860M</td>
-                    <td class="number-col" style="color:#bb8fce;">$4.51M</td>
-                </tr>
-                <tr>
                     <td class="product-col">Speech Enhancement</td>
                     <td class="decision-cell"><span class="decision-tag tag-bundle">Bundle</span></td>
                     <td class="rationale-col">Solves reverb, mic upscaling, low-energy speech, network artifacts. Crowded standalone (Adobe free, Dolby.io). Bundle into AT pipeline at $0 incremental.</td>
                     <td class="number-col">$600M</td>
                     <td class="number-col" style="color:#e67e22;">$3.12M</td>
+                </tr>
+                <tr>
+                    <td class="product-col">Noise Cancellation</td>
+                    <td class="decision-cell"><span class="decision-tag tag-build">Build</span></td>
+                    <td class="rationale-col">Batch NC market has meaningful gaps. Dolby.io dominates but has satisfaction gaps on pricing, support, and developer experience. No affordable, self-serve, high-quality batch NC API exists today. Standalone non-streaming NC API targeting developers and non-developers who need batch audio cleanup at scale.</td>
+                    <td class="number-col">$483M</td>
+                    <td class="number-col" style="color:#2ecc71;">$2.55M</td>
                 </tr>
                 <tr>
                     <td class="product-col">ASR</td>
@@ -811,11 +811,11 @@
                     <td class="number-col" style="color:#5dade2;">$2.85M<span style="font-size:10px; opacity:0.6;"> *</span></td>
                 </tr>
                 <tr>
-                    <td class="product-col">Noise Cancellation</td>
-                    <td class="decision-cell"><span class="decision-tag tag-bundle">Included in AT</span></td>
-                    <td class="rationale-col">Already built into the Accent Translation product. Dolby.io entrenched, open-source widespread for standalone. No separate NC product needed &mdash; AT already delivers NC as part of its pipeline.</td>
-                    <td class="number-col">$483M</td>
-                    <td class="number-col" style="color:#e67e22;">$2.55M</td>
+                    <td class="product-col">TTS</td>
+                    <td class="decision-cell"><span class="decision-tag tag-validate">Validate</span></td>
+                    <td class="rationale-col">Generic TTS unwinnable (ElevenLabs, Google, Amazon). Accent-controlled TTS is white space nobody occupies. Needs 5 voice-agent-builder interviews before commit.</td>
+                    <td class="number-col">$860M</td>
+                    <td class="number-col" style="color:#bb8fce;">$4.51M</td>
                 </tr>
             </tbody>
             <tfoot>
@@ -830,7 +830,7 @@
                 </tr>
             </tfoot>
         </table>
-        <p class="exec-footnote">* ASR revenue is partner revenue share (20% margin), not direct Sanas revenue. NC is already included in the AT product. Speech Enhancement is bundled at $0 incremental to the AT pipeline.</p>
+        <p class="exec-footnote">* ASR revenue is partner revenue share (20% margin), not direct Sanas revenue. Speech Enhancement is bundled at $0 incremental to the AT pipeline.</p>
     </div>
 </div>
 
@@ -854,10 +854,10 @@
 <div class="nav-bar">
     <div class="container">
         <a href="#accent-translation">Accent Translation</a>
+        <a href="#speech-enhancement">Speech Enhancement</a>
         <a href="#noise-cancellation">Noise Cancellation</a>
         <a href="#asr">ASR</a>
         <a href="#tts">TTS</a>
-        <a href="#speech-enhancement">Speech Enhancement</a>
         <a href="#sequencing-section">Recommended Sequencing</a>
     </div>
 </div>
@@ -880,7 +880,6 @@
         <div class="decision-box">
             <h3>Executive Decision: BUILD &mdash; Highest Priority</h3>
             <p>The accent conversion space is structurally unserved. Krisp, Tomato.ai, and AccentHarmonizer are all streaming-only. Resemble AI and ElevenLabs have APIs but neither does true accent conversion (Resemble re-synthesizes via voice cloning; ElevenLabs changes voice style, not accent). Sanas is the only player with production-proven, identity-preserving accent translation at scale (30K+ agents). The first-mover window is open but closing &mdash; ElevenLabs and foundation model providers (OpenAI, Google) could commoditize this capability within 12&ndash;18 months.</p>
-            <span class="score">Opportunity Score: 11.0 / 20 &mdash; Genuine Unmet Job</span>
         </div>
 
         <h3 class="sub-heading">Competitors</h3>
@@ -1316,820 +1315,7 @@ $40M &times; 0.6% capture at lower self-serve ACV
 </div>
 
 <!-- ============================= -->
-<!-- PRODUCT 2: NOISE CANCELLATION -->
-<!-- ============================= -->
-<div class="product-section" id="noise-cancellation">
-    <div class="container">
-        <div class="section-header">
-            <h2>Product: Noise Cancellation</h2>
-            <span class="product-tag tag-bundle">Bundle Only</span>
-            <span class="market-captured">~27% Captured &mdash; $130M of $483M</span>
-        </div>
-
-        <div class="product-definition">
-            <strong>What it does:</strong> Removes background noise, echo, and reverb from recorded audio files. Input: noisy audio file. Output: clean audio file. No transcription, no accent change.
-        </div>
-
-        <div class="decision-box">
-            <h3>Executive Decision: ALREADY INCLUDED &mdash; Part of Accent Translation</h3>
-            <p>Noise Cancellation is already built into the Accent Translation product. Dolby.io Media Enhance is the market leader but has meaningful satisfaction gaps (pricing, support, developer experience). Open-source alternatives (RNNoise, DeepFilterNet) are widespread. Standalone NC is not differentiated enough for Sanas and does not need a separate product &mdash; <strong>AT already delivers NC as part of its processing pipeline.</strong> No additional investment required.</p>
-            <span class="score">Opportunity Score: 11.25 / 20 &mdash; Genuine but served market</span>
-        </div>
-
-        <h3 class="sub-heading">Competitors</h3>
-        <table>
-            <thead>
-                <tr>
-                    <th>Competitor</th>
-                    <th>Description</th>
-                    <th>Use Cases Why People Are Using</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong>Dolby.io Media Enhance</strong></td>
-                    <td>Best-in-class API. Full enhancement chain: noise reduction, speech isolation, loudness correction, sibilance/plosive reduction. $0.0025&ndash;$0.05/min. 200 free min/month.</td>
-                    <td>Podcast/video production cleanup, broadcast post-production, content platforms needing audio normalization.</td>
-                </tr>
-                <tr>
-                    <td><strong>Audo AI</strong></td>
-                    <td>Speech enhancement API. Noise removal, dereverberation, auto volume. REST API + streaming SDK. Free 20 min/mo; Creator $12/mo (600 min).</td>
-                    <td>Podcast creators, indie developers needing speech cleanup. Low-cost entry point for small projects.</td>
-                </tr>
-                <tr>
-                    <td><strong>Wondera.ai</strong></td>
-                    <td>API-first noise reduction platform. Background denoiser, hum/buzz removal, voice isolation. Generous free tier: 1,000 min/month. File processing + webhook support.</td>
-                    <td>Developers building audio processing pipelines. Enterprise teams needing customizable noise reduction parameters.</td>
-                </tr>
-                <tr>
-                    <td><strong>NVIDIA Maxine Audio Effects SDK</strong></td>
-                    <td>On-premise SDK. GPU-required (NVIDIA RTX). BNR 2.0 optimized for ASR preprocessing. $4,500/GPU/year (AI Enterprise license).</td>
-                    <td>Enterprise ASR preprocessing pipelines. Regulated industries needing on-prem data processing. ML training data preparation.</td>
-                </tr>
-                <tr>
-                    <td><strong>Krisp</strong></td>
-                    <td>Desktop app + SDK for real-time noise cancellation. 30M+ users. $8&ndash;$15/seat/month. <strong>Streaming only &mdash; no file processing API.</strong></td>
-                    <td>Remote work meetings, contact center live calls. Strong brand for real-time use.</td>
-                </tr>
-                <tr>
-                    <td><strong>Adobe Enhance Speech</strong></td>
-                    <td>Browser-based tool. Excellent quality, widely praised by podcasters. Free 1 hr/day. <strong>No API whatsoever.</strong></td>
-                    <td>Individual podcasters and content creators doing one-off audio cleanup.</td>
-                </tr>
-                <tr>
-                    <td><strong>RNNoise / DeepFilterNet</strong></td>
-                    <td>Open source (BSD/MIT). RNNoise: lightweight C-based. DeepFilterNet3: high-quality Python/Rust. PESQ 3.5&ndash;4.0+ for DeepFilterNet. Free.</td>
-                    <td>Developers building custom pipelines. Companies like Datadog self-built noise suppression using these libraries. ML training data prep.</td>
-                </tr>
-            </tbody>
-        </table>
-
-        <h3 class="sub-heading">Non-Developer (Web-Based) Competitors</h3>
-        <p style="font-size:13px; color:var(--muted); margin-bottom:16px;">For non-technical users who need to upload noisy audio and get clean output via a web interface &mdash; no coding required.</p>
-        <table>
-            <thead>
-                <tr><th>Competitor</th><th>Web UI</th><th>Use Cases</th></tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong>Adobe Enhance Speech</strong></td>
-                    <td>Yes &mdash; excellent browser-based tool. Upload, enhance, download. Free 1 hr/day.</td>
-                    <td>Podcasters, YouTubers, educators cleaning up recordings. Most popular non-dev tool.</td>
-                </tr>
-                <tr>
-                    <td><strong>Audo Studio</strong></td>
-                    <td>Yes &mdash; web-based audio cleanup tool. Simple upload &rarr; process &rarr; download flow.</td>
-                    <td>Content creators, small businesses cleaning interview/meeting recordings.</td>
-                </tr>
-                <tr>
-                    <td><strong>Descript (Studio Sound)</strong></td>
-                    <td>Yes &mdash; built into Descript editor. One-click "Studio Sound" enhancement.</td>
-                    <td>Podcasters and video creators already using Descript for editing. Natural add-on.</td>
-                </tr>
-                <tr>
-                    <td><strong>Cleanvoice AI</strong></td>
-                    <td>Yes &mdash; upload podcast episodes; removes filler words, mouth sounds, and background noise.</td>
-                    <td>Podcasters specifically. Removes "ums", "ahs", and dead air in addition to noise.</td>
-                </tr>
-            </tbody>
-        </table>
-
-        <h3 class="sub-heading">Processing Use Cases</h3>
-        <div class="use-case-grid">
-            <div class="use-case-card">
-                <h4>ASR Preprocessing Pipeline</h4>
-                <p>Clean audio before transcription to improve downstream ASR accuracy. Clean audio &rarr; better WER.</p>
-                <div class="who">Any company running transcription</div>
-            </div>
-            <div class="use-case-card">
-                <h4>Podcast / Video Audio Cleanup</h4>
-                <p>Process recorded episodes, video narration, and interview recordings for broadcast-quality audio.</p>
-                <div class="who">Podcast SaaS (Descript, Riverside), content tools</div>
-            </div>
-        </div>
-
-        <div class="maps-side-by-side">
-        <!-- DEVELOPER PERCEPTUAL MAP -->
-        <div class="perceptual-map-container">
-            <h3 class="sub-heading">Developer: Self-Serve API Availability vs. Cost at Volume (&gt;1M min/mo)</h3>
-            <p style="font-size:12px; color:var(--muted); margin-bottom:12px;"><strong>Why these axes:</strong> X-axis measures developer friction &mdash; can you sign up, get an API key, and start processing files today without talking to sales? Y-axis measures cost viability at BPO scale (&gt;1M minutes/month). <strong>The gap:</strong> Affordable + self-serve is thin. Dolby.io is self-serve but expensive. Open source is free but not self-serve (requires DevOps). Sanas already includes NC in its AT product, so it&rsquo;s not a separate cost or product.</p>
-            <div class="perceptual-map">
-                <span class="axis-label x">Self-Serve API (signup, docs, transparent pricing) &rarr;</span>
-                <span class="axis-label-y">Affordable at Volume (&gt;1M min/mo) &rarr;</span>
-                <span class="map-edge-label" style="bottom:2px; left:4px;">Enterprise sales required</span>
-                <span class="map-edge-label" style="bottom:2px; right:4px;">Fully self-serve</span>
-                <span class="map-edge-label" style="top:4px; left:6px;">Cheapest (free / bundled)</span>
-                <span class="map-edge-label" style="bottom:4px; left:6px;">Expensive at scale</span>
-
-                <div class="map-dot oss sz-oss" style="left:10%; top:10%;" title="DeepFilterNet: free open source, requires self-hosting"></div>
-                <span class="map-label" style="left:calc(10% + 14px); top:10%; transform:translateY(-50%);">DeepFilterNet (OSS)</span>
-
-                <div class="map-dot oss sz-oss" style="left:10%; top:22%;" title="RNNoise: free open source, dated quality"></div>
-                <span class="map-label" style="left:calc(10% + 14px); top:22%; transform:translateY(-50%);">RNNoise (OSS)</span>
-
-                <div class="map-dot competitor sz-lg" style="left:74%; top:68%;" title="Dolby.io: part of Dolby ($1.27B total), self-serve but $0.05/min"></div>
-                <span class="map-label" style="left:calc(74% + 22px); top:68%; transform:translateY(-50%);">Dolby.io (Dolby $1.27B)</span>
-
-                <div class="map-dot competitor sz-xs" style="left:68%; top:35%;" title="Wondera.ai: early-stage, <$1M, self-serve, 1K free min"></div>
-                <span class="map-label" style="left:calc(68% + 12px); top:35%; transform:translateY(-50%);">Wondera.ai</span>
-
-                <div class="map-dot competitor sz-xs" style="left:62%; top:48%;" title="Audo AI: early-stage, <$2M, self-serve"></div>
-                <span class="map-label" style="left:calc(62% + 12px); top:48%; transform:translateY(-50%);">Audo AI</span>
-
-                <div class="map-dot competitor sz-lg" style="left:12%; top:42%;" title="NVIDIA Maxine: bundled in GPU ecosystem, enterprise only"></div>
-                <span class="map-label" style="left:calc(12% + 22px); top:42%; transform:translateY(-50%);">NVIDIA Maxine (bundled)</span>
-
-                <div class="map-dot streaming sz-md" style="left:20%; top:58%;" title="Krisp: ~$37.7M ARR, streaming only, enterprise API"></div>
-                <span class="map-label" style="left:calc(20% + 18px); top:58%; transform:translateY(-50%);">Krisp* $38M</span>
-            </div>
-            <div class="map-legend">
-                <div class="legend-item"><div class="legend-dot" style="background:var(--blue);"></div> API competitor</div>
-                <div class="legend-item"><div class="legend-dot" style="background:var(--muted);"></div> Open source (self-hosted)</div>
-                <div class="legend-item"><div class="legend-dot" style="background:var(--orange); border:2px dashed #d35400;"></div> No file processing API*</div>
-            </div>
-        </div>
-
-        <!-- NON-DEVELOPER PERCEPTUAL MAP -->
-        <div class="perceptual-map-container">
-            <h3 class="sub-heading">Non-Developer: Upload Simplicity vs. Volume Limits</h3>
-            <p style="font-size:12px; color:var(--muted); margin-bottom:12px;"><strong>Why these axes:</strong> X-axis measures how simple it is for a non-technical person (upload &rarr; get result). Y-axis measures whether the tool can handle real high volumes (multi-file, hours of audio, no daily caps). <strong>The gap:</strong> Easy tools (Adobe) have low volume limits. High-volume tools (NVIDIA) require engineers. Nobody offers simple + high-volume.</p>
-            <div class="perceptual-map">
-                <span class="axis-label x">Upload Simplicity (drag &amp; drop, no technical setup) &rarr;</span>
-                <span class="axis-label-y">Volume Capability &rarr;</span>
-                <span class="map-edge-label" style="bottom:2px; left:4px;">Requires technical setup</span>
-                <span class="map-edge-label" style="bottom:2px; right:4px;">Drag &amp; drop</span>
-                <span class="map-edge-label" style="top:4px; left:6px;">Unlimited volume</span>
-                <span class="map-edge-label" style="bottom:4px; left:6px;">Low limits / single file</span>
-
-                <div class="map-dot competitor sz-xl" style="left:85%; top:75%;" title="Adobe Enhance: part of Creative Cloud ($21B), simplest UI, 1 hr/day limit"></div>
-                <span class="map-label" style="left:calc(85% - 14px); top:75%; transform:translate(-100%, -50%);">Adobe (CC $21B)</span>
-
-                <div class="map-dot competitor sz-xs" style="left:72%; top:58%;" title="Audo Studio: <$2M, simple web UI, 20 min free/mo"></div>
-                <span class="map-label" style="left:calc(72% + 12px); top:58%; transform:translateY(-50%);">Audo Studio</span>
-
-                <div class="map-dot competitor sz-xs" style="left:72%; top:42%;" title="Cleanvoice: <$2M, simple for podcasters"></div>
-                <span class="map-label" style="left:calc(72% + 12px); top:42%; transform:translateY(-50%);">Cleanvoice</span>
-
-                <div class="map-dot competitor sz-lg" style="left:52%; top:38%;" title="Descript: ~$55-100M ARR, NC is a sub-feature of editor"></div>
-                <span class="map-label" style="left:calc(52% + 22px); top:38%; transform:translateY(-50%);">Descript $55&ndash;100M</span>
-
-                <div class="map-dot oss sz-oss" style="left:8%; top:10%;" title="NVIDIA / open source: unlimited but needs engineering, $0"></div>
-                <span class="map-label" style="left:calc(8% + 14px); top:10%; transform:translateY(-50%);">NVIDIA / OSS</span>
-            </div>
-            <div class="map-legend">
-                <div class="legend-item"><div class="legend-dot" style="background:var(--blue);"></div> Web-based competitor</div>
-                <div class="legend-item"><div class="legend-dot" style="background:var(--muted);"></div> Requires technical setup</div>
-            </div>
-        </div>
-        </div><!-- /maps-side-by-side -->
-        <div class="maps-shared-legend">
-            <div class="legend-item"><div class="legend-dot" style="background:var(--blue);"></div> API competitor</div>
-            <div class="legend-item"><div class="legend-dot" style="background:var(--muted);"></div> Open source / requires technical setup</div>
-            <div class="legend-item"><div class="legend-dot" style="background:var(--orange); border:2px dashed #d35400;"></div> No file processing API*</div>
-            <span style="border-left:1px solid var(--border); margin:0 4px;"></span>
-            <span style="font-weight:600; font-size:10px; color:var(--muted);">Dot size:</span>
-            <div class="size-legend-item"><div class="size-legend-dot" style="width:8px;height:8px;"></div> &lt;$1M</div>
-            <div class="size-legend-item"><div class="size-legend-dot" style="width:12px;height:12px;"></div> $1&ndash;10M</div>
-            <div class="size-legend-item"><div class="size-legend-dot" style="width:18px;height:18px;"></div> $10&ndash;50M</div>
-            <div class="size-legend-item"><div class="size-legend-dot" style="width:26px;height:26px;"></div> $50&ndash;150M</div>
-            <div class="size-legend-item"><div class="size-legend-dot" style="width:36px;height:36px;"></div> &gt;$150M</div>
-        </div>
-
-        <!-- MARKET SIZING & REVENUE -->
-        <div style="background:var(--light-bg); border-radius:12px; padding:28px; margin-bottom:32px; border:1px solid var(--border);">
-            <h3 class="sub-heading" style="margin-bottom:20px;">Market Sizing &amp; Revenue Share Potential</h3>
-            <table>
-                <thead>
-                    <tr><th>Metric</th><th>Value</th><th>Source</th></tr>
-                </thead>
-                <tbody>
-                    <tr><td>AI Noise Cancellation Software Market (2024)</td><td>~$1.7B</td><td>OpenPR Market Report 2026</td></tr>
-                    <tr><td>Projected 2031</td><td>$5.9B (19.6% CAGR)</td><td>OpenPR Market Report 2026</td></tr>
-                    <tr><td>Noise Cancelling Software Market (2026)</td><td>~$1.5B</td><td>Market Forecast Report</td></tr>
-                </tbody>
-            </table>
-            <div style="margin-top:16px; padding:16px; background:white; border-radius:8px; border-left:4px solid var(--orange);">
-                <strong style="font-size:14px;">Sanas Revenue Model: Already Included in AT</strong>
-                <p style="font-size:12px; color:var(--muted); margin-top:4px;">Noise Cancellation is already built into the Accent Translation product &mdash; it is not a separate bundle or add-on. Revenue attribution goes to the AT product line. Standalone NC would compete against Dolby.io ($0.05/min) and free open source &mdash; not viable. The included NC capability increases AT API stickiness and justifies the $0.05&ndash;$0.08/min AT pricing premium.</p>
-            </div>
-        </div>
-
-        <div class="sources">
-            <h4>Sources</h4>
-            <ul>
-                <li><a href="https://www.g2.com/products/dolby-io/reviews" target="_blank">Dolby.io G2 Reviews</a> | <a href="https://www.capterra.com/p/214213/Dolby-io/reviews/" target="_blank">Capterra Reviews</a></li>
-                <li><a href="https://www.audo.ai/api" target="_blank">Audo AI Speech Enhancement API</a></li>
-                <li><a href="https://www.wondera.ai/tools/en/ai-noise-reduction-api-platform" target="_blank">Wondera.ai Noise Reduction API</a></li>
-                <li><a href="https://docs.nvidia.com/maxine/afx/latest/index.html" target="_blank">NVIDIA Maxine Audio Effects SDK</a></li>
-                <li><a href="https://krisp.ai/developers/" target="_blank">Krisp Developer SDK</a></li>
-                <li><a href="https://github.com/Rikorose/DeepFilterNet" target="_blank">DeepFilterNet (GitHub)</a> | <a href="https://github.com/xiph/rnnoise" target="_blank">RNNoise (GitHub)</a></li>
-                <li><a href="https://www.datadoghq.com/blog/engineering/noise-suppression-library/" target="_blank">Datadog: How We Built a Noise Suppression Library</a></li>
-                <li><a href="https://www.assemblyai.com/blog/remove-background-noise-from-audio" target="_blank">AssemblyAI: Remove Background Noise Tutorial</a></li>
-            </ul>
-        </div>
-    </div>
-</div>
-
-<!-- ============ -->
-<!-- PRODUCT 3: ASR -->
-<!-- ============ -->
-<div class="product-section" id="asr">
-    <div class="container">
-        <div class="section-header">
-            <h2>Product: ASR &mdash; Automatic Speech Recognition</h2>
-            <span class="product-tag tag-partner">Partner</span>
-            <span class="market-captured">~45% Captured &mdash; $644M of $1.43B</span>
-        </div>
-
-        <div class="product-definition">
-            <strong>What it does:</strong> Converts recorded audio files into text transcripts at scale. Input: audio file. Output: text transcript. No audio modification.
-        </div>
-
-        <div class="decision-box">
-            <h3>Executive Decision: PARTNER &mdash; Do Not Build Standalone</h3>
-            <p>The ASR market is commoditized. Whisper is free and self-hostable. Deepgram and AssemblyAI are well-funded, developer-first, and racing to the bottom on pricing ($0.003&ndash;$0.006/min). Sanas has no ASR IP today. The only viable path is a <strong>partnership model</strong>: Sanas accent-aware preprocessing + Deepgram/AssemblyAI transcription, exposed as a single combined API endpoint. This is a product strategy decision, not a build decision. Sanas's unique value is improving WER on accented audio &mdash; not competing on transcription itself.</p>
-            <span class="score">Opportunity Score: 11.0 / 20 &mdash; Genuine demand, but highly competitive</span>
-        </div>
-
-        <h3 class="sub-heading">Competitors</h3>
-        <table>
-            <thead>
-                <tr>
-                    <th>Competitor</th>
-                    <th>Description</th>
-                    <th>Use Cases Why People Are Using</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong>OpenAI gpt-4o-transcribe</strong></td>
-                    <td>LLM-powered transcription. ~$0.006/min. ~4&ndash;6% WER (clean English). Strong accent coverage. Combines reasoning with transcription for ambiguous audio.</td>
-                    <td>Developers needing high-accuracy transcription at low cost. Strong on diverse accents and code-switching.</td>
-                </tr>
-                <tr>
-                    <td><strong>OpenAI Whisper (self-hosted)</strong></td>
-                    <td>Open-source ASR model. Free. ~5&ndash;8% WER. 50+ languages. Most widely deployed. Requires GPU for inference.</td>
-                    <td>Cost-sensitive transcription. On-prem data sovereignty. Foundation for custom ASR pipelines.</td>
-                </tr>
-                <tr>
-                    <td><strong>AssemblyAI (Slam-1)</strong></td>
-                    <td>Speech language model. ~$0.0062/min. ~4&ndash;5% WER. Best audio intelligence features: sentiment, topics, chapters, summarization, PII redaction &mdash; all in single API call.</td>
-                    <td>Developers needing ASR + downstream NLU in one pipeline. Post-call analytics. Compliance/QA with PII redaction.</td>
-                </tr>
-                <tr>
-                    <td><strong>Deepgram Nova-3</strong></td>
-                    <td>Lowest cloud cost at ~$0.0043/min. ~5&ndash;7% WER. Fast processing (10&ndash;50x real-time). Custom model training available. Strong developer community.</td>
-                    <td>High-volume transcription where cost and speed matter. Meeting transcription, call analytics at scale.</td>
-                </tr>
-                <tr>
-                    <td><strong>Azure Speech</strong></td>
-                    <td>Enterprise-grade STT. ~$0.01/min. Custom model training. FedRAMP, HIPAA, SOC2, GDPR certified. On-prem deployment via containers.</td>
-                    <td>Regulated industries (healthcare, finance, government). Enterprises already in Azure ecosystem. Large-scale compliance transcription.</td>
-                </tr>
-                <tr>
-                    <td><strong>Google Cloud STT (Chirp 2)</strong></td>
-                    <td>Best multilingual coverage: 100+ languages. ~$0.012&ndash;$0.016/min. Strong on non-English. Google-scale infrastructure.</td>
-                    <td>Multilingual/global transcription. Non-English audio at scale. Enterprises in GCP ecosystem.</td>
-                </tr>
-                <tr>
-                    <td><strong>AWS Transcribe</strong></td>
-                    <td>AWS-native transcription. ~$0.024/min. HIPAA-ready Medical variant. Deep S3/Lambda integration. Custom vocabulary.</td>
-                    <td>Enterprises deep in AWS ecosystem. Medical transcription (HIPAA). Voicemail/IVR processing.</td>
-                </tr>
-                <tr>
-                    <td><strong>Speechmatics (Ursa 3)</strong></td>
-                    <td>Best accent/dialect handling. Claims "35% fewer errors than closest competitor" in code-switching. On-prem available. ~$0.01&ndash;$0.02/min. Strong in European markets.</td>
-                    <td>Accented English transcription. Regulated EU/UK industries (finance, healthcare). On-prem deployment requirements.</td>
-                </tr>
-            </tbody>
-        </table>
-
-        <h3 class="sub-heading">Non-Developer (Web-Based) Competitors</h3>
-        <p style="font-size:13px; color:var(--muted); margin-bottom:16px;">For non-technical users who need to upload audio files and get text transcripts via a web interface &mdash; no coding required.</p>
-        <table>
-            <thead>
-                <tr><th>Competitor</th><th>Web UI</th><th>Use Cases</th></tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong>Otter.ai</strong></td>
-                    <td>Yes &mdash; web + mobile app. Upload audio, get transcript with speaker labels. Free 300 min/mo.</td>
-                    <td>Meeting transcription, lecture notes, interview transcripts. Most popular consumer transcription tool.</td>
-                </tr>
-                <tr>
-                    <td><strong>Rev.com</strong></td>
-                    <td>Yes &mdash; upload audio/video. AI + optional human review. Captions and subtitles.</td>
-                    <td>Media professionals, legal, corporate comms. Human review option for high-stakes transcripts.</td>
-                </tr>
-                <tr>
-                    <td><strong>Descript</strong></td>
-                    <td>Yes &mdash; upload media, auto-transcribe, edit text to edit audio. Full editing suite.</td>
-                    <td>Podcasters and video creators who edit content by editing the transcript.</td>
-                </tr>
-                <tr>
-                    <td><strong>Sonix</strong></td>
-                    <td>Yes &mdash; upload, transcribe, translate, subtitle. 40+ languages. $10/hr or unlimited plans.</td>
-                    <td>Researchers, journalists, legal professionals. Multilingual transcription with translation.</td>
-                </tr>
-                <tr>
-                    <td><strong>Happy Scribe</strong></td>
-                    <td>Yes &mdash; upload, AI or human transcription, subtitle export. 120+ languages.</td>
-                    <td>Media companies, universities, corporate teams needing subtitles and transcripts.</td>
-                </tr>
-            </tbody>
-        </table>
-
-        <h3 class="sub-heading">Processing Use Cases</h3>
-        <div class="use-case-grid">
-            <div class="use-case-card">
-                <h4>Post-Call Analytics at Scale</h4>
-                <p>Transcribe millions of recorded BPO calls monthly for analytics, coaching, and compliance keyword detection with PII redaction.</p>
-                <div class="who">Call analytics (Gong, Invoca, Observe.AI), CRMs</div>
-            </div>
-            <div class="use-case-card">
-                <h4>Compliance &amp; eDiscovery</h4>
-                <p>Make archived audio legally searchable for regulatory compliance, litigation, and audit requirements across healthcare, finance, and legal.</p>
-                <div class="who">Legal tech, financial services, healthcare</div>
-            </div>
-            <div class="use-case-card">
-                <h4>Podcast / Video Subtitles</h4>
-                <p>Process episode libraries for captions, subtitles, and searchable transcripts with speaker identification.</p>
-                <div class="who">Content platforms, YouTube tools, accessibility</div>
-            </div>
-            <div class="use-case-card">
-                <h4>Meeting Intelligence</h4>
-                <p>Transcribe Zoom/Teams recordings post-meeting with summarization, action items, and speaker attribution.</p>
-                <div class="who">Fireflies, Otter, Grain, Gong</div>
-            </div>
-            <div class="use-case-card">
-                <h4>Medical Transcription</h4>
-                <p>Convert clinical notes, dictation, and patient recordings into searchable text with HIPAA-compliant handling.</p>
-                <div class="who">Healthcare platforms, clinical tools</div>
-            </div>
-            <div class="use-case-card">
-                <h4>Customer Feedback Analysis</h4>
-                <p>Transcribe recorded customer surveys, NPS submissions, and support calls for sentiment analysis and trend detection.</p>
-                <div class="who">VoC platforms, NPS/survey tools</div>
-            </div>
-        </div>
-
-        <div class="maps-side-by-side">
-        <!-- DEVELOPER PERCEPTUAL MAP -->
-        <div class="perceptual-map-container">
-            <h3 class="sub-heading">Developer: Accented Speech Accuracy vs. Built-in Audio Intelligence</h3>
-            <p style="font-size:12px; color:var(--muted); margin-bottom:12px;"><strong>Why these axes:</strong> X-axis measures the biggest developer pain point &mdash; accuracy on non-native/accented English (where WER degrades 20&ndash;30 percentage points). Y-axis measures what modern ASR buyers demand beyond raw transcription: sentiment, summarization, PII redaction, topic detection. <strong>The gap:</strong> Nobody combines best-in-class accented speech accuracy with full audio intelligence. That's where Sanas preprocessing + ASR partner creates a unique position.</p>
-            <div class="perceptual-map">
-                <span class="axis-label x">Accuracy on Accented / Non-Native English &rarr;</span>
-                <span class="axis-label-y">Built-in Audio Intelligence (NLU, sentiment, PII) &rarr;</span>
-                <span class="map-edge-label" style="bottom:2px; left:4px;">Poor on accents</span>
-                <span class="map-edge-label" style="bottom:2px; right:4px;">Best on accents</span>
-                <span class="map-edge-label" style="top:4px; left:6px;">Full audio intelligence</span>
-                <span class="map-edge-label" style="bottom:4px; left:6px;">Transcription only</span>
-
-                <span class="map-quadrant-label" style="bottom:16px; left:16px;">Commodity / legacy</span>
-
-                <div class="map-dot competitor sz-sm" style="left:52%; top:10%;" title="AssemblyAI: ~$10.4M ARR, best NLU, moderate accent handling"></div>
-                <span class="map-label" style="left:calc(52% + 14px); top:10%; transform:translateY(-50%);">AssemblyAI $10M</span>
-
-                <div class="map-dot competitor sz-md" style="left:48%; top:28%;" title="Deepgram: ~$21.8M ARR, some NLU, moderate accents"></div>
-                <span class="map-label" style="left:calc(48% + 18px); top:28%; transform:translateY(-50%);">Deepgram $22M</span>
-
-                <div class="map-dot competitor sz-xl" style="left:60%; top:58%;" title="OpenAI Whisper API: part of OpenAI ($3.4B rev), good accent diversity, no NLU"></div>
-                <span class="map-label" style="left:calc(60% + 28px); top:58%; transform:translateY(-50%);">OpenAI</span>
-
-                <div class="map-dot competitor sz-sm" style="left:75%; top:42%;" title="Speechmatics: ~$15M ARR est., best accent claims, limited NLU"></div>
-                <span class="map-label" style="left:calc(75% + 14px); top:42%; transform:translateY(-50%);">Speechmatics $15M</span>
-
-                <div class="map-dot oss sz-oss" style="left:50%; top:75%;" title="Whisper OSS: free, 4M+ monthly downloads, decent multilingual"></div>
-                <span class="map-label" style="left:calc(50% + 14px); top:75%; transform:translateY(-50%);">Whisper (free)</span>
-
-                <div class="map-dot competitor sz-xl" style="left:18%; top:25%;" title="Google STT: ~$400-600M est., 35% WER on accented speech"></div>
-                <span class="map-label" style="left:calc(18% + 28px); top:25%; transform:translateY(-50%);">Google $400&ndash;600M</span>
-
-                <div class="map-dot competitor sz-xl" style="left:15%; top:58%;" title="AWS Transcribe: ~$300-500M est., below avg on accents"></div>
-                <span class="map-label" style="left:calc(15% + 28px); top:58%; transform:translateY(-50%);">AWS $300&ndash;500M</span>
-
-                <div class="map-dot competitor sz-xl" style="left:35%; top:20%;" title="Azure Speech: ~$300-500M est., moderate accents"></div>
-                <span class="map-label" style="left:calc(35% + 28px); top:20%; transform:translateY(-50%);">Azure $300&ndash;500M</span>
-            </div>
-            <div class="map-legend">
-                <div class="legend-item"><div class="legend-dot" style="background:var(--blue);"></div> Standalone ASR provider</div>
-                <div class="legend-item"><div class="legend-dot" style="background:var(--muted);"></div> Open source</div>
-            </div>
-        </div>
-
-        <!-- NON-DEVELOPER PERCEPTUAL MAP -->
-        <div class="perceptual-map-container">
-            <h3 class="sub-heading">Non-Developer: Accent Handling Quality vs. Ease of Use</h3>
-            <p style="font-size:12px; color:var(--muted); margin-bottom:12px;"><strong>Why these axes:</strong> X-axis measures the #1 complaint from non-dev users &mdash; "I uploaded my audio and the transcript is full of errors because the speaker has an accent." Y-axis measures whether the tool is truly self-serve (upload &rarr; transcript &rarr; download). <strong>The gap:</strong> The easiest tools (Otter, Rev) perform worst on accented speech. Nobody combines accent accuracy with simplicity.</p>
-            <div class="perceptual-map">
-                <span class="axis-label x">Accent Handling Quality (non-native English) &rarr;</span>
-                <span class="axis-label-y">Ease of Use (upload &rarr; transcript) &rarr;</span>
-                <span class="map-edge-label" style="bottom:2px; left:4px;">Poor on accents</span>
-                <span class="map-edge-label" style="bottom:2px; right:4px;">Excellent on accents</span>
-                <span class="map-edge-label" style="top:4px; left:6px;">Simplest (upload &amp; go)</span>
-                <span class="map-edge-label" style="bottom:4px; left:6px;">Complex / technical</span>
-
-                <div class="map-dot competitor sz-md" style="left:22%; top:10%;" title="Otter.ai: ~$50M ARR est., simplest UI, poor on accents"></div>
-                <span class="map-label" style="left:calc(22% + 18px); top:10%; transform:translateY(-50%);">Otter.ai $50M</span>
-
-                <div class="map-dot competitor sz-md" style="left:40%; top:14%;" title="Rev.com: ~$20-40M ARR est., upload + optional human review"></div>
-                <span class="map-label" style="left:calc(40% + 18px); top:14%; transform:translateY(-50%);">Rev $20&ndash;40M</span>
-
-                <div class="map-dot competitor sz-sm" style="left:32%; top:28%;" title="Sonix: ~$5M ARR est., web upload, 40+ languages"></div>
-                <span class="map-label" style="left:calc(32% + 14px); top:28%; transform:translateY(-50%);">Sonix $5M</span>
-
-                <div class="map-dot competitor sz-sm" style="left:36%; top:42%;" title="Happy Scribe: ~$8M ARR est., 120+ languages"></div>
-                <span class="map-label" style="left:calc(36% + 14px); top:42%; transform:translateY(-50%);">Happy Scribe $8M</span>
-
-                <div class="map-dot competitor sz-lg" style="left:42%; top:55%;" title="Descript: ~$55-100M ARR, editor-embedded, moderate accuracy"></div>
-                <span class="map-label" style="left:calc(42% + 22px); top:55%; transform:translateY(-50%);">Descript $55&ndash;100M</span>
-            </div>
-            <div class="map-legend">
-                <div class="legend-item"><div class="legend-dot" style="background:var(--blue);"></div> Web-based transcription tool</div>
-            </div>
-        </div>
-        </div><!-- /maps-side-by-side -->
-        <div class="maps-shared-legend">
-            <div class="legend-item"><div class="legend-dot" style="background:var(--blue);"></div> ASR provider / web-based tool</div>
-            <div class="legend-item"><div class="legend-dot" style="background:var(--muted);"></div> Open source</div>
-            <span style="border-left:1px solid var(--border); margin:0 4px;"></span>
-            <span style="font-weight:600; font-size:10px; color:var(--muted);">Dot size:</span>
-            <div class="size-legend-item"><div class="size-legend-dot" style="width:8px;height:8px;"></div> &lt;$1M</div>
-            <div class="size-legend-item"><div class="size-legend-dot" style="width:12px;height:12px;"></div> $1&ndash;10M</div>
-            <div class="size-legend-item"><div class="size-legend-dot" style="width:18px;height:18px;"></div> $10&ndash;50M</div>
-            <div class="size-legend-item"><div class="size-legend-dot" style="width:26px;height:26px;"></div> $50&ndash;150M</div>
-            <div class="size-legend-item"><div class="size-legend-dot" style="width:36px;height:36px;"></div> &gt;$150M</div>
-        </div>
-
-        <!-- MARKET SIZING & REVENUE -->
-        <div style="background:var(--light-bg); border-radius:12px; padding:28px; margin-bottom:32px; border:1px solid var(--border);">
-            <h3 class="sub-heading" style="margin-bottom:20px;">Market Sizing &amp; Revenue Share Potential</h3>
-            <table>
-                <thead>
-                    <tr><th>Metric</th><th>Value</th><th>Source</th></tr>
-                </thead>
-                <tbody>
-                    <tr><td>Global STT Market (2025)</td><td>~$5.5B</td><td>Multiple analyst reports</td></tr>
-                    <tr><td>Projected 2031</td><td>~$15B (18% CAGR)</td><td>Grand View Research</td></tr>
-                    <tr><td>Contact Center ASR segment</td><td>~$2.3B (2025)</td><td>MRFR Contact Center Analytics</td></tr>
-                    <tr><td>WER accuracy gap on accented speech</td><td>20&ndash;30% worse than clean benchmarks</td><td>Koenecke et al. 2020 (PNAS), medRxiv 2025</td></tr>
-                </tbody>
-            </table>
-            <div style="margin-top:16px; padding:16px; background:white; border-radius:8px; border-left:4px solid var(--blue);">
-                <strong style="font-size:14px;">Sanas Revenue Model: Partnership Revenue Share</strong>
-                <p style="font-size:12px; color:var(--muted); margin-top:4px;">Sanas does not build ASR. Revenue comes from two streams: (1) <strong>Preprocessing API</strong>: $0.05&ndash;$0.08/min for NC+AT preprocessing before partner ASR &mdash; Sanas keeps 100%. (2) <strong>Combined endpoint</strong>: Sanas preprocessing + Deepgram/AssemblyAI transcription sold as a single API at $0.054&ndash;$0.084/min &mdash; Sanas keeps ~85% ($0.05&ndash;$0.08), partner gets ~15% ($0.004/min pass-through). <strong>Potential:</strong> If 10% of Sanas's existing BPO customers route recorded calls through the combined endpoint = ~$1.5M ARR preprocessing revenue, growing with AT adoption.</p>
-            </div>
-        </div>
-
-        <details class="drill-down">
-            <summary>Why Sanas should partner, not build</summary>
-            <div class="detail-content">
-                <strong>1. Price floor is $0.</strong> Whisper is open-source and free. No pricing premium is sustainable for standalone ASR.<br>
-                <strong>2. Feature parity is table stakes.</strong> Market expects diarization, PII redaction, summarization, sentiment &mdash; building all this takes years.<br>
-                <strong>3. Sanas's unique value is audio preprocessing.</strong> Accent translation + noise cancellation before ASR measurably improves WER on accented speech. This is a complement, not a substitute.<br>
-                <strong>4. Partnership math works.</strong> Sanas preprocessing ($0.05&ndash;$0.08/min) + Deepgram transcription ($0.004/min) = combined $0.054&ndash;$0.084/min endpoint that delivers best-in-class accented speech accuracy.
-            </div>
-        </details>
-
-        <div class="sources">
-            <h4>Sources</h4>
-            <ul>
-                <li><a href="https://deepgram.com/learn/speech-to-text-api-pricing-breakdown-2025" target="_blank">Deepgram Pricing 2025</a> | <a href="https://deepgram.com/learn/best-speech-to-text-apis-2026" target="_blank">Best STT APIs 2026</a></li>
-                <li><a href="https://www.assemblyai.com/benchmarks" target="_blank">AssemblyAI Benchmarks</a> | <a href="https://www.assemblyai.com/blog/large-scale-audio-transcription" target="_blank">Transcription Guide</a></li>
-                <li><a href="https://futureagi.substack.com/p/speech-to-text-apis-in-2026-benchmarks" target="_blank">FutureAGI: STT APIs 2026 Benchmarks</a></li>
-                <li><a href="https://learn.microsoft.com/en-us/azure/ai-services/speech-service/batch-transcription" target="_blank">Azure Transcription</a></li>
-                <li><a href="https://www.speechmatics.com/company/articles-and-news/vapi-and-speechmatics-build-agents-that-understand-every-voice" target="_blank">Speechmatics: Agents That Understand Every Voice</a></li>
-                <li><a href="https://www.pnas.org/doi/10.1073/pnas.1915768117" target="_blank">Koenecke et al. 2020: Racial Disparities in ASR (PNAS)</a></li>
-                <li><a href="https://www.medrxiv.org/content/10.1101/2025.08.29.25333548v1.full" target="_blank">medRxiv 2025: Accents Still Confuse AI</a></li>
-            </ul>
-        </div>
-    </div>
-</div>
-
-<!-- ============ -->
-<!-- PRODUCT 4: TTS -->
-<!-- ============ -->
-<div class="product-section" id="tts">
-    <div class="container">
-        <div class="section-header">
-            <h2>Product: Text-to-Speech</h2>
-            <span class="product-tag tag-validate">Validate</span>
-            <span class="market-captured">~40% Captured &mdash; $344M of $860M</span>
-        </div>
-
-        <div class="product-definition">
-            <strong>What it does:</strong> Generates spoken audio from written text using user voice profiles (custom cloned voices) or out-of-box voice profiles. Input: text. Output: audio file. High-volume generation without real-time latency constraints.
-        </div>
-
-        <div class="decision-box">
-            <h3>Executive Decision: VALIDATE FIRST &mdash; Build Only with Accent-Controlled Differentiation</h3>
-            <p>Generic TTS is a losing fight against ElevenLabs (ELO #2 quality), Google (enterprise scale), and Amazon Polly (AWS lock-in). The TTS market is $3.65&ndash;$5B and growing 13% CAGR, but it's crowded with well-funded players. <strong>The white space is accent-controlled TTS</strong> &mdash; no provider offers parametric accent control as an API parameter. Sanas's accent IP can uniquely generate speech that sounds natively American, British, or Australian. An "Accent Vector" paper (HuggingFace, March 2026) confirms the research is maturing but no one has productized it. Requires 5 voice agent builder interviews before committing engineering resources.</p>
-            <span class="score">Opportunity Score: 10.25 generic / 12.0 accent-specific &mdash; White space with accent angle</span>
-        </div>
-
-        <h3 class="sub-heading">Competitors</h3>
-        <table>
-            <thead>
-                <tr>
-                    <th>Competitor</th>
-                    <th>Description</th>
-                    <th>Use Cases Why People Are Using</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong>ElevenLabs</strong></td>
-                    <td>Best emotional range (ELO #2 globally). 70+ languages. Voice cloning, dubbing. ~$120&ndash;$180/1M chars. WER 2.83%. Superior prosody accuracy (64.57%).</td>
-                    <td>Premium audiobooks, video narration, content creation. Developers needing highest quality synthesis with voice cloning.</td>
-                </tr>
-                <tr>
-                    <td><strong>Google Cloud TTS</strong></td>
-                    <td>Enterprise scale. WaveNet/Neural2/Chirp 3 HD models. 380+ voices, 50+ languages. $4&ndash;$160/1M chars. Generous free tier (4M chars/mo standard).</td>
-                    <td>IVR prompt generation, enterprise TTS, multilingual content at scale. GCP-native applications.</td>
-                </tr>
-                <tr>
-                    <td><strong>Amazon Polly</strong></td>
-                    <td>AWS-native. Standard ($4.80/1M), Neural ($19.20/1M), Long-Form ($100/1M), Generative ($30/1M). Cached audio at no extra cost. SSML support. 40+ languages.</td>
-                    <td>IVR/phone menu audio, AWS-integrated apps, e-learning. Long-Form model specifically for audiobooks.</td>
-                </tr>
-                <tr>
-                    <td><strong>MiniMax TTS</strong></td>
-                    <td>ELO #5 quality. 30+ languages with best Asian language support. 300+ voices. 200K char single request (best for high-volume). Natural nonverbal sounds. ~$40&ndash;$100/1M chars.</td>
-                    <td>Long-form content generation (audiobooks, courses). Asian-language content. High-volume processing.</td>
-                </tr>
-                <tr>
-                    <td><strong>Fish Audio</strong></td>
-                    <td>Open-source foundation. No feature gating &mdash; voice cloning, streaming, multilingual all included. ~$15/1M UTF-8 bytes (50&ndash;70% cheaper than subscription alternatives).</td>
-                    <td>Cost-sensitive developers needing full-featured TTS. Training data generation. Multilingual content at scale.</td>
-                </tr>
-                <tr>
-                    <td><strong>Cartesia Sonic 3</strong></td>
-                    <td>Fastest latency (sub-100ms TTFB). State-space model architecture. AI laughter/emotion controls. On AWS SageMaker. ~$46.70/1M chars. Only 15 languages.</td>
-                    <td>Real-time voice agents needing ultra-low latency. Emotion-rich AI agent interactions.</td>
-                </tr>
-                <tr>
-                    <td><strong>OpenAI TTS</strong></td>
-                    <td>GPT-4o-mini-tts with natural language style instructions. $12&ndash;$30/1M chars. Good price/quality ratio. Brand recognition. Only 13 base voices.</td>
-                    <td>Developers wanting simple, reliable TTS with OpenAI integration. Quick prototyping. Standard narration.</td>
-                </tr>
-                <tr>
-                    <td><strong>Resemble AI (Chatterbox)</strong></td>
-                    <td>Open-source MIT license. Matches ElevenLabs in blind tests. 23 languages. Self-hostable. Three model variants. Commercial API pricing opaque.</td>
-                    <td>Self-hosted TTS with voice cloning. Accent control via voice profiles. Cost-free at scale if self-hosted.</td>
-                </tr>
-            </tbody>
-        </table>
-
-        <h3 class="sub-heading">Non-Developer (Web-Based) Competitors</h3>
-        <p style="font-size:13px; color:var(--muted); margin-bottom:16px;">For non-technical users who need to convert text to speech via a web interface &mdash; no coding required.</p>
-        <table>
-            <thead>
-                <tr><th>Competitor</th><th>Web UI</th><th>Use Cases</th></tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong>ElevenLabs</strong></td>
-                    <td>Yes &mdash; excellent web UI. Paste text, select voice, generate and download. Voice cloning via upload. Free 10K chars/mo.</td>
-                    <td>Content creators, audiobook producers, marketers generating voiceovers. Most popular consumer TTS tool.</td>
-                </tr>
-                <tr>
-                    <td><strong>Speechify</strong></td>
-                    <td>Yes &mdash; browser extension + web app. Upload documents/URLs, listen in any voice. Mobile app.</td>
-                    <td>Students, professionals with reading disabilities, anyone converting articles/documents to audio.</td>
-                </tr>
-                <tr>
-                    <td><strong>NaturalReader</strong></td>
-                    <td>Yes &mdash; web-based. Upload PDF/text, select voice, export audio. Free tier available.</td>
-                    <td>Students, educators, accessibility use cases. Document and e-book narration.</td>
-                </tr>
-                <tr>
-                    <td><strong>Murf AI</strong></td>
-                    <td>Yes &mdash; web studio for voiceover creation. 120+ voices, 20+ languages. Video sync features.</td>
-                    <td>Marketing teams, L&D teams, YouTube creators generating voiceovers without recording.</td>
-                </tr>
-                <tr>
-                    <td><strong>PlayHT</strong></td>
-                    <td>Yes &mdash; web-based. Voice cloning, SSML editor, API. 900+ voices, 142 languages.</td>
-                    <td>Podcast narration, IVR prompts, content creators needing voice variety.</td>
-                </tr>
-            </tbody>
-        </table>
-
-        <h3 class="sub-heading">Processing Use Cases</h3>
-        <div class="use-case-grid">
-            <div class="use-case-card">
-                <h4>Audiobook Generation</h4>
-                <p>Full-length book audio production (50K&ndash;500K chars/book). Requires voice consistency, emotional range, and chapter pacing across hours of content.</p>
-                <div class="who">Publishing platforms, ACX, self-publishing tools</div>
-            </div>
-            <div class="use-case-card">
-                <h4>IVR / Phone Menu Audio</h4>
-                <p>Pre-recorded prompts generated for contact center phone systems. Needs brand voice consistency and multilingual variants.</p>
-                <div class="who">Telecom, CCaaS platforms, BPO operations</div>
-            </div>
-            <div class="use-case-card">
-                <h4>E-Learning Course Voiceovers</h4>
-                <p>Generate spoken course content in advance with clear articulation, controlled pacing, and accent variety for language learning.</p>
-                <div class="who">EdTech platforms (Coursera, Udemy tooling)</div>
-            </div>
-            <div class="use-case-card">
-                <h4>Podcast / News Auto-Narration</h4>
-                <p>Convert written articles, newsletters, and blog posts into podcast-format audio content automatically.</p>
-                <div class="who">Publishers, newsletter platforms, Speechify</div>
-            </div>
-            <div class="use-case-card">
-                <h4>Video Voiceovers &amp; Dubbing</h4>
-                <p>Generate narration and dubbing audio for video content with timing synchronization and accent-appropriate delivery.</p>
-                <div class="who">Video production tools, Descript-type platforms</div>
-            </div>
-        </div>
-
-        <div class="maps-side-by-side">
-        <!-- DEVELOPER PERCEPTUAL MAP -->
-        <div class="perceptual-map-container">
-            <h3 class="sub-heading">Developer: Accent Control as API Parameter vs. Throughput</h3>
-            <p style="font-size:12px; color:var(--muted); margin-bottom:12px;"><strong>Why these axes:</strong> X-axis measures the one thing no TTS API offers today &mdash; can a developer pass <code>accent: "us-english"</code> as a parameter and get accent-controlled output? (Answer: nobody does this.) Y-axis measures throughput suitability &mdash; max chars per request, long-form consistency, and volume pricing. <strong>The gap:</strong> The entire right side of the chart is empty. No provider offers parametric accent control. That's Sanas's unique IP angle.</p>
-            <div class="perceptual-map">
-                <span class="axis-label x">Accent Control as API Parameter &rarr;</span>
-                <span class="axis-label-y">Throughput (chars/request, long-form support) &rarr;</span>
-                <span class="map-edge-label" style="bottom:2px; left:4px;">No accent control (baked into voice)</span>
-                <span class="map-edge-label" style="bottom:2px; right:4px;">Parametric accent selection</span>
-                <span class="map-edge-label" style="top:4px; left:6px;">High throughput</span>
-                <span class="map-edge-label" style="bottom:4px; left:6px;">Low limits / real-time focused</span>
-
-                <span class="map-quadrant-label" style="top:16px; right:16px; color:var(--highlight); font-weight:700; opacity:0.7; font-size:13px;">TOTAL WHITE SPACE</span>
-                <span class="map-quadrant-label" style="top:16px; left:16px;">Crowded TTS</span>
-
-                <div class="map-dot competitor sz-sm" style="left:10%; top:8%;" title="MiniMax: ~$5M TTS est., 200K chars/request, no accent control"></div>
-                <span class="map-label" style="left:calc(10% + 14px); top:8%; transform:translateY(-50%);">MiniMax</span>
-
-                <div class="map-dot competitor sz-xl" style="left:10%; top:22%;" title="Google TTS: ~$100-250M est., enterprise, no accent parameter"></div>
-                <span class="map-label" style="left:calc(10% + 28px); top:22%; transform:translateY(-50%);">Google $100&ndash;250M</span>
-
-                <div class="map-dot competitor sz-xl" style="left:10%; top:34%;" title="Amazon Polly: ~$150-300M est., Long-Form model, no accent control"></div>
-                <span class="map-label" style="left:calc(10% + 28px); top:34%; transform:translateY(-50%);">Polly $150&ndash;300M</span>
-
-                <div class="map-dot competitor sz-xl" style="left:14%; top:46%;" title="ElevenLabs: ~$330M ARR total, accent per-voice not parametric"></div>
-                <span class="map-label" style="left:calc(14% + 28px); top:46%; transform:translateY(-50%);">ElevenLabs $330M</span>
-
-                <div class="map-dot competitor sz-xl" style="left:12%; top:58%;" title="OpenAI TTS: part of OpenAI ($3.4B), 13 voices, US-accented"></div>
-                <span class="map-label" style="left:calc(12% + 28px); top:58%; transform:translateY(-50%);">OpenAI</span>
-
-                <div class="map-dot competitor sz-sm" style="left:10%; top:70%;" title="Fish Audio: ~$3M est., open API, no accent control"></div>
-                <span class="map-label" style="left:calc(10% + 14px); top:70%; transform:translateY(-50%);">Fish Audio</span>
-
-                <div class="map-dot competitor sz-sm" style="left:10%; top:82%;" title="Cartesia: ~$5M est., real-time focused, 15 languages only"></div>
-                <span class="map-label" style="left:calc(10% + 14px); top:82%; transform:translateY(-50%);">Cartesia</span>
-
-                <div class="map-dot oss sz-oss" style="left:22%; top:40%;" title="Chatterbox: free OSS, some accent via voice profiles, not parametric"></div>
-                <span class="map-label" style="left:calc(22% + 14px); top:40%; transform:translateY(-50%);">Chatterbox (OSS)</span>
-
-                <div class="map-dot competitor sz-xs" style="left:30%; top:65%;" title="Respeecher: ~$0.5M ARR, accent slider for S2S, not TTS"></div>
-                <span class="map-label" style="left:calc(30% + 12px); top:65%; transform:translateY(-50%);">Respeecher $0.5M</span>
-            </div>
-            <div class="map-legend">
-                <div class="legend-item"><div class="legend-dot" style="background:var(--blue);"></div> TTS competitor (no accent control)</div>
-                <div class="legend-item"><div class="legend-dot" style="background:var(--muted);"></div> Open source</div>
-            </div>
-        </div>
-
-        <!-- NON-DEVELOPER PERCEPTUAL MAP -->
-        <div class="perceptual-map-container">
-            <h3 class="sub-heading">Non-Developer: Accent / Regional Voice Variety vs. Ease of Use</h3>
-            <p style="font-size:12px; color:var(--muted); margin-bottom:12px;"><strong>Why these axes:</strong> X-axis measures what non-technical users need &mdash; can I get my text read in a specific regional accent (not just "English", but "Indian English" or "British English")? Y-axis measures how easily they can do this (paste text, click generate). <strong>The gap:</strong> Easy tools offer generic "English" voices. Tools with accent variety require technical setup. Nobody offers easy + accent-specific.</p>
-            <div class="perceptual-map">
-                <span class="axis-label x">Accent / Regional Voice Variety &rarr;</span>
-                <span class="axis-label-y">Ease of Use (paste text &rarr; download audio) &rarr;</span>
-                <span class="map-edge-label" style="bottom:2px; left:4px;">Generic &ldquo;English&rdquo; only</span>
-                <span class="map-edge-label" style="bottom:2px; right:4px;">Pick specific accent</span>
-                <span class="map-edge-label" style="top:4px; left:6px;">Simplest (paste &amp; go)</span>
-                <span class="map-edge-label" style="bottom:4px; left:6px;">Complex / technical</span>
-
-                <div class="map-dot competitor sz-xl" style="left:38%; top:10%;" title="ElevenLabs: ~$330M ARR, great UI, dialect voices, accent is implicit"></div>
-                <span class="map-label" style="left:calc(38% + 28px); top:10%; transform:translateY(-50%);">ElevenLabs $330M</span>
-
-                <div class="map-dot competitor sz-lg" style="left:15%; top:10%;" title="Speechify: ~$80M ARR est., simplest, limited accent options"></div>
-                <span class="map-label" style="left:calc(15% + 22px); top:10%; transform:translateY(-50%);">Speechify $80M</span>
-
-                <div class="map-dot competitor sz-sm" style="left:25%; top:24%;" title="NaturalReader: ~$5M est., easy, some accent voices"></div>
-                <span class="map-label" style="left:calc(25% + 14px); top:24%; transform:translateY(-50%);">NaturalReader</span>
-
-                <div class="map-dot competitor sz-xs" style="left:42%; top:28%;" title="Murf AI: ~$0.8M ARR, web studio, 120+ voices"></div>
-                <span class="map-label" style="left:calc(42% + 12px); top:28%; transform:translateY(-50%);">Murf $0.8M</span>
-
-                <div class="map-dot competitor sz-sm" style="left:50%; top:42%;" title="PlayHT: ~$5M (acquired by Meta Jul 2025), 900+ voices"></div>
-                <span class="map-label" style="left:calc(50% + 14px); top:42%; transform:translateY(-50%);">PlayHT $5M</span>
-            </div>
-            <div class="map-legend">
-                <div class="legend-item"><div class="legend-dot" style="background:var(--blue);"></div> Web-based TTS tool</div>
-            </div>
-        </div>
-        </div><!-- /maps-side-by-side -->
-        <div class="maps-shared-legend">
-            <div class="legend-item"><div class="legend-dot" style="background:var(--blue);"></div> TTS competitor / web-based tool</div>
-            <div class="legend-item"><div class="legend-dot" style="background:var(--muted);"></div> Open source</div>
-            <span style="border-left:1px solid var(--border); margin:0 4px;"></span>
-            <span style="font-weight:600; font-size:10px; color:var(--muted);">Dot size:</span>
-            <div class="size-legend-item"><div class="size-legend-dot" style="width:8px;height:8px;"></div> &lt;$1M</div>
-            <div class="size-legend-item"><div class="size-legend-dot" style="width:12px;height:12px;"></div> $1&ndash;10M</div>
-            <div class="size-legend-item"><div class="size-legend-dot" style="width:18px;height:18px;"></div> $10&ndash;50M</div>
-            <div class="size-legend-item"><div class="size-legend-dot" style="width:26px;height:26px;"></div> $50&ndash;150M</div>
-            <div class="size-legend-item"><div class="size-legend-dot" style="width:36px;height:36px;"></div> &gt;$150M</div>
-        </div>
-
-        <!-- MARKET SIZING & REVENUE -->
-        <div style="background:var(--light-bg); border-radius:12px; padding:28px; margin-bottom:32px; border:1px solid var(--border);">
-            <h3 class="sub-heading" style="margin-bottom:20px;">Market Sizing &amp; Revenue Share Potential</h3>
-            <table>
-                <thead>
-                    <tr><th>Metric</th><th>Value</th><th>Source</th></tr>
-                </thead>
-                <tbody>
-                    <tr><td>Global TTS Market (2025)</td><td>$3.65&ndash;$5.0B</td><td>Mordor Intelligence, Markets &amp; Markets, GMI</td></tr>
-                    <tr><td>Projected 2029</td><td>$7.6B (13.7% CAGR)</td><td>Markets &amp; Markets</td></tr>
-                    <tr><td>Projected 2033</td><td>$12.4B</td><td>Straits Research</td></tr>
-                    <tr><td>Neural/AI voices share of TTS revenue (2025)</td><td>67%</td><td>Industry analysis</td></tr>
-                    <tr><td>Enterprise apps with AI agents by 2026</td><td>40%</td><td>Gartner projection</td></tr>
-                </tbody>
-            </table>
-            <div style="margin-top:16px; display:grid; grid-template-columns:1fr 1fr; gap:16px;">
-                <div style="padding:16px; background:white; border-radius:8px; border-left:4px solid #9b59b6;">
-                    <strong style="font-size:13px;">Generic TTS Revenue Potential</strong>
-                    <p style="font-size:12px; color:var(--muted); margin-top:4px;">Unwinnable. ElevenLabs, Google, Amazon, OpenAI have massive scale and brand. Gross margin would be compressed below viability. <strong>Do not pursue.</strong></p>
-                </div>
-                <div style="padding:16px; background:white; border-radius:8px; border-left:4px solid var(--green);">
-                    <strong style="font-size:13px;">Accent-Controlled TTS Revenue Potential</strong>
-                    <p style="font-size:12px; color:var(--muted); margin-top:4px;">Addressable niche: BPO IVR prompts + e-learning + voice agents needing accent-specific output. Estimated $20&ndash;50M addressable market. Sanas pricing sweet spot: $20&ndash;$40/1M chars base, $40&ndash;$60/1M with accent control. <strong>Requires 5 voice agent builder interviews to validate before committing.</strong></p>
-                </div>
-            </div>
-        </div>
-
-        <details class="drill-down">
-            <summary>Sanas's accent-controlled TTS differentiation</summary>
-            <div class="detail-content">
-                <table>
-                    <thead><tr><th>Sanas-Specific Angle</th><th>Description</th><th>Why Differentiated</th></tr></thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Accent-targeted TTS</strong></td>
-                            <td>Generate speech that sounds natively US, UK, or Australian &mdash; not just "neutral"</td>
-                            <td>No TTS provider offers accent as a controllable API parameter. Accent is baked into voice selection.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Accent + identity-preserved TTS</strong></td>
-                            <td>Voice clone that preserves WHO someone sounds like while controlling WHAT accent they speak in</td>
-                            <td>Sanas's emotion/identity preservation IP could enable this; unique combination nobody offers.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>BPO-optimized TTS</strong></td>
-                            <td>TTS voices trained for contact center diction &mdash; clear, professional, accent-controlled</td>
-                            <td>Sanas's domain expertise + natural GTM to existing BPO customers (IVR, training, e-learning).</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </details>
-
-        <div class="sources">
-            <h4>Sources</h4>
-            <ul>
-                <li><a href="https://elevenlabs.io/pricing/api" target="_blank">ElevenLabs API Pricing</a> | <a href="https://artificialanalysis.ai/text-to-speech/leaderboard" target="_blank">Artificial Analysis TTS Leaderboard</a></li>
-                <li><a href="https://cloud.google.com/text-to-speech/pricing" target="_blank">Google Cloud TTS Pricing</a> | <a href="https://aws.amazon.com/polly/pricing/" target="_blank">Amazon Polly Pricing</a></li>
-                <li><a href="https://www.marketsandmarkets.com/Market-Reports/text-to-speech-market-2434298.html" target="_blank">Markets and Markets: TTS Market Report</a></li>
-                <li><a href="https://fish.audio/blog/top-tts-apis-developer-comparison-2026/" target="_blank">Fish Audio: TTS API Comparison 2026</a></li>
-                <li><a href="https://www.speechmatics.com/company/articles-and-news/best-tts-apis-in-2025-top-12-text-to-speech-services-for-developers" target="_blank">Speechmatics: Best TTS APIs 2026</a></li>
-                <li><a href="https://github.com/resemble-ai/chatterbox" target="_blank">Resemble AI Chatterbox (GitHub)</a></li>
-                <li><a href="https://huggingface.co/papers/2603.07534" target="_blank">Accent Vector Paper (HuggingFace, March 2026)</a></li>
-                <li><a href="https://community.openai.com/t/tts-voices-have-a-clear-us-accent/705394" target="_blank">OpenAI Community: TTS Accent Complaints</a></li>
-                <li><a href="https://www.mordorintelligence.com/industry-reports/text-to-speech-market" target="_blank">Mordor Intelligence: TTS Market Size</a></li>
-            </ul>
-        </div>
-    </div>
-</div>
-
-<!-- ============================= -->
-<!-- PRODUCT 5: SPEECH ENHANCEMENT -->
+<!-- PRODUCT 2: SPEECH ENHANCEMENT -->
 <!-- ============================= -->
 <div class="product-section" id="speech-enhancement">
     <div class="container">
@@ -2146,7 +1332,6 @@ $40M &times; 0.6% capture at lower self-serve ACV
         <div class="decision-box">
             <h3>Executive Decision: BUILD LIGHT &mdash; Bundle into AT Pipeline</h3>
             <p>The standalone speech enhancement market is crowded: Adobe Enhance Speech is free and excellent, Dolby.io owns the API space, and Auphonic dominates podcast post-production. Building a standalone product is not viable. However, speech enhancement is a <strong>critical preprocessing step</strong> that directly improves Accent Translation output quality. Since AT already includes Noise Cancellation, bundling reverb removal, mic upscaling, and energy normalization into the AT pipeline (Enhancement &rarr; AT) creates a differentiated end-to-end audio processing pipeline that no competitor offers. The AI-powered audio enhancer market is $1.26B (2025), growing at 33.4% CAGR &mdash; the opportunity is real, but only as part of a combined offering.</p>
-            <span class="score">Market: $1.26B (2025) growing 33.4% CAGR | Standalone: Do Not Build | Bundled: High Value</span>
         </div>
 
         <h3 class="sub-heading">Competitors</h3>
@@ -2585,6 +1770,994 @@ $10M &times; 0.6% capture
 </div>
 
 <!-- ============================= -->
+<!-- PRODUCT 3: NOISE CANCELLATION -->
+<!-- ============================= -->
+<div class="product-section" id="noise-cancellation">
+    <div class="container">
+        <div class="section-header">
+            <h2>Product: Noise Cancellation</h2>
+            <span class="product-tag tag-build">Build</span>
+            <span class="market-captured">~27% Captured &mdash; $130M of $483M</span>
+        </div>
+
+        <div class="product-definition">
+            <strong>What it does:</strong> Removes background noise, echo, and reverb from recorded audio files. Input: noisy audio file. Output: clean audio file. No transcription, no accent change.
+        </div>
+
+        <div class="decision-box">
+            <h3>Executive Decision: BUILD &mdash; Standalone Non-Streaming NC API</h3>
+            <p>The batch noise cancellation market has meaningful gaps. Dolby.io dominates but has significant satisfaction gaps on pricing, support, and developer experience (G2 reviews). Open-source alternatives (RNNoise, DeepFilterNet) require self-hosting expertise. There is no affordable, self-serve, high-quality batch NC API today. Sanas can build a standalone non-streaming NC API targeting developers and non-developers who need batch audio cleanup at scale.</p>
+        </div>
+
+        <h3 class="sub-heading">Competitors</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Competitor</th>
+                    <th>Description</th>
+                    <th>Use Cases Why People Are Using</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Dolby.io Media Enhance</strong></td>
+                    <td>Best-in-class API. Full enhancement chain: noise reduction, speech isolation, loudness correction, sibilance/plosive reduction. $0.0025&ndash;$0.05/min. 200 free min/month.</td>
+                    <td>Podcast/video production cleanup, broadcast post-production, content platforms needing audio normalization.</td>
+                </tr>
+                <tr>
+                    <td><strong>Audo AI</strong></td>
+                    <td>Speech enhancement API. Noise removal, dereverberation, auto volume. REST API + streaming SDK. Free 20 min/mo; Creator $12/mo (600 min).</td>
+                    <td>Podcast creators, indie developers needing speech cleanup. Low-cost entry point for small projects.</td>
+                </tr>
+                <tr>
+                    <td><strong>Wondera.ai</strong></td>
+                    <td>API-first noise reduction platform. Background denoiser, hum/buzz removal, voice isolation. Generous free tier: 1,000 min/month. File processing + webhook support.</td>
+                    <td>Developers building audio processing pipelines. Enterprise teams needing customizable noise reduction parameters.</td>
+                </tr>
+                <tr>
+                    <td><strong>NVIDIA Maxine Audio Effects SDK</strong></td>
+                    <td>On-premise SDK. GPU-required (NVIDIA RTX). BNR 2.0 optimized for ASR preprocessing. $4,500/GPU/year (AI Enterprise license).</td>
+                    <td>Enterprise ASR preprocessing pipelines. Regulated industries needing on-prem data processing. ML training data preparation.</td>
+                </tr>
+                <tr>
+                    <td><strong>Krisp</strong></td>
+                    <td>Desktop app + SDK for real-time noise cancellation. 30M+ users. $8&ndash;$15/seat/month. <strong>Streaming only &mdash; no file processing API.</strong></td>
+                    <td>Remote work meetings, contact center live calls. Strong brand for real-time use.</td>
+                </tr>
+                <tr>
+                    <td><strong>Adobe Enhance Speech</strong></td>
+                    <td>Browser-based tool. Excellent quality, widely praised by podcasters. Free 1 hr/day. <strong>No API whatsoever.</strong></td>
+                    <td>Individual podcasters and content creators doing one-off audio cleanup.</td>
+                </tr>
+                <tr>
+                    <td><strong>RNNoise / DeepFilterNet</strong></td>
+                    <td>Open source (BSD/MIT). RNNoise: lightweight C-based. DeepFilterNet3: high-quality Python/Rust. PESQ 3.5&ndash;4.0+ for DeepFilterNet. Free.</td>
+                    <td>Developers building custom pipelines. Companies like Datadog self-built noise suppression using these libraries. ML training data prep.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3 class="sub-heading">Non-Developer (Web-Based) Competitors</h3>
+        <p style="font-size:13px; color:var(--muted); margin-bottom:16px;">For non-technical users who need to upload noisy audio and get clean output via a web interface &mdash; no coding required.</p>
+        <table>
+            <thead>
+                <tr><th>Competitor</th><th>Web UI</th><th>Use Cases</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Adobe Enhance Speech</strong></td>
+                    <td>Yes &mdash; excellent browser-based tool. Upload, enhance, download. Free 1 hr/day.</td>
+                    <td>Podcasters, YouTubers, educators cleaning up recordings. Most popular non-dev tool.</td>
+                </tr>
+                <tr>
+                    <td><strong>Audo Studio</strong></td>
+                    <td>Yes &mdash; web-based audio cleanup tool. Simple upload &rarr; process &rarr; download flow.</td>
+                    <td>Content creators, small businesses cleaning interview/meeting recordings.</td>
+                </tr>
+                <tr>
+                    <td><strong>Descript (Studio Sound)</strong></td>
+                    <td>Yes &mdash; built into Descript editor. One-click "Studio Sound" enhancement.</td>
+                    <td>Podcasters and video creators already using Descript for editing. Natural add-on.</td>
+                </tr>
+                <tr>
+                    <td><strong>Cleanvoice AI</strong></td>
+                    <td>Yes &mdash; upload podcast episodes; removes filler words, mouth sounds, and background noise.</td>
+                    <td>Podcasters specifically. Removes "ums", "ahs", and dead air in addition to noise.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3 class="sub-heading">Processing Use Cases</h3>
+        <div class="use-case-grid">
+            <div class="use-case-card">
+                <h4>ASR Preprocessing Pipeline</h4>
+                <p>Clean audio before transcription to improve downstream ASR accuracy. Clean audio &rarr; better WER.</p>
+                <div class="who">Any company running transcription</div>
+            </div>
+            <div class="use-case-card">
+                <h4>Podcast / Video Audio Cleanup</h4>
+                <p>Process recorded episodes, video narration, and interview recordings for broadcast-quality audio.</p>
+                <div class="who">Podcast SaaS (Descript, Riverside), content tools</div>
+            </div>
+        </div>
+
+        <div class="maps-side-by-side">
+        <!-- DEVELOPER PERCEPTUAL MAP -->
+        <div class="perceptual-map-container">
+            <h3 class="sub-heading">Developer: Self-Serve API Availability vs. Cost at Volume (&gt;1M min/mo)</h3>
+            <p style="font-size:12px; color:var(--muted); margin-bottom:12px;"><strong>Why these axes:</strong> X-axis measures developer friction &mdash; can you sign up, get an API key, and start processing files today without talking to sales? Y-axis measures cost viability at BPO scale (&gt;1M minutes/month). <strong>The gap:</strong> Affordable + self-serve is thin. Dolby.io is self-serve but expensive at scale. Open source is free but not self-serve (requires DevOps). Sanas can fill the gap with an affordable, high-quality batch NC API that requires zero infrastructure setup.</p>
+            <div class="perceptual-map">
+                <span class="axis-label x">Self-Serve API (signup, docs, transparent pricing) &rarr;</span>
+                <span class="axis-label-y">Affordable at Volume (&gt;1M min/mo) &rarr;</span>
+                <span class="map-edge-label" style="bottom:2px; left:4px;">Enterprise sales required</span>
+                <span class="map-edge-label" style="bottom:2px; right:4px;">Fully self-serve</span>
+                <span class="map-edge-label" style="top:4px; left:6px;">Cheapest (free / bundled)</span>
+                <span class="map-edge-label" style="bottom:4px; left:6px;">Expensive at scale</span>
+
+                <div class="map-dot oss sz-oss" style="left:10%; top:10%;" title="DeepFilterNet: free open source, requires self-hosting"></div>
+                <span class="map-label" style="left:calc(10% + 14px); top:10%; transform:translateY(-50%);">DeepFilterNet (OSS)</span>
+
+                <div class="map-dot oss sz-oss" style="left:10%; top:22%;" title="RNNoise: free open source, dated quality"></div>
+                <span class="map-label" style="left:calc(10% + 14px); top:22%; transform:translateY(-50%);">RNNoise (OSS)</span>
+
+                <div class="map-dot competitor sz-lg" style="left:74%; top:68%;" title="Dolby.io: part of Dolby ($1.27B total), self-serve but $0.05/min"></div>
+                <span class="map-label" style="left:calc(74% + 22px); top:68%; transform:translateY(-50%);">Dolby.io (Dolby $1.27B)</span>
+
+                <div class="map-dot competitor sz-xs" style="left:68%; top:35%;" title="Wondera.ai: early-stage, <$1M, self-serve, 1K free min"></div>
+                <span class="map-label" style="left:calc(68% + 12px); top:35%; transform:translateY(-50%);">Wondera.ai</span>
+
+                <div class="map-dot competitor sz-xs" style="left:62%; top:48%;" title="Audo AI: early-stage, <$2M, self-serve"></div>
+                <span class="map-label" style="left:calc(62% + 12px); top:48%; transform:translateY(-50%);">Audo AI</span>
+
+                <div class="map-dot competitor sz-lg" style="left:12%; top:42%;" title="NVIDIA Maxine: bundled in GPU ecosystem, enterprise only"></div>
+                <span class="map-label" style="left:calc(12% + 22px); top:42%; transform:translateY(-50%);">NVIDIA Maxine (bundled)</span>
+
+                <div class="map-dot streaming sz-md" style="left:20%; top:58%;" title="Krisp: ~$37.7M ARR, streaming only, enterprise API"></div>
+                <span class="map-label" style="left:calc(20% + 18px); top:58%; transform:translateY(-50%);">Krisp* $38M</span>
+            </div>
+            <div class="map-legend">
+                <div class="legend-item"><div class="legend-dot" style="background:var(--blue);"></div> API competitor</div>
+                <div class="legend-item"><div class="legend-dot" style="background:var(--muted);"></div> Open source (self-hosted)</div>
+                <div class="legend-item"><div class="legend-dot" style="background:var(--orange); border:2px dashed #d35400;"></div> No file processing API*</div>
+            </div>
+        </div>
+
+        <!-- NON-DEVELOPER PERCEPTUAL MAP -->
+        <div class="perceptual-map-container">
+            <h3 class="sub-heading">Non-Developer: Upload Simplicity vs. Volume Limits</h3>
+            <p style="font-size:12px; color:var(--muted); margin-bottom:12px;"><strong>Why these axes:</strong> X-axis measures how simple it is for a non-technical person (upload &rarr; get result). Y-axis measures whether the tool can handle real high volumes (multi-file, hours of audio, no daily caps). <strong>The gap:</strong> Easy tools (Adobe) have low volume limits. High-volume tools (NVIDIA) require engineers. Nobody offers simple + high-volume.</p>
+            <div class="perceptual-map">
+                <span class="axis-label x">Upload Simplicity (drag &amp; drop, no technical setup) &rarr;</span>
+                <span class="axis-label-y">Volume Capability &rarr;</span>
+                <span class="map-edge-label" style="bottom:2px; left:4px;">Requires technical setup</span>
+                <span class="map-edge-label" style="bottom:2px; right:4px;">Drag &amp; drop</span>
+                <span class="map-edge-label" style="top:4px; left:6px;">Unlimited volume</span>
+                <span class="map-edge-label" style="bottom:4px; left:6px;">Low limits / single file</span>
+
+                <div class="map-dot competitor sz-xl" style="left:85%; top:75%;" title="Adobe Enhance: part of Creative Cloud ($21B), simplest UI, 1 hr/day limit"></div>
+                <span class="map-label" style="left:calc(85% - 14px); top:75%; transform:translate(-100%, -50%);">Adobe (CC $21B)</span>
+
+                <div class="map-dot competitor sz-xs" style="left:72%; top:58%;" title="Audo Studio: <$2M, simple web UI, 20 min free/mo"></div>
+                <span class="map-label" style="left:calc(72% + 12px); top:58%; transform:translateY(-50%);">Audo Studio</span>
+
+                <div class="map-dot competitor sz-xs" style="left:72%; top:42%;" title="Cleanvoice: <$2M, simple for podcasters"></div>
+                <span class="map-label" style="left:calc(72% + 12px); top:42%; transform:translateY(-50%);">Cleanvoice</span>
+
+                <div class="map-dot competitor sz-lg" style="left:52%; top:38%;" title="Descript: ~$55-100M ARR, NC is a sub-feature of editor"></div>
+                <span class="map-label" style="left:calc(52% + 22px); top:38%; transform:translateY(-50%);">Descript $55&ndash;100M</span>
+
+                <div class="map-dot oss sz-oss" style="left:8%; top:10%;" title="NVIDIA / open source: unlimited but needs engineering, $0"></div>
+                <span class="map-label" style="left:calc(8% + 14px); top:10%; transform:translateY(-50%);">NVIDIA / OSS</span>
+            </div>
+            <div class="map-legend">
+                <div class="legend-item"><div class="legend-dot" style="background:var(--blue);"></div> Web-based competitor</div>
+                <div class="legend-item"><div class="legend-dot" style="background:var(--muted);"></div> Requires technical setup</div>
+            </div>
+        </div>
+        </div><!-- /maps-side-by-side -->
+        <div class="maps-shared-legend">
+            <div class="legend-item"><div class="legend-dot" style="background:var(--blue);"></div> API competitor</div>
+            <div class="legend-item"><div class="legend-dot" style="background:var(--muted);"></div> Open source / requires technical setup</div>
+            <div class="legend-item"><div class="legend-dot" style="background:var(--orange); border:2px dashed #d35400;"></div> No file processing API*</div>
+            <span style="border-left:1px solid var(--border); margin:0 4px;"></span>
+            <span style="font-weight:600; font-size:10px; color:var(--muted);">Dot size:</span>
+            <div class="size-legend-item"><div class="size-legend-dot" style="width:8px;height:8px;"></div> &lt;$1M</div>
+            <div class="size-legend-item"><div class="size-legend-dot" style="width:12px;height:12px;"></div> $1&ndash;10M</div>
+            <div class="size-legend-item"><div class="size-legend-dot" style="width:18px;height:18px;"></div> $10&ndash;50M</div>
+            <div class="size-legend-item"><div class="size-legend-dot" style="width:26px;height:26px;"></div> $50&ndash;150M</div>
+            <div class="size-legend-item"><div class="size-legend-dot" style="width:36px;height:36px;"></div> &gt;$150M</div>
+        </div>
+
+        <!-- MARKET SIZING & REVENUE -->
+        <div style="background:var(--light-bg); border-radius:12px; padding:28px; margin-bottom:32px; border:1px solid var(--border);">
+            <h3 class="sub-heading" style="margin-bottom:20px;">Market Sizing &amp; Revenue Share Potential</h3>
+            <table>
+                <thead>
+                    <tr><th>Metric</th><th>Value</th><th>Source</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>AI Noise Cancellation Software Market (2024)</td><td>~$1.7B</td><td>OpenPR Market Report 2026</td></tr>
+                    <tr><td>Projected 2031</td><td>$5.9B (19.6% CAGR)</td><td>OpenPR Market Report 2026</td></tr>
+                    <tr><td>Noise Cancelling Software Market (2026)</td><td>~$1.5B</td><td>Market Forecast Report</td></tr>
+                </tbody>
+            </table>
+
+            <!-- Developer Persona -->
+            <div style="margin-top:24px; margin-bottom:24px;">
+                <div style="display:flex; align-items:center; gap:8px; margin-bottom:12px;">
+                    <span style="background:var(--accent); color:white; padding:3px 10px; border-radius:20px; font-size:11px; font-weight:700;">DEVELOPER</span>
+                    <span style="font-size:13px; color:var(--muted);">API / SDK Integration</span>
+                </div>
+                <table>
+                    <thead>
+                        <tr><th>Use Case</th><th>Addressable Market</th><th>Sanas Revenue (Yr 3)</th><th>Calculation</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Call Recording Cleanup</strong><div class="calc-data" hidden><span class='cm-comment'>// Reusing AT base: accented call audio through analytics</span>
+31B minutes/year accent-eligible audio (from AT calc above)
+&times; 65% also has noise issues requiring NC <span class='cm-estimate'>[ESTIMATE: BPO call centers = noisy environments]</span>
+= 20.2B minutes needing NC
+
+$1.7B NC market <span class='cm-source'>[SOURCE: OpenPR]</span>
+&times; 25% batch/offline processing share <span class='cm-estimate'>[ESTIMATE: vs real-time streaming NC]</span>
+&times; 33% contact center / call recording segment <span class='cm-estimate'>[ESTIMATE: CC is largest NC use case]</span>
+= <span class='cm-result'>$140M addressable market</span>
+
+<span class='cm-comment'>// Sanas Year 3 revenue</span>
+$140M &times; 0.5% capture
+= <span class='cm-result'>$700K Year 3 revenue</span></div></td>
+                            <td>$140M</td>
+                            <td>$700K</td>
+                            <td><button class="calc-btn" onclick="openCalcModal('Call Recording Cleanup &mdash; $140M / $700K', this.closest('tr').querySelector('.calc-data').innerHTML)"><svg viewBox="0 0 16 16"><path d="M2 2a2 2 0 012-2h8a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V2zm2 1v2h8V3H4zm0 4v1h3V7H4zm0 3v1h3v-1H4zm5-3v1h3V7H9zm0 3v1h3v-1H9z"/></svg>View</button></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Podcast / Media Audio Enhancement</strong><div class="calc-data" hidden>$1.7B NC market &times; 25% batch &times; 17.6% media/podcast segment
+= <span class='cm-result'>$75M</span> <span class='cm-estimate'>[ESTIMATE: podcast NC is well-served by Adobe free + Auphonic]</span>
+
+$75M &times; 0.5% = <span class='cm-result'>$375K</span></div></td>
+                            <td>$75M</td>
+                            <td>$375K</td>
+                            <td><button class="calc-btn" onclick="openCalcModal('Podcast / Media Audio Enhancement &mdash; $75M / $375K', this.closest('tr').querySelector('.calc-data').innerHTML)"><svg viewBox="0 0 16 16"><path d="M2 2a2 2 0 012-2h8a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V2zm2 1v2h8V3H4zm0 4v1h3V7H4zm0 3v1h3v-1H4zm5-3v1h3V7H9zm0 3v1h3v-1H9z"/></svg>View</button></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Surveillance / Forensic Audio</strong><div class="calc-data" hidden>$1.7B NC market <span class='cm-source'>[SOURCE: OpenPR]</span>
+&times; 25% batch processing &times; 12% forensic segment
+= <span class='cm-result'>$50M addressable market</span> <span class='cm-estimate'>[ESTIMATE]</span>
+
+$50M &times; 0.5% = <span class='cm-result'>$250K</span></div></td>
+                            <td>$50M</td>
+                            <td>$250K</td>
+                            <td><button class="calc-btn" onclick="openCalcModal('Surveillance / Forensic Audio &mdash; $50M / $250K', this.closest('tr').querySelector('.calc-data').innerHTML)"><svg viewBox="0 0 16 16"><path d="M2 2a2 2 0 012-2h8a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V2zm2 1v2h8V3H4zm0 4v1h3V7H4zm0 3v1h3v-1H4zm5-3v1h3V7H9zm0 3v1h3v-1H9z"/></svg>View</button></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Voice Biometrics Preprocessing</strong><div class="calc-data" hidden>$2.1B biometrics market <span class='cm-source'>[SOURCE: Market Research Future]</span>
+&times; 1.7% audio preprocessing
+= <span class='cm-result'>$35M addressable market</span> <span class='cm-estimate'>[ESTIMATE]</span>
+
+$35M &times; 0.5% = <span class='cm-result'>$175K</span></div></td>
+                            <td>$35M</td>
+                            <td>$175K</td>
+                            <td><button class="calc-btn" onclick="openCalcModal('Voice Biometrics Preprocessing &mdash; $35M / $175K', this.closest('tr').querySelector('.calc-data').innerHTML)"><svg viewBox="0 0 16 16"><path d="M2 2a2 2 0 012-2h8a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V2zm2 1v2h8V3H4zm0 4v1h3V7H4zm0 3v1h3v-1H4zm5-3v1h3V7H9zm0 3v1h3v-1H9z"/></svg>View</button></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Pre-ASR Transcription Improvement</strong><div class="calc-data" hidden>5% of $3.81B STT market <span class='cm-source'>[SOURCE: Grand View Research]</span> needing NC preprocessing
+&times; batch segment
+= <span class='cm-result'>$30M addressable market</span> <span class='cm-estimate'>[ESTIMATE]</span>
+
+$30M &times; 0.5% = <span class='cm-result'>$150K</span></div></td>
+                            <td>$30M</td>
+                            <td>$150K</td>
+                            <td><button class="calc-btn" onclick="openCalcModal('Pre-ASR Transcription Improvement &mdash; $30M / $150K', this.closest('tr').querySelector('.calc-data').innerHTML)"><svg viewBox="0 0 16 16"><path d="M2 2a2 2 0 012-2h8a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V2zm2 1v2h8V3H4zm0 4v1h3V7H4zm0 3v1h3v-1H4zm5-3v1h3V7H9zm0 3v1h3v-1H9z"/></svg>View</button></td>
+                        </tr>
+                        <tr>
+                            <td><strong>IoT / Edge Audio Preprocessing</strong><div class="calc-data" hidden>Emerging: smart speakers, wearables audio preprocessing
+<span class='cm-estimate'>[ESTIMATE: emerging market]</span>
+= <span class='cm-result'>$20M addressable market</span>
+
+$20M &times; 0.5% = <span class='cm-result'>$100K</span></div></td>
+                            <td>$20M</td>
+                            <td>$100K</td>
+                            <td><button class="calc-btn" onclick="openCalcModal('IoT / Edge Audio Preprocessing &mdash; $20M / $100K', this.closest('tr').querySelector('.calc-data').innerHTML)"><svg viewBox="0 0 16 16"><path d="M2 2a2 2 0 012-2h8a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V2zm2 1v2h8V3H4zm0 4v1h3V7H4zm0 3v1h3v-1H4zm5-3v1h3V7H9zm0 3v1h3v-1H9z"/></svg>View</button></td>
+                        </tr>
+                        <tr style="background:rgba(46,204,113,0.08); font-weight:600;">
+                            <td>Developer Subtotal</td>
+                            <td>$350M</td>
+                            <td>$1.75M</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Non-Developer Persona -->
+            <div style="margin-bottom:20px;">
+                <div style="display:flex; align-items:center; gap:8px; margin-bottom:12px;">
+                    <span style="background:var(--highlight); color:white; padding:3px 10px; border-radius:20px; font-size:11px; font-weight:700;">NON-DEVELOPER</span>
+                    <span style="font-size:13px; color:var(--muted);">Web Upload / Standalone Processing</span>
+                </div>
+                <table>
+                    <thead>
+                        <tr><th>Use Case</th><th>Addressable Market</th><th>Sanas Revenue (Yr 3)</th><th>Calculation</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Call Sample Cleanup for QA Review</strong><div class="calc-data" hidden>32% of dev call recording market ($140M); lower volume per user
+<span class='cm-estimate'>[ESTIMATE: QA teams uploading call samples]</span>
+= <span class='cm-result'>$45M addressable market</span>
+
+$45M &times; 0.6% = <span class='cm-result'>$270K</span></div></td>
+                            <td>$45M</td>
+                            <td>$270K</td>
+                            <td><button class="calc-btn" onclick="openCalcModal('Call Sample Cleanup for QA Review &mdash; $45M / $270K', this.closest('tr').querySelector('.calc-data').innerHTML)"><svg viewBox="0 0 16 16"><path d="M2 2a2 2 0 012-2h8a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V2zm2 1v2h8V3H4zm0 4v1h3V7H4zm0 3v1h3v-1H4zm5-3v1h3V7H9zm0 3v1h3v-1H9z"/></svg>View</button></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Training Recording Enhancement</strong><div class="calc-data" hidden>Subset of e-learning NC need
+<span class='cm-estimate'>[ESTIMATE: L&amp;D teams uploading training audio]</span>
+= <span class='cm-result'>$30M addressable market</span>
+
+$30M &times; 0.6% = <span class='cm-result'>$180K</span></div></td>
+                            <td>$30M</td>
+                            <td>$180K</td>
+                            <td><button class="calc-btn" onclick="openCalcModal('Training Recording Enhancement &mdash; $30M / $180K', this.closest('tr').querySelector('.calc-data').innerHTML)"><svg viewBox="0 0 16 16"><path d="M2 2a2 2 0 012-2h8a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V2zm2 1v2h8V3H4zm0 4v1h3V7H4zm0 3v1h3v-1H4zm5-3v1h3V7H9zm0 3v1h3v-1H9z"/></svg>View</button></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Webinar / Meeting Recording Cleanup</strong><div class="calc-data" hidden>$45B virtual events market
+&times; 0.06% audio cleanup <span class='cm-estimate'>[ESTIMATE]</span>
+= <span class='cm-result'>$25M addressable market</span>
+
+$25M &times; 0.6% = <span class='cm-result'>$150K</span></div></td>
+                            <td>$25M</td>
+                            <td>$150K</td>
+                            <td><button class="calc-btn" onclick="openCalcModal('Webinar / Meeting Recording Cleanup &mdash; $25M / $150K', this.closest('tr').querySelector('.calc-data').innerHTML)"><svg viewBox="0 0 16 16"><path d="M2 2a2 2 0 012-2h8a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V2zm2 1v2h8V3H4zm0 4v1h3V7H4zm0 3v1h3v-1H4zm5-3v1h3V7H9zm0 3v1h3v-1H9z"/></svg>View</button></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Interview Recording Noise Removal</strong><div class="calc-data" hidden>Research/journalism audio cleanup
+<span class='cm-estimate'>[ESTIMATE]</span>
+= <span class='cm-result'>$15M addressable market</span>
+
+$15M &times; 0.6% = <span class='cm-result'>$90K</span></div></td>
+                            <td>$15M</td>
+                            <td>$90K</td>
+                            <td><button class="calc-btn" onclick="openCalcModal('Interview Recording Noise Removal &mdash; $15M / $90K', this.closest('tr').querySelector('.calc-data').innerHTML)"><svg viewBox="0 0 16 16"><path d="M2 2a2 2 0 012-2h8a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V2zm2 1v2h8V3H4zm0 4v1h3V7H4zm0 3v1h3v-1H4zm5-3v1h3V7H9zm0 3v1h3v-1H9z"/></svg>View</button></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Personal Audio Cleanup</strong><div class="calc-data" hidden>Consumer segment; competes with free Adobe
+<span class='cm-estimate'>[ESTIMATE]</span>
+= <span class='cm-result'>$10M addressable market</span>
+
+$10M &times; 0.6% = <span class='cm-result'>$60K</span></div></td>
+                            <td>$10M</td>
+                            <td>$60K</td>
+                            <td><button class="calc-btn" onclick="openCalcModal('Personal Audio Cleanup &mdash; $10M / $60K', this.closest('tr').querySelector('.calc-data').innerHTML)"><svg viewBox="0 0 16 16"><path d="M2 2a2 2 0 012-2h8a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V2zm2 1v2h8V3H4zm0 4v1h3V7H4zm0 3v1h3v-1H4zm5-3v1h3V7H9zm0 3v1h3v-1H9z"/></svg>View</button></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Evidence / Compliance Recording</strong><div class="calc-data" hidden>Non-dev legal teams uploading audio
+<span class='cm-estimate'>[ESTIMATE]</span>
+= <span class='cm-result'>$8M addressable market</span>
+
+$8M &times; 0.6% = <span class='cm-result'>$48K</span></div></td>
+                            <td>$8M</td>
+                            <td>$48K</td>
+                            <td><button class="calc-btn" onclick="openCalcModal('Evidence / Compliance Recording &mdash; $8M / $48K', this.closest('tr').querySelector('.calc-data').innerHTML)"><svg viewBox="0 0 16 16"><path d="M2 2a2 2 0 012-2h8a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V2zm2 1v2h8V3H4zm0 4v1h3V7H4zm0 3v1h3v-1H4zm5-3v1h3V7H9zm0 3v1h3v-1H9z"/></svg>View</button></td>
+                        </tr>
+                        <tr style="background:rgba(233,69,96,0.08); font-weight:600;">
+                            <td>Non-Developer Subtotal</td>
+                            <td>$133M</td>
+                            <td>$798K</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div style="margin-top:16px; padding:16px; background:white; border-radius:8px; border-left:4px solid var(--green);">
+                <strong style="font-size:14px;">Consolidated: $483M Addressable | $2.55M Revenue (Year 3)</strong>
+                <div style="display:flex; gap:24px; margin-top:8px;">
+                    <span style="font-size:12px; color:var(--accent);"><strong>Developer:</strong> $350M market &rarr; $1.75M rev (69%)</span>
+                    <span style="font-size:12px; color:var(--highlight);"><strong>Non-Developer:</strong> $133M market &rarr; $798K rev (31%)</span>
+                </div>
+            </div>
+
+            <div style="margin-top:16px; padding:16px; background:white; border-radius:8px; border-left:4px solid var(--green);">
+                <strong style="font-size:14px;">Sanas Revenue Model: Usage-Based Batch API</strong>
+                <p style="font-size:12px; color:var(--muted); margin-top:4px;">Noise cancellation as a standalone batch API at $0.02&ndash;$0.04/min. Lower price point than AT ($0.05&ndash;$0.08/min) to compete with Dolby.io ($0.05/min) and differentiate from free open-source alternatives with superior quality and zero DevOps overhead.</p>
+            </div>
+        </div>
+
+        <div class="sources">
+            <h4>Sources</h4>
+            <ul>
+                <li><a href="https://www.g2.com/products/dolby-io/reviews" target="_blank">Dolby.io G2 Reviews</a> | <a href="https://www.capterra.com/p/214213/Dolby-io/reviews/" target="_blank">Capterra Reviews</a></li>
+                <li><a href="https://www.audo.ai/api" target="_blank">Audo AI Speech Enhancement API</a></li>
+                <li><a href="https://www.wondera.ai/tools/en/ai-noise-reduction-api-platform" target="_blank">Wondera.ai Noise Reduction API</a></li>
+                <li><a href="https://docs.nvidia.com/maxine/afx/latest/index.html" target="_blank">NVIDIA Maxine Audio Effects SDK</a></li>
+                <li><a href="https://krisp.ai/developers/" target="_blank">Krisp Developer SDK</a></li>
+                <li><a href="https://github.com/Rikorose/DeepFilterNet" target="_blank">DeepFilterNet (GitHub)</a> | <a href="https://github.com/xiph/rnnoise" target="_blank">RNNoise (GitHub)</a></li>
+                <li><a href="https://www.datadoghq.com/blog/engineering/noise-suppression-library/" target="_blank">Datadog: How We Built a Noise Suppression Library</a></li>
+                <li><a href="https://www.assemblyai.com/blog/remove-background-noise-from-audio" target="_blank">AssemblyAI: Remove Background Noise Tutorial</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- ============ -->
+<!-- PRODUCT 4: ASR -->
+<!-- ============ -->
+<div class="product-section" id="asr">
+    <div class="container">
+        <div class="section-header">
+            <h2>Product: ASR &mdash; Automatic Speech Recognition</h2>
+            <span class="product-tag tag-partner">Partner</span>
+            <span class="market-captured">~45% Captured &mdash; $644M of $1.43B</span>
+        </div>
+
+        <div class="product-definition">
+            <strong>What it does:</strong> Converts recorded audio files into text transcripts at scale. Input: audio file. Output: text transcript. No audio modification.
+        </div>
+
+        <div class="decision-box">
+            <h3>Executive Decision: PARTNER &mdash; Do Not Build Standalone</h3>
+            <p>The ASR market is commoditized. Whisper is free and self-hostable. Deepgram and AssemblyAI are well-funded, developer-first, and racing to the bottom on pricing ($0.003&ndash;$0.006/min). Sanas has no ASR IP today. The only viable path is a <strong>partnership model</strong>: Sanas accent-aware preprocessing + Deepgram/AssemblyAI transcription, exposed as a single combined API endpoint. This is a product strategy decision, not a build decision. Sanas's unique value is improving WER on accented audio &mdash; not competing on transcription itself.</p>
+        </div>
+
+        <h3 class="sub-heading">Competitors</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Competitor</th>
+                    <th>Description</th>
+                    <th>Use Cases Why People Are Using</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>OpenAI gpt-4o-transcribe</strong></td>
+                    <td>LLM-powered transcription. ~$0.006/min. ~4&ndash;6% WER (clean English). Strong accent coverage. Combines reasoning with transcription for ambiguous audio.</td>
+                    <td>Developers needing high-accuracy transcription at low cost. Strong on diverse accents and code-switching.</td>
+                </tr>
+                <tr>
+                    <td><strong>OpenAI Whisper (self-hosted)</strong></td>
+                    <td>Open-source ASR model. Free. ~5&ndash;8% WER. 50+ languages. Most widely deployed. Requires GPU for inference.</td>
+                    <td>Cost-sensitive transcription. On-prem data sovereignty. Foundation for custom ASR pipelines.</td>
+                </tr>
+                <tr>
+                    <td><strong>AssemblyAI (Slam-1)</strong></td>
+                    <td>Speech language model. ~$0.0062/min. ~4&ndash;5% WER. Best audio intelligence features: sentiment, topics, chapters, summarization, PII redaction &mdash; all in single API call.</td>
+                    <td>Developers needing ASR + downstream NLU in one pipeline. Post-call analytics. Compliance/QA with PII redaction.</td>
+                </tr>
+                <tr>
+                    <td><strong>Deepgram Nova-3</strong></td>
+                    <td>Lowest cloud cost at ~$0.0043/min. ~5&ndash;7% WER. Fast processing (10&ndash;50x real-time). Custom model training available. Strong developer community.</td>
+                    <td>High-volume transcription where cost and speed matter. Meeting transcription, call analytics at scale.</td>
+                </tr>
+                <tr>
+                    <td><strong>Azure Speech</strong></td>
+                    <td>Enterprise-grade STT. ~$0.01/min. Custom model training. FedRAMP, HIPAA, SOC2, GDPR certified. On-prem deployment via containers.</td>
+                    <td>Regulated industries (healthcare, finance, government). Enterprises already in Azure ecosystem. Large-scale compliance transcription.</td>
+                </tr>
+                <tr>
+                    <td><strong>Google Cloud STT (Chirp 2)</strong></td>
+                    <td>Best multilingual coverage: 100+ languages. ~$0.012&ndash;$0.016/min. Strong on non-English. Google-scale infrastructure.</td>
+                    <td>Multilingual/global transcription. Non-English audio at scale. Enterprises in GCP ecosystem.</td>
+                </tr>
+                <tr>
+                    <td><strong>AWS Transcribe</strong></td>
+                    <td>AWS-native transcription. ~$0.024/min. HIPAA-ready Medical variant. Deep S3/Lambda integration. Custom vocabulary.</td>
+                    <td>Enterprises deep in AWS ecosystem. Medical transcription (HIPAA). Voicemail/IVR processing.</td>
+                </tr>
+                <tr>
+                    <td><strong>Speechmatics (Ursa 3)</strong></td>
+                    <td>Best accent/dialect handling. Claims "35% fewer errors than closest competitor" in code-switching. On-prem available. ~$0.01&ndash;$0.02/min. Strong in European markets.</td>
+                    <td>Accented English transcription. Regulated EU/UK industries (finance, healthcare). On-prem deployment requirements.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3 class="sub-heading">Non-Developer (Web-Based) Competitors</h3>
+        <p style="font-size:13px; color:var(--muted); margin-bottom:16px;">For non-technical users who need to upload audio files and get text transcripts via a web interface &mdash; no coding required.</p>
+        <table>
+            <thead>
+                <tr><th>Competitor</th><th>Web UI</th><th>Use Cases</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Otter.ai</strong></td>
+                    <td>Yes &mdash; web + mobile app. Upload audio, get transcript with speaker labels. Free 300 min/mo.</td>
+                    <td>Meeting transcription, lecture notes, interview transcripts. Most popular consumer transcription tool.</td>
+                </tr>
+                <tr>
+                    <td><strong>Rev.com</strong></td>
+                    <td>Yes &mdash; upload audio/video. AI + optional human review. Captions and subtitles.</td>
+                    <td>Media professionals, legal, corporate comms. Human review option for high-stakes transcripts.</td>
+                </tr>
+                <tr>
+                    <td><strong>Descript</strong></td>
+                    <td>Yes &mdash; upload media, auto-transcribe, edit text to edit audio. Full editing suite.</td>
+                    <td>Podcasters and video creators who edit content by editing the transcript.</td>
+                </tr>
+                <tr>
+                    <td><strong>Sonix</strong></td>
+                    <td>Yes &mdash; upload, transcribe, translate, subtitle. 40+ languages. $10/hr or unlimited plans.</td>
+                    <td>Researchers, journalists, legal professionals. Multilingual transcription with translation.</td>
+                </tr>
+                <tr>
+                    <td><strong>Happy Scribe</strong></td>
+                    <td>Yes &mdash; upload, AI or human transcription, subtitle export. 120+ languages.</td>
+                    <td>Media companies, universities, corporate teams needing subtitles and transcripts.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3 class="sub-heading">Processing Use Cases</h3>
+        <div class="use-case-grid">
+            <div class="use-case-card">
+                <h4>Post-Call Analytics at Scale</h4>
+                <p>Transcribe millions of recorded BPO calls monthly for analytics, coaching, and compliance keyword detection with PII redaction.</p>
+                <div class="who">Call analytics (Gong, Invoca, Observe.AI), CRMs</div>
+            </div>
+            <div class="use-case-card">
+                <h4>Compliance &amp; eDiscovery</h4>
+                <p>Make archived audio legally searchable for regulatory compliance, litigation, and audit requirements across healthcare, finance, and legal.</p>
+                <div class="who">Legal tech, financial services, healthcare</div>
+            </div>
+            <div class="use-case-card">
+                <h4>Podcast / Video Subtitles</h4>
+                <p>Process episode libraries for captions, subtitles, and searchable transcripts with speaker identification.</p>
+                <div class="who">Content platforms, YouTube tools, accessibility</div>
+            </div>
+            <div class="use-case-card">
+                <h4>Meeting Intelligence</h4>
+                <p>Transcribe Zoom/Teams recordings post-meeting with summarization, action items, and speaker attribution.</p>
+                <div class="who">Fireflies, Otter, Grain, Gong</div>
+            </div>
+            <div class="use-case-card">
+                <h4>Medical Transcription</h4>
+                <p>Convert clinical notes, dictation, and patient recordings into searchable text with HIPAA-compliant handling.</p>
+                <div class="who">Healthcare platforms, clinical tools</div>
+            </div>
+            <div class="use-case-card">
+                <h4>Customer Feedback Analysis</h4>
+                <p>Transcribe recorded customer surveys, NPS submissions, and support calls for sentiment analysis and trend detection.</p>
+                <div class="who">VoC platforms, NPS/survey tools</div>
+            </div>
+        </div>
+
+        <div class="maps-side-by-side">
+        <!-- DEVELOPER PERCEPTUAL MAP -->
+        <div class="perceptual-map-container">
+            <h3 class="sub-heading">Developer: Accented Speech Accuracy vs. Built-in Audio Intelligence</h3>
+            <p style="font-size:12px; color:var(--muted); margin-bottom:12px;"><strong>Why these axes:</strong> X-axis measures the biggest developer pain point &mdash; accuracy on non-native/accented English (where WER degrades 20&ndash;30 percentage points). Y-axis measures what modern ASR buyers demand beyond raw transcription: sentiment, summarization, PII redaction, topic detection. <strong>The gap:</strong> Nobody combines best-in-class accented speech accuracy with full audio intelligence. That's where Sanas preprocessing + ASR partner creates a unique position.</p>
+            <div class="perceptual-map">
+                <span class="axis-label x">Accuracy on Accented / Non-Native English &rarr;</span>
+                <span class="axis-label-y">Built-in Audio Intelligence (NLU, sentiment, PII) &rarr;</span>
+                <span class="map-edge-label" style="bottom:2px; left:4px;">Poor on accents</span>
+                <span class="map-edge-label" style="bottom:2px; right:4px;">Best on accents</span>
+                <span class="map-edge-label" style="top:4px; left:6px;">Full audio intelligence</span>
+                <span class="map-edge-label" style="bottom:4px; left:6px;">Transcription only</span>
+
+                <span class="map-quadrant-label" style="bottom:16px; left:16px;">Commodity / legacy</span>
+
+                <div class="map-dot competitor sz-sm" style="left:52%; top:10%;" title="AssemblyAI: ~$10.4M ARR, best NLU, moderate accent handling"></div>
+                <span class="map-label" style="left:calc(52% + 14px); top:10%; transform:translateY(-50%);">AssemblyAI $10M</span>
+
+                <div class="map-dot competitor sz-md" style="left:48%; top:28%;" title="Deepgram: ~$21.8M ARR, some NLU, moderate accents"></div>
+                <span class="map-label" style="left:calc(48% + 18px); top:28%; transform:translateY(-50%);">Deepgram $22M</span>
+
+                <div class="map-dot competitor sz-xl" style="left:60%; top:58%;" title="OpenAI Whisper API: part of OpenAI ($3.4B rev), good accent diversity, no NLU"></div>
+                <span class="map-label" style="left:calc(60% + 28px); top:58%; transform:translateY(-50%);">OpenAI</span>
+
+                <div class="map-dot competitor sz-sm" style="left:75%; top:42%;" title="Speechmatics: ~$15M ARR est., best accent claims, limited NLU"></div>
+                <span class="map-label" style="left:calc(75% + 14px); top:42%; transform:translateY(-50%);">Speechmatics $15M</span>
+
+                <div class="map-dot oss sz-oss" style="left:50%; top:75%;" title="Whisper OSS: free, 4M+ monthly downloads, decent multilingual"></div>
+                <span class="map-label" style="left:calc(50% + 14px); top:75%; transform:translateY(-50%);">Whisper (free)</span>
+
+                <div class="map-dot competitor sz-xl" style="left:18%; top:25%;" title="Google STT: ~$400-600M est., 35% WER on accented speech"></div>
+                <span class="map-label" style="left:calc(18% + 28px); top:25%; transform:translateY(-50%);">Google $400&ndash;600M</span>
+
+                <div class="map-dot competitor sz-xl" style="left:15%; top:58%;" title="AWS Transcribe: ~$300-500M est., below avg on accents"></div>
+                <span class="map-label" style="left:calc(15% + 28px); top:58%; transform:translateY(-50%);">AWS $300&ndash;500M</span>
+
+                <div class="map-dot competitor sz-xl" style="left:35%; top:20%;" title="Azure Speech: ~$300-500M est., moderate accents"></div>
+                <span class="map-label" style="left:calc(35% + 28px); top:20%; transform:translateY(-50%);">Azure $300&ndash;500M</span>
+            </div>
+            <div class="map-legend">
+                <div class="legend-item"><div class="legend-dot" style="background:var(--blue);"></div> Standalone ASR provider</div>
+                <div class="legend-item"><div class="legend-dot" style="background:var(--muted);"></div> Open source</div>
+            </div>
+        </div>
+
+        <!-- NON-DEVELOPER PERCEPTUAL MAP -->
+        <div class="perceptual-map-container">
+            <h3 class="sub-heading">Non-Developer: Accent Handling Quality vs. Ease of Use</h3>
+            <p style="font-size:12px; color:var(--muted); margin-bottom:12px;"><strong>Why these axes:</strong> X-axis measures the #1 complaint from non-dev users &mdash; "I uploaded my audio and the transcript is full of errors because the speaker has an accent." Y-axis measures whether the tool is truly self-serve (upload &rarr; transcript &rarr; download). <strong>The gap:</strong> The easiest tools (Otter, Rev) perform worst on accented speech. Nobody combines accent accuracy with simplicity.</p>
+            <div class="perceptual-map">
+                <span class="axis-label x">Accent Handling Quality (non-native English) &rarr;</span>
+                <span class="axis-label-y">Ease of Use (upload &rarr; transcript) &rarr;</span>
+                <span class="map-edge-label" style="bottom:2px; left:4px;">Poor on accents</span>
+                <span class="map-edge-label" style="bottom:2px; right:4px;">Excellent on accents</span>
+                <span class="map-edge-label" style="top:4px; left:6px;">Simplest (upload &amp; go)</span>
+                <span class="map-edge-label" style="bottom:4px; left:6px;">Complex / technical</span>
+
+                <div class="map-dot competitor sz-md" style="left:22%; top:10%;" title="Otter.ai: ~$50M ARR est., simplest UI, poor on accents"></div>
+                <span class="map-label" style="left:calc(22% + 18px); top:10%; transform:translateY(-50%);">Otter.ai $50M</span>
+
+                <div class="map-dot competitor sz-md" style="left:40%; top:14%;" title="Rev.com: ~$20-40M ARR est., upload + optional human review"></div>
+                <span class="map-label" style="left:calc(40% + 18px); top:14%; transform:translateY(-50%);">Rev $20&ndash;40M</span>
+
+                <div class="map-dot competitor sz-sm" style="left:32%; top:28%;" title="Sonix: ~$5M ARR est., web upload, 40+ languages"></div>
+                <span class="map-label" style="left:calc(32% + 14px); top:28%; transform:translateY(-50%);">Sonix $5M</span>
+
+                <div class="map-dot competitor sz-sm" style="left:36%; top:42%;" title="Happy Scribe: ~$8M ARR est., 120+ languages"></div>
+                <span class="map-label" style="left:calc(36% + 14px); top:42%; transform:translateY(-50%);">Happy Scribe $8M</span>
+
+                <div class="map-dot competitor sz-lg" style="left:42%; top:55%;" title="Descript: ~$55-100M ARR, editor-embedded, moderate accuracy"></div>
+                <span class="map-label" style="left:calc(42% + 22px); top:55%; transform:translateY(-50%);">Descript $55&ndash;100M</span>
+            </div>
+            <div class="map-legend">
+                <div class="legend-item"><div class="legend-dot" style="background:var(--blue);"></div> Web-based transcription tool</div>
+            </div>
+        </div>
+        </div><!-- /maps-side-by-side -->
+        <div class="maps-shared-legend">
+            <div class="legend-item"><div class="legend-dot" style="background:var(--blue);"></div> ASR provider / web-based tool</div>
+            <div class="legend-item"><div class="legend-dot" style="background:var(--muted);"></div> Open source</div>
+            <span style="border-left:1px solid var(--border); margin:0 4px;"></span>
+            <span style="font-weight:600; font-size:10px; color:var(--muted);">Dot size:</span>
+            <div class="size-legend-item"><div class="size-legend-dot" style="width:8px;height:8px;"></div> &lt;$1M</div>
+            <div class="size-legend-item"><div class="size-legend-dot" style="width:12px;height:12px;"></div> $1&ndash;10M</div>
+            <div class="size-legend-item"><div class="size-legend-dot" style="width:18px;height:18px;"></div> $10&ndash;50M</div>
+            <div class="size-legend-item"><div class="size-legend-dot" style="width:26px;height:26px;"></div> $50&ndash;150M</div>
+            <div class="size-legend-item"><div class="size-legend-dot" style="width:36px;height:36px;"></div> &gt;$150M</div>
+        </div>
+
+        <!-- MARKET SIZING & REVENUE -->
+        <div style="background:var(--light-bg); border-radius:12px; padding:28px; margin-bottom:32px; border:1px solid var(--border);">
+            <h3 class="sub-heading" style="margin-bottom:20px;">Market Sizing &amp; Revenue Share Potential</h3>
+            <table>
+                <thead>
+                    <tr><th>Metric</th><th>Value</th><th>Source</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Global STT Market (2025)</td><td>~$5.5B</td><td>Multiple analyst reports</td></tr>
+                    <tr><td>Projected 2031</td><td>~$15B (18% CAGR)</td><td>Grand View Research</td></tr>
+                    <tr><td>Contact Center ASR segment</td><td>~$2.3B (2025)</td><td>MRFR Contact Center Analytics</td></tr>
+                    <tr><td>WER accuracy gap on accented speech</td><td>20&ndash;30% worse than clean benchmarks</td><td>Koenecke et al. 2020 (PNAS), medRxiv 2025</td></tr>
+                </tbody>
+            </table>
+            <div style="margin-top:16px; padding:16px; background:white; border-radius:8px; border-left:4px solid var(--blue);">
+                <strong style="font-size:14px;">Sanas Revenue Model: Partnership Revenue Share</strong>
+                <p style="font-size:12px; color:var(--muted); margin-top:4px;">Sanas does not build ASR. Revenue comes from two streams: (1) <strong>Preprocessing API</strong>: $0.05&ndash;$0.08/min for NC+AT preprocessing before partner ASR &mdash; Sanas keeps 100%. (2) <strong>Combined endpoint</strong>: Sanas preprocessing + Deepgram/AssemblyAI transcription sold as a single API at $0.054&ndash;$0.084/min &mdash; Sanas keeps ~85% ($0.05&ndash;$0.08), partner gets ~15% ($0.004/min pass-through). <strong>Potential:</strong> If 10% of Sanas's existing BPO customers route recorded calls through the combined endpoint = ~$1.5M ARR preprocessing revenue, growing with AT adoption.</p>
+            </div>
+        </div>
+
+        <details class="drill-down">
+            <summary>Why Sanas should partner, not build</summary>
+            <div class="detail-content">
+                <strong>1. Price floor is $0.</strong> Whisper is open-source and free. No pricing premium is sustainable for standalone ASR.<br>
+                <strong>2. Feature parity is table stakes.</strong> Market expects diarization, PII redaction, summarization, sentiment &mdash; building all this takes years.<br>
+                <strong>3. Sanas's unique value is audio preprocessing.</strong> Accent translation + noise cancellation before ASR measurably improves WER on accented speech. This is a complement, not a substitute.<br>
+                <strong>4. Partnership math works.</strong> Sanas preprocessing ($0.05&ndash;$0.08/min) + Deepgram transcription ($0.004/min) = combined $0.054&ndash;$0.084/min endpoint that delivers best-in-class accented speech accuracy.
+            </div>
+        </details>
+
+        <div class="sources">
+            <h4>Sources</h4>
+            <ul>
+                <li><a href="https://deepgram.com/learn/speech-to-text-api-pricing-breakdown-2025" target="_blank">Deepgram Pricing 2025</a> | <a href="https://deepgram.com/learn/best-speech-to-text-apis-2026" target="_blank">Best STT APIs 2026</a></li>
+                <li><a href="https://www.assemblyai.com/benchmarks" target="_blank">AssemblyAI Benchmarks</a> | <a href="https://www.assemblyai.com/blog/large-scale-audio-transcription" target="_blank">Transcription Guide</a></li>
+                <li><a href="https://futureagi.substack.com/p/speech-to-text-apis-in-2026-benchmarks" target="_blank">FutureAGI: STT APIs 2026 Benchmarks</a></li>
+                <li><a href="https://learn.microsoft.com/en-us/azure/ai-services/speech-service/batch-transcription" target="_blank">Azure Transcription</a></li>
+                <li><a href="https://www.speechmatics.com/company/articles-and-news/vapi-and-speechmatics-build-agents-that-understand-every-voice" target="_blank">Speechmatics: Agents That Understand Every Voice</a></li>
+                <li><a href="https://www.pnas.org/doi/10.1073/pnas.1915768117" target="_blank">Koenecke et al. 2020: Racial Disparities in ASR (PNAS)</a></li>
+                <li><a href="https://www.medrxiv.org/content/10.1101/2025.08.29.25333548v1.full" target="_blank">medRxiv 2025: Accents Still Confuse AI</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- ============ -->
+<!-- PRODUCT 5: TTS -->
+<!-- ============ -->
+<div class="product-section" id="tts">
+    <div class="container">
+        <div class="section-header">
+            <h2>Product: Text-to-Speech</h2>
+            <span class="product-tag tag-validate">Validate</span>
+            <span class="market-captured">~40% Captured &mdash; $344M of $860M</span>
+        </div>
+
+        <div class="product-definition">
+            <strong>What it does:</strong> Generates spoken audio from written text using user voice profiles (custom cloned voices) or out-of-box voice profiles. Input: text. Output: audio file. High-volume generation without real-time latency constraints.
+        </div>
+
+        <div class="decision-box">
+            <h3>Executive Decision: VALIDATE FIRST &mdash; Build Only with Accent-Controlled Differentiation</h3>
+            <p>Generic TTS is a losing fight against ElevenLabs (ELO #2 quality), Google (enterprise scale), and Amazon Polly (AWS lock-in). The TTS market is $3.65&ndash;$5B and growing 13% CAGR, but it's crowded with well-funded players. <strong>The white space is accent-controlled TTS</strong> &mdash; no provider offers parametric accent control as an API parameter. Sanas's accent IP can uniquely generate speech that sounds natively American, British, or Australian. An "Accent Vector" paper (HuggingFace, March 2026) confirms the research is maturing but no one has productized it. Requires 5 voice agent builder interviews before committing engineering resources.</p>
+        </div>
+
+        <h3 class="sub-heading">Competitors</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Competitor</th>
+                    <th>Description</th>
+                    <th>Use Cases Why People Are Using</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>ElevenLabs</strong></td>
+                    <td>Best emotional range (ELO #2 globally). 70+ languages. Voice cloning, dubbing. ~$120&ndash;$180/1M chars. WER 2.83%. Superior prosody accuracy (64.57%).</td>
+                    <td>Premium audiobooks, video narration, content creation. Developers needing highest quality synthesis with voice cloning.</td>
+                </tr>
+                <tr>
+                    <td><strong>Google Cloud TTS</strong></td>
+                    <td>Enterprise scale. WaveNet/Neural2/Chirp 3 HD models. 380+ voices, 50+ languages. $4&ndash;$160/1M chars. Generous free tier (4M chars/mo standard).</td>
+                    <td>IVR prompt generation, enterprise TTS, multilingual content at scale. GCP-native applications.</td>
+                </tr>
+                <tr>
+                    <td><strong>Amazon Polly</strong></td>
+                    <td>AWS-native. Standard ($4.80/1M), Neural ($19.20/1M), Long-Form ($100/1M), Generative ($30/1M). Cached audio at no extra cost. SSML support. 40+ languages.</td>
+                    <td>IVR/phone menu audio, AWS-integrated apps, e-learning. Long-Form model specifically for audiobooks.</td>
+                </tr>
+                <tr>
+                    <td><strong>MiniMax TTS</strong></td>
+                    <td>ELO #5 quality. 30+ languages with best Asian language support. 300+ voices. 200K char single request (best for high-volume). Natural nonverbal sounds. ~$40&ndash;$100/1M chars.</td>
+                    <td>Long-form content generation (audiobooks, courses). Asian-language content. High-volume processing.</td>
+                </tr>
+                <tr>
+                    <td><strong>Fish Audio</strong></td>
+                    <td>Open-source foundation. No feature gating &mdash; voice cloning, streaming, multilingual all included. ~$15/1M UTF-8 bytes (50&ndash;70% cheaper than subscription alternatives).</td>
+                    <td>Cost-sensitive developers needing full-featured TTS. Training data generation. Multilingual content at scale.</td>
+                </tr>
+                <tr>
+                    <td><strong>Cartesia Sonic 3</strong></td>
+                    <td>Fastest latency (sub-100ms TTFB). State-space model architecture. AI laughter/emotion controls. On AWS SageMaker. ~$46.70/1M chars. Only 15 languages.</td>
+                    <td>Real-time voice agents needing ultra-low latency. Emotion-rich AI agent interactions.</td>
+                </tr>
+                <tr>
+                    <td><strong>OpenAI TTS</strong></td>
+                    <td>GPT-4o-mini-tts with natural language style instructions. $12&ndash;$30/1M chars. Good price/quality ratio. Brand recognition. Only 13 base voices.</td>
+                    <td>Developers wanting simple, reliable TTS with OpenAI integration. Quick prototyping. Standard narration.</td>
+                </tr>
+                <tr>
+                    <td><strong>Resemble AI (Chatterbox)</strong></td>
+                    <td>Open-source MIT license. Matches ElevenLabs in blind tests. 23 languages. Self-hostable. Three model variants. Commercial API pricing opaque.</td>
+                    <td>Self-hosted TTS with voice cloning. Accent control via voice profiles. Cost-free at scale if self-hosted.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3 class="sub-heading">Non-Developer (Web-Based) Competitors</h3>
+        <p style="font-size:13px; color:var(--muted); margin-bottom:16px;">For non-technical users who need to convert text to speech via a web interface &mdash; no coding required.</p>
+        <table>
+            <thead>
+                <tr><th>Competitor</th><th>Web UI</th><th>Use Cases</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>ElevenLabs</strong></td>
+                    <td>Yes &mdash; excellent web UI. Paste text, select voice, generate and download. Voice cloning via upload. Free 10K chars/mo.</td>
+                    <td>Content creators, audiobook producers, marketers generating voiceovers. Most popular consumer TTS tool.</td>
+                </tr>
+                <tr>
+                    <td><strong>Speechify</strong></td>
+                    <td>Yes &mdash; browser extension + web app. Upload documents/URLs, listen in any voice. Mobile app.</td>
+                    <td>Students, professionals with reading disabilities, anyone converting articles/documents to audio.</td>
+                </tr>
+                <tr>
+                    <td><strong>NaturalReader</strong></td>
+                    <td>Yes &mdash; web-based. Upload PDF/text, select voice, export audio. Free tier available.</td>
+                    <td>Students, educators, accessibility use cases. Document and e-book narration.</td>
+                </tr>
+                <tr>
+                    <td><strong>Murf AI</strong></td>
+                    <td>Yes &mdash; web studio for voiceover creation. 120+ voices, 20+ languages. Video sync features.</td>
+                    <td>Marketing teams, L&D teams, YouTube creators generating voiceovers without recording.</td>
+                </tr>
+                <tr>
+                    <td><strong>PlayHT</strong></td>
+                    <td>Yes &mdash; web-based. Voice cloning, SSML editor, API. 900+ voices, 142 languages.</td>
+                    <td>Podcast narration, IVR prompts, content creators needing voice variety.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3 class="sub-heading">Processing Use Cases</h3>
+        <div class="use-case-grid">
+            <div class="use-case-card">
+                <h4>Audiobook Generation</h4>
+                <p>Full-length book audio production (50K&ndash;500K chars/book). Requires voice consistency, emotional range, and chapter pacing across hours of content.</p>
+                <div class="who">Publishing platforms, ACX, self-publishing tools</div>
+            </div>
+            <div class="use-case-card">
+                <h4>IVR / Phone Menu Audio</h4>
+                <p>Pre-recorded prompts generated for contact center phone systems. Needs brand voice consistency and multilingual variants.</p>
+                <div class="who">Telecom, CCaaS platforms, BPO operations</div>
+            </div>
+            <div class="use-case-card">
+                <h4>E-Learning Course Voiceovers</h4>
+                <p>Generate spoken course content in advance with clear articulation, controlled pacing, and accent variety for language learning.</p>
+                <div class="who">EdTech platforms (Coursera, Udemy tooling)</div>
+            </div>
+            <div class="use-case-card">
+                <h4>Podcast / News Auto-Narration</h4>
+                <p>Convert written articles, newsletters, and blog posts into podcast-format audio content automatically.</p>
+                <div class="who">Publishers, newsletter platforms, Speechify</div>
+            </div>
+            <div class="use-case-card">
+                <h4>Video Voiceovers &amp; Dubbing</h4>
+                <p>Generate narration and dubbing audio for video content with timing synchronization and accent-appropriate delivery.</p>
+                <div class="who">Video production tools, Descript-type platforms</div>
+            </div>
+        </div>
+
+        <div class="maps-side-by-side">
+        <!-- DEVELOPER PERCEPTUAL MAP -->
+        <div class="perceptual-map-container">
+            <h3 class="sub-heading">Developer: Accent Control as API Parameter vs. Throughput</h3>
+            <p style="font-size:12px; color:var(--muted); margin-bottom:12px;"><strong>Why these axes:</strong> X-axis measures the one thing no TTS API offers today &mdash; can a developer pass <code>accent: "us-english"</code> as a parameter and get accent-controlled output? (Answer: nobody does this.) Y-axis measures throughput suitability &mdash; max chars per request, long-form consistency, and volume pricing. <strong>The gap:</strong> The entire right side of the chart is empty. No provider offers parametric accent control. That's Sanas's unique IP angle.</p>
+            <div class="perceptual-map">
+                <span class="axis-label x">Accent Control as API Parameter &rarr;</span>
+                <span class="axis-label-y">Throughput (chars/request, long-form support) &rarr;</span>
+                <span class="map-edge-label" style="bottom:2px; left:4px;">No accent control (baked into voice)</span>
+                <span class="map-edge-label" style="bottom:2px; right:4px;">Parametric accent selection</span>
+                <span class="map-edge-label" style="top:4px; left:6px;">High throughput</span>
+                <span class="map-edge-label" style="bottom:4px; left:6px;">Low limits / real-time focused</span>
+
+                <span class="map-quadrant-label" style="top:16px; right:16px; color:var(--highlight); font-weight:700; opacity:0.7; font-size:13px;">TOTAL WHITE SPACE</span>
+                <span class="map-quadrant-label" style="top:16px; left:16px;">Crowded TTS</span>
+
+                <div class="map-dot competitor sz-sm" style="left:10%; top:8%;" title="MiniMax: ~$5M TTS est., 200K chars/request, no accent control"></div>
+                <span class="map-label" style="left:calc(10% + 14px); top:8%; transform:translateY(-50%);">MiniMax</span>
+
+                <div class="map-dot competitor sz-xl" style="left:10%; top:22%;" title="Google TTS: ~$100-250M est., enterprise, no accent parameter"></div>
+                <span class="map-label" style="left:calc(10% + 28px); top:22%; transform:translateY(-50%);">Google $100&ndash;250M</span>
+
+                <div class="map-dot competitor sz-xl" style="left:10%; top:34%;" title="Amazon Polly: ~$150-300M est., Long-Form model, no accent control"></div>
+                <span class="map-label" style="left:calc(10% + 28px); top:34%; transform:translateY(-50%);">Polly $150&ndash;300M</span>
+
+                <div class="map-dot competitor sz-xl" style="left:14%; top:46%;" title="ElevenLabs: ~$330M ARR total, accent per-voice not parametric"></div>
+                <span class="map-label" style="left:calc(14% + 28px); top:46%; transform:translateY(-50%);">ElevenLabs $330M</span>
+
+                <div class="map-dot competitor sz-xl" style="left:12%; top:58%;" title="OpenAI TTS: part of OpenAI ($3.4B), 13 voices, US-accented"></div>
+                <span class="map-label" style="left:calc(12% + 28px); top:58%; transform:translateY(-50%);">OpenAI</span>
+
+                <div class="map-dot competitor sz-sm" style="left:10%; top:70%;" title="Fish Audio: ~$3M est., open API, no accent control"></div>
+                <span class="map-label" style="left:calc(10% + 14px); top:70%; transform:translateY(-50%);">Fish Audio</span>
+
+                <div class="map-dot competitor sz-sm" style="left:10%; top:82%;" title="Cartesia: ~$5M est., real-time focused, 15 languages only"></div>
+                <span class="map-label" style="left:calc(10% + 14px); top:82%; transform:translateY(-50%);">Cartesia</span>
+
+                <div class="map-dot oss sz-oss" style="left:22%; top:40%;" title="Chatterbox: free OSS, some accent via voice profiles, not parametric"></div>
+                <span class="map-label" style="left:calc(22% + 14px); top:40%; transform:translateY(-50%);">Chatterbox (OSS)</span>
+
+                <div class="map-dot competitor sz-xs" style="left:30%; top:65%;" title="Respeecher: ~$0.5M ARR, accent slider for S2S, not TTS"></div>
+                <span class="map-label" style="left:calc(30% + 12px); top:65%; transform:translateY(-50%);">Respeecher $0.5M</span>
+            </div>
+            <div class="map-legend">
+                <div class="legend-item"><div class="legend-dot" style="background:var(--blue);"></div> TTS competitor (no accent control)</div>
+                <div class="legend-item"><div class="legend-dot" style="background:var(--muted);"></div> Open source</div>
+            </div>
+        </div>
+
+        <!-- NON-DEVELOPER PERCEPTUAL MAP -->
+        <div class="perceptual-map-container">
+            <h3 class="sub-heading">Non-Developer: Accent / Regional Voice Variety vs. Ease of Use</h3>
+            <p style="font-size:12px; color:var(--muted); margin-bottom:12px;"><strong>Why these axes:</strong> X-axis measures what non-technical users need &mdash; can I get my text read in a specific regional accent (not just "English", but "Indian English" or "British English")? Y-axis measures how easily they can do this (paste text, click generate). <strong>The gap:</strong> Easy tools offer generic "English" voices. Tools with accent variety require technical setup. Nobody offers easy + accent-specific.</p>
+            <div class="perceptual-map">
+                <span class="axis-label x">Accent / Regional Voice Variety &rarr;</span>
+                <span class="axis-label-y">Ease of Use (paste text &rarr; download audio) &rarr;</span>
+                <span class="map-edge-label" style="bottom:2px; left:4px;">Generic &ldquo;English&rdquo; only</span>
+                <span class="map-edge-label" style="bottom:2px; right:4px;">Pick specific accent</span>
+                <span class="map-edge-label" style="top:4px; left:6px;">Simplest (paste &amp; go)</span>
+                <span class="map-edge-label" style="bottom:4px; left:6px;">Complex / technical</span>
+
+                <div class="map-dot competitor sz-xl" style="left:38%; top:10%;" title="ElevenLabs: ~$330M ARR, great UI, dialect voices, accent is implicit"></div>
+                <span class="map-label" style="left:calc(38% + 28px); top:10%; transform:translateY(-50%);">ElevenLabs $330M</span>
+
+                <div class="map-dot competitor sz-lg" style="left:15%; top:10%;" title="Speechify: ~$80M ARR est., simplest, limited accent options"></div>
+                <span class="map-label" style="left:calc(15% + 22px); top:10%; transform:translateY(-50%);">Speechify $80M</span>
+
+                <div class="map-dot competitor sz-sm" style="left:25%; top:24%;" title="NaturalReader: ~$5M est., easy, some accent voices"></div>
+                <span class="map-label" style="left:calc(25% + 14px); top:24%; transform:translateY(-50%);">NaturalReader</span>
+
+                <div class="map-dot competitor sz-xs" style="left:42%; top:28%;" title="Murf AI: ~$0.8M ARR, web studio, 120+ voices"></div>
+                <span class="map-label" style="left:calc(42% + 12px); top:28%; transform:translateY(-50%);">Murf $0.8M</span>
+
+                <div class="map-dot competitor sz-sm" style="left:50%; top:42%;" title="PlayHT: ~$5M (acquired by Meta Jul 2025), 900+ voices"></div>
+                <span class="map-label" style="left:calc(50% + 14px); top:42%; transform:translateY(-50%);">PlayHT $5M</span>
+            </div>
+            <div class="map-legend">
+                <div class="legend-item"><div class="legend-dot" style="background:var(--blue);"></div> Web-based TTS tool</div>
+            </div>
+        </div>
+        </div><!-- /maps-side-by-side -->
+        <div class="maps-shared-legend">
+            <div class="legend-item"><div class="legend-dot" style="background:var(--blue);"></div> TTS competitor / web-based tool</div>
+            <div class="legend-item"><div class="legend-dot" style="background:var(--muted);"></div> Open source</div>
+            <span style="border-left:1px solid var(--border); margin:0 4px;"></span>
+            <span style="font-weight:600; font-size:10px; color:var(--muted);">Dot size:</span>
+            <div class="size-legend-item"><div class="size-legend-dot" style="width:8px;height:8px;"></div> &lt;$1M</div>
+            <div class="size-legend-item"><div class="size-legend-dot" style="width:12px;height:12px;"></div> $1&ndash;10M</div>
+            <div class="size-legend-item"><div class="size-legend-dot" style="width:18px;height:18px;"></div> $10&ndash;50M</div>
+            <div class="size-legend-item"><div class="size-legend-dot" style="width:26px;height:26px;"></div> $50&ndash;150M</div>
+            <div class="size-legend-item"><div class="size-legend-dot" style="width:36px;height:36px;"></div> &gt;$150M</div>
+        </div>
+
+        <!-- MARKET SIZING & REVENUE -->
+        <div style="background:var(--light-bg); border-radius:12px; padding:28px; margin-bottom:32px; border:1px solid var(--border);">
+            <h3 class="sub-heading" style="margin-bottom:20px;">Market Sizing &amp; Revenue Share Potential</h3>
+            <table>
+                <thead>
+                    <tr><th>Metric</th><th>Value</th><th>Source</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Global TTS Market (2025)</td><td>$3.65&ndash;$5.0B</td><td>Mordor Intelligence, Markets &amp; Markets, GMI</td></tr>
+                    <tr><td>Projected 2029</td><td>$7.6B (13.7% CAGR)</td><td>Markets &amp; Markets</td></tr>
+                    <tr><td>Projected 2033</td><td>$12.4B</td><td>Straits Research</td></tr>
+                    <tr><td>Neural/AI voices share of TTS revenue (2025)</td><td>67%</td><td>Industry analysis</td></tr>
+                    <tr><td>Enterprise apps with AI agents by 2026</td><td>40%</td><td>Gartner projection</td></tr>
+                </tbody>
+            </table>
+            <div style="margin-top:16px; display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+                <div style="padding:16px; background:white; border-radius:8px; border-left:4px solid #9b59b6;">
+                    <strong style="font-size:13px;">Generic TTS Revenue Potential</strong>
+                    <p style="font-size:12px; color:var(--muted); margin-top:4px;">Unwinnable. ElevenLabs, Google, Amazon, OpenAI have massive scale and brand. Gross margin would be compressed below viability. <strong>Do not pursue.</strong></p>
+                </div>
+                <div style="padding:16px; background:white; border-radius:8px; border-left:4px solid var(--green);">
+                    <strong style="font-size:13px;">Accent-Controlled TTS Revenue Potential</strong>
+                    <p style="font-size:12px; color:var(--muted); margin-top:4px;">Addressable niche: BPO IVR prompts + e-learning + voice agents needing accent-specific output. Estimated $20&ndash;50M addressable market. Sanas pricing sweet spot: $20&ndash;$40/1M chars base, $40&ndash;$60/1M with accent control. <strong>Requires 5 voice agent builder interviews to validate before committing.</strong></p>
+                </div>
+            </div>
+        </div>
+
+        <details class="drill-down">
+            <summary>Sanas's accent-controlled TTS differentiation</summary>
+            <div class="detail-content">
+                <table>
+                    <thead><tr><th>Sanas-Specific Angle</th><th>Description</th><th>Why Differentiated</th></tr></thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Accent-targeted TTS</strong></td>
+                            <td>Generate speech that sounds natively US, UK, or Australian &mdash; not just "neutral"</td>
+                            <td>No TTS provider offers accent as a controllable API parameter. Accent is baked into voice selection.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Accent + identity-preserved TTS</strong></td>
+                            <td>Voice clone that preserves WHO someone sounds like while controlling WHAT accent they speak in</td>
+                            <td>Sanas's emotion/identity preservation IP could enable this; unique combination nobody offers.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>BPO-optimized TTS</strong></td>
+                            <td>TTS voices trained for contact center diction &mdash; clear, professional, accent-controlled</td>
+                            <td>Sanas's domain expertise + natural GTM to existing BPO customers (IVR, training, e-learning).</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </details>
+
+        <div class="sources">
+            <h4>Sources</h4>
+            <ul>
+                <li><a href="https://elevenlabs.io/pricing/api" target="_blank">ElevenLabs API Pricing</a> | <a href="https://artificialanalysis.ai/text-to-speech/leaderboard" target="_blank">Artificial Analysis TTS Leaderboard</a></li>
+                <li><a href="https://cloud.google.com/text-to-speech/pricing" target="_blank">Google Cloud TTS Pricing</a> | <a href="https://aws.amazon.com/polly/pricing/" target="_blank">Amazon Polly Pricing</a></li>
+                <li><a href="https://www.marketsandmarkets.com/Market-Reports/text-to-speech-market-2434298.html" target="_blank">Markets and Markets: TTS Market Report</a></li>
+                <li><a href="https://fish.audio/blog/top-tts-apis-developer-comparison-2026/" target="_blank">Fish Audio: TTS API Comparison 2026</a></li>
+                <li><a href="https://www.speechmatics.com/company/articles-and-news/best-tts-apis-in-2025-top-12-text-to-speech-services-for-developers" target="_blank">Speechmatics: Best TTS APIs 2026</a></li>
+                <li><a href="https://github.com/resemble-ai/chatterbox" target="_blank">Resemble AI Chatterbox (GitHub)</a></li>
+                <li><a href="https://huggingface.co/papers/2603.07534" target="_blank">Accent Vector Paper (HuggingFace, March 2026)</a></li>
+                <li><a href="https://community.openai.com/t/tts-voices-have-a-clear-us-accent/705394" target="_blank">OpenAI Community: TTS Accent Complaints</a></li>
+                <li><a href="https://www.mordorintelligence.com/industry-reports/text-to-speech-market" target="_blank">Mordor Intelligence: TTS Market Size</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- ============================= -->
 <!-- RECOMMENDED SEQUENCING        -->
 <!-- ============================= -->
 <div class="sequencing" id="sequencing-section">
@@ -2612,7 +2785,7 @@ $10M &times; 0.6% capture
         </div>
         <div class="never-build">
             <h4>Do Not Build (Ever)</h4>
-            <p>Standalone ASR &bull; Standalone Noise Cancellation (already in AT) &bull; Generic TTS (without accent differentiation)</p>
+            <p>Standalone ASR &bull; Generic TTS (without accent differentiation)</p>
         </div>
     </div>
 </div>
