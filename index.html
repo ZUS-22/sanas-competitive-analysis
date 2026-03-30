@@ -1326,12 +1326,54 @@ $40M &times; 0.6% capture at lower self-serve ACV
         </div>
 
         <div class="product-definition">
-            <strong>What it does:</strong> Comprehensive audio quality improvement beyond noise removal. Solves: <strong>(1)</strong> Reverb/echo removal &mdash; eliminates room reflections and hollow sound. <strong>(2)</strong> Microphone upscaling &mdash; transforms low-quality laptop/phone mic recordings to studio-grade clarity. <strong>(3)</strong> Energy normalization &mdash; boosts low-energy, mumbled speech to clear, high-energy output with consistent loudness. <strong>(4)</strong> Network audio repair &mdash; fixes compression artifacts, packet loss distortion, and bandwidth-limited audio from VoIP/video calls. Input: degraded audio file. Output: studio-quality enhanced audio file.
+            <strong>What it does:</strong> Transforms any degraded audio into studio-quality output in a single API call. Solves 8 audio problems simultaneously:
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px 24px; margin-top:10px; font-size:12.5px;">
+                <span><strong>1. No Background Noises</strong> &mdash; removes ambient noise, hum, buzz</span>
+                <span><strong>2. No Background Voices</strong> &mdash; isolates primary speaker, suppresses crosstalk</span>
+                <span><strong>3. Reverb Cancellation</strong> &mdash; eliminates room reflections and hollow sound</span>
+                <span><strong>4. Studio Quality Microphone</strong> &mdash; upscales cheap mic audio to studio-grade</span>
+                <span><strong>5. High Fidelity</strong> &mdash; restores lost frequencies, bandwidth extension to 48kHz</span>
+                <span><strong>6. Clear Articulated Speech</strong> &mdash; boosts low-energy, mumbled speech to crisp output</span>
+                <span><strong>7. Removed Codec Artifacts</strong> &mdash; repairs compression distortion from low-bitrate encoding</span>
+                <span><strong>8. Packet Loss Recovery</strong> &mdash; fixes gaps and distortion from VoIP/network degradation</span>
+            </div>
+            <div style="margin-top:8px;">Input: degraded audio file. Output: studio-quality enhanced audio file.</div>
+        </div>
+
+        <!-- WHAT SANAS ADDRESSES THAT OTHERS DON'T -->
+        <div style="background:#f0f7ff; border-radius:12px; padding:24px; margin-bottom:28px; border:1px solid #c8dff5;">
+            <h3 class="sub-heading" style="margin-bottom:12px;">What Sanas Addresses That Competitors Don&rsquo;t</h3>
+            <p style="font-size:13px; color:var(--muted); margin-bottom:16px;">Every competitor solves 1&ndash;3 problems. No single API solves all 8 in one call. That&rsquo;s the gap.</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width:20%;">Capability</th>
+                        <th style="width:13%;">Dolby.io</th>
+                        <th style="width:13%;">Adobe</th>
+                        <th style="width:13%;">Auphonic</th>
+                        <th style="width:13%;">ai-coustics</th>
+                        <th style="width:13%;">Open Source</th>
+                        <th style="width:13%;">Sanas</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Background Noise Removal</strong></td><td style="text-align:center; color:var(--green);">&check;</td><td style="text-align:center; color:var(--green);">&check;</td><td style="text-align:center; color:var(--green);">&check;</td><td style="text-align:center; color:var(--green);">&check;</td><td style="text-align:center; color:var(--green);">&check;</td><td style="text-align:center; color:var(--green); font-weight:700;">&check;</td></tr>
+                    <tr><td><strong>Background Voice Isolation</strong></td><td style="text-align:center; color:var(--green);">&check;</td><td style="text-align:center; color:var(--muted);">&mdash;</td><td style="text-align:center; color:var(--muted);">&mdash;</td><td style="text-align:center; color:var(--muted);">&mdash;</td><td style="text-align:center; color:var(--orange);">Partial</td><td style="text-align:center; color:var(--green); font-weight:700;">&check;</td></tr>
+                    <tr><td><strong>Reverb Cancellation</strong></td><td style="text-align:center; color:var(--green);">&check;</td><td style="text-align:center; color:var(--green);">&check;</td><td style="text-align:center; color:var(--green);">&check;</td><td style="text-align:center; color:var(--green);">&check;</td><td style="text-align:center; color:var(--green);">&check;</td><td style="text-align:center; color:var(--green); font-weight:700;">&check;</td></tr>
+                    <tr><td><strong>Mic Upscaling to Studio</strong></td><td style="text-align:center; color:var(--muted);">&mdash;</td><td style="text-align:center; color:var(--orange);">Partial</td><td style="text-align:center; color:var(--muted);">&mdash;</td><td style="text-align:center; color:var(--green);">&check;</td><td style="text-align:center; color:var(--orange);">Partial</td><td style="text-align:center; color:var(--green); font-weight:700;">&check;</td></tr>
+                    <tr><td><strong>High Fidelity (48kHz)</strong></td><td style="text-align:center; color:var(--muted);">&mdash;</td><td style="text-align:center; color:var(--muted);">&mdash;</td><td style="text-align:center; color:var(--muted);">&mdash;</td><td style="text-align:center; color:var(--green);">&check;</td><td style="text-align:center; color:var(--green);">&check;</td><td style="text-align:center; color:var(--green); font-weight:700;">&check;</td></tr>
+                    <tr><td><strong>Clear Articulated Speech</strong></td><td style="text-align:center; color:var(--orange);">Partial</td><td style="text-align:center; color:var(--green);">&check;</td><td style="text-align:center; color:var(--green);">&check;</td><td style="text-align:center; color:var(--muted);">&mdash;</td><td style="text-align:center; color:var(--muted);">&mdash;</td><td style="text-align:center; color:var(--green); font-weight:700;">&check;</td></tr>
+                    <tr><td><strong>Codec Artifact Removal</strong></td><td style="text-align:center; color:var(--muted);">&mdash;</td><td style="text-align:center; color:var(--muted);">&mdash;</td><td style="text-align:center; color:var(--muted);">&mdash;</td><td style="text-align:center; color:var(--green);">&check;</td><td style="text-align:center; color:var(--muted);">&mdash;</td><td style="text-align:center; color:var(--green); font-weight:700;">&check;</td></tr>
+                    <tr><td><strong>Packet Loss Recovery</strong></td><td style="text-align:center; color:var(--muted);">&mdash;</td><td style="text-align:center; color:var(--muted);">&mdash;</td><td style="text-align:center; color:var(--muted);">&mdash;</td><td style="text-align:center; color:var(--muted);">&mdash;</td><td style="text-align:center; color:var(--muted);">&mdash;</td><td style="text-align:center; color:var(--green); font-weight:700;">&check;</td></tr>
+                    <tr style="background:rgba(52,152,219,0.06); font-weight:600;"><td>Score</td><td style="text-align:center;">4/8</td><td style="text-align:center;">3.5/8</td><td style="text-align:center;">3/8</td><td style="text-align:center;">4/8</td><td style="text-align:center;">3.5/8</td><td style="text-align:center; color:var(--green);">8/8</td></tr>
+                </tbody>
+            </table>
+            <p style="font-size:12px; color:var(--muted); margin-top:12px;"><strong>Key insight:</strong> Dolby.io and ai-coustics come closest at 4/8, but neither handles packet loss recovery or full mic-to-studio upscaling. Adobe has no API. Open source requires ML ops. <strong>Sanas is the only player that can deliver all 8 capabilities in a single batch API call.</strong></p>
         </div>
 
         <div class="decision-box">
             <h3>Executive Decision: BUILD &mdash; Standalone Non-Streaming SE API</h3>
-            <p>Speech enhancement capabilities (reverb removal, mic upscaling, energy normalization, network audio repair) are already included in the Accent Translation pipeline. As a standalone non-streaming API, SE addresses a broader market beyond AT users &mdash; podcast producers, media companies, e-learning platforms, and VoIP providers who need audio quality improvement without accent conversion. The AI-powered audio enhancer market is $1.26B (2025), growing at 33.4% CAGR. While Adobe Enhance Speech is free and Dolby.io dominates the API space, neither offers a comprehensive batch API with reverb + mic upscale + energy normalization + network repair in a single call at competitive pricing.</p>
+            <p>No competitor solves all 8 audio degradation problems in a single API call. Dolby.io comes closest (4/8) but misses mic upscaling, high fidelity, codec artifacts, and packet loss. Adobe has the best quality but zero API. The AI-powered audio enhancer market is $1.26B (2025), growing at 33.4% CAGR. Sanas already has these capabilities in the AT pipeline &mdash; exposing them as a standalone batch SE API is incremental engineering with access to a broader market: any team with degraded audio that doesn&rsquo;t need accent conversion.</p>
         </div>
 
         <h3 class="sub-heading">Competitors</h3>
@@ -1430,29 +1472,19 @@ $40M &times; 0.6% capture at lower self-serve ACV
         <h3 class="sub-heading">Processing Use Cases</h3>
         <div class="use-case-grid">
             <div class="use-case-card">
-                <h4>ASR Preprocessing Pipeline</h4>
-                <p>Enhance audio quality before transcription &mdash; dereverberation + mic upscaling + energy normalization significantly reduces WER on degraded audio sources.</p>
-                <div class="who">Any company running transcription on real-world audio</div>
+                <h4>Contact Center Audio Cleanup</h4>
+                <p>Enhance call recordings at scale &mdash; remove background noise, fix bad mic quality, recover packet loss artifacts, and produce clear audio for analytics, QA, and compliance.</p>
+                <div class="who">BPOs, contact center platforms, QA teams</div>
             </div>
             <div class="use-case-card">
-                <h4>Podcast / Video Post-Production</h4>
-                <p>Process episode backlogs: fix remote guest audio (bad mics, room echo, network artifacts), normalize loudness to broadcast standards, and upscale audio quality.</p>
-                <div class="who">Podcast SaaS (Riverside, Descript), video platforms</div>
+                <h4>Content Production &amp; Media</h4>
+                <p>Turn any recording into broadcast-quality audio &mdash; fix remote guest audio, upscale cheap mics to studio-grade, remove reverb, and normalize loudness for publishing.</p>
+                <div class="who">Podcast platforms, video producers, media companies</div>
             </div>
             <div class="use-case-card">
-                <h4>E-Learning Audio Remediation</h4>
-                <p>Enhance thousands of lecture recordings captured on cheap microphones in reverberant classrooms &mdash; make them sound like professional studio recordings.</p>
-                <div class="who">EdTech platforms, universities, corporate L&amp;D</div>
-            </div>
-            <div class="use-case-card">
-                <h4>VoIP / Network Audio Recovery</h4>
-                <p>Repair audio degraded by low bandwidth, packet loss, and codec compression from Zoom, Teams, and phone calls before downstream processing or archival.</p>
-                <div class="who">Meeting intelligence tools, telecom, UCaaS providers</div>
-            </div>
-            <div class="use-case-card">
-                <h4>Evidence / Forensic Audio Enhancement</h4>
-                <p>Enhance degraded audio evidence: remove room reverb, boost low-energy speech, repair network distortion to make recordings intelligible for legal proceedings.</p>
-                <div class="who">Legal tech, law enforcement, regulatory bodies</div>
+                <h4>Audio Intelligence Preprocessing</h4>
+                <p>Improve downstream AI accuracy &mdash; clean audio before transcription, sentiment analysis, or voice biometrics. Better input audio = measurably better output from any speech AI.</p>
+                <div class="who">Any team running speech AI on real-world audio</div>
             </div>
         </div>
 
@@ -1565,87 +1597,64 @@ $40M &times; 0.6% capture at lower self-serve ACV
                     </thead>
                     <tbody>
                         <tr>
-                            <td><strong>Call Recording Quality Enhancement</strong><div class="calc-data" hidden><span class='cm-comment'>// AI audio enhancer market — call center segment</span>
+                            <td><strong>Contact Center Audio Cleanup</strong><div class="calc-data" hidden><span class='cm-comment'>// AI audio enhancer market — contact center + VoIP segment</span>
 $1.26B AI enhancer market <span class='cm-source'>[SOURCE: Market.us]</span>
-&times; 38% call center segment <span class='cm-estimate'>[ESTIMATE]</span>
+&times; 38% contact center segment <span class='cm-estimate'>[ESTIMATE]</span>
 &times; 33% batch/offline processing
-= <span class='cm-result'>$160M addressable market</span>
+= $160M call recording cleanup
+
+$117B contact center outsourcing <span class='cm-source'>[SOURCE: Market Data Forecast]</span>
+&times; 0.18% audio recovery tools &times; 33% batch
+= $70M VoIP/network audio recovery
+
+Combined: <span class='cm-result'>$230M addressable market</span>
 
 <span class='cm-comment'>// Sanas Year 3 revenue</span>
-$160M &times; 0.5% capture
-= <span class='cm-result'>$800K Year 3 revenue</span></div></td>
-                            <td>$160M</td>
-                            <td>$800K</td>
-                            <td><button class="calc-btn" onclick="openCalcModal('Call Recording Quality Enhancement &mdash; $160M / $800K', this.closest('tr').querySelector('.calc-data').innerHTML)"><svg viewBox="0 0 16 16"><path d="M2 2a2 2 0 012-2h8a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V2zm2 1v2h8V3H4zm0 4v1h3V7H4zm0 3v1h3v-1H4zm5-3v1h3V7H9zm0 3v1h3v-1H9z"/></svg>View</button></td>
+$230M &times; 0.5% capture
+= <span class='cm-result'>$1.15M Year 3 revenue</span></div></td>
+                            <td>$230M</td>
+                            <td>$1.15M</td>
+                            <td><button class="calc-btn" onclick="openCalcModal('Contact Center Audio Cleanup &mdash; $230M / $1.15M', this.closest('tr').querySelector('.calc-data').innerHTML)"><svg viewBox="0 0 16 16"><path d="M2 2a2 2 0 012-2h8a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V2zm2 1v2h8V3H4zm0 4v1h3V7H4zm0 3v1h3v-1H4zm5-3v1h3V7H9zm0 3v1h3v-1H9z"/></svg>View</button></td>
                         </tr>
                         <tr>
-                            <td><strong>ASR Preprocessing (de-reverb + mic upscale + energy)</strong><div class="calc-data" hidden><span class='cm-comment'>// STT market — audio enhancement preprocessing</span>
-$3.81B STT market <span class='cm-source'>[SOURCE: Grand View Research STT]</span>
-&times; 5% needing audio enhancement before transcription <span class='cm-estimate'>[ESTIMATE]</span>
-&times; 50% batch processing
-= <span class='cm-result'>$95M addressable market</span>
-
-<span class='cm-comment'>// Sanas Year 3 revenue</span>
-$95M &times; 0.5% capture
-= <span class='cm-result'>$475K Year 3 revenue</span></div></td>
-                            <td>$95M</td>
-                            <td>$475K</td>
-                            <td><button class="calc-btn" onclick="openCalcModal('ASR Preprocessing &mdash; $95M / $475K', this.closest('tr').querySelector('.calc-data').innerHTML)"><svg viewBox="0 0 16 16"><path d="M2 2a2 2 0 012-2h8a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V2zm2 1v2h8V3H4zm0 4v1h3V7H4zm0 3v1h3v-1H4zm5-3v1h3V7H9zm0 3v1h3v-1H9z"/></svg>View</button></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Podcast / Media Post-Production API</strong><div class="calc-data" hidden><span class='cm-comment'>// AI audio editing — podcast/media enhancement API</span>
+                            <td><strong>Content Production &amp; Media</strong><div class="calc-data" hidden><span class='cm-comment'>// AI audio editing — podcast, video, media enhancement</span>
 $5.68B AI audio editing market <span class='cm-source'>[SOURCE: GlobeNewsWire]</span>
 &times; 4.2% podcast/media enhancement API <span class='cm-estimate'>[ESTIMATE]</span>
 &times; 33% batch processing
-= <span class='cm-result'>$80M addressable market</span>
+= $80M podcast/media
 
-<span class='cm-comment'>// Sanas Year 3 revenue</span>
-$80M &times; 0.5% capture
-= <span class='cm-result'>$400K</span> (standalone pricing: $0.03&ndash;$0.05/min)</div></td>
-                            <td>$80M</td>
-                            <td>$400K</td>
-                            <td><button class="calc-btn" onclick="openCalcModal('Podcast / Media Post-Production API &mdash; $80M / $400K', this.closest('tr').querySelector('.calc-data').innerHTML)"><svg viewBox="0 0 16 16"><path d="M2 2a2 2 0 012-2h8a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V2zm2 1v2h8V3H4zm0 4v1h3V7H4zm0 3v1h3v-1H4zm5-3v1h3V7H9zm0 3v1h3v-1H9z"/></svg>View</button></td>
-                        </tr>
-                        <tr>
-                            <td><strong>VoIP / Network Audio Recovery Pipeline</strong><div class="calc-data" hidden><span class='cm-comment'>// Contact center outsourcing — audio recovery tools</span>
-$117B contact center outsourcing market <span class='cm-source'>[SOURCE: Market Data Forecast CC Outsourcing]</span>
-&times; 0.18% audio recovery tools <span class='cm-estimate'>[ESTIMATE]</span>
-&times; 33% batch processing
-= <span class='cm-result'>$70M addressable market</span>
-
-<span class='cm-comment'>// Sanas Year 3 revenue</span>
-$70M &times; 0.5% capture
-= <span class='cm-result'>$350K</span></div></td>
-                            <td>$70M</td>
-                            <td>$350K</td>
-                            <td><button class="calc-btn" onclick="openCalcModal('VoIP / Network Audio Recovery &mdash; $70M / $350K', this.closest('tr').querySelector('.calc-data').innerHTML)"><svg viewBox="0 0 16 16"><path d="M2 2a2 2 0 012-2h8a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V2zm2 1v2h8V3H4zm0 4v1h3V7H4zm0 3v1h3v-1H4zm5-3v1h3V7H9zm0 3v1h3v-1H9z"/></svg>View</button></td>
-                        </tr>
-                        <tr>
-                            <td><strong>E-Learning Audio Remediation</strong><div class="calc-data" hidden><span class='cm-comment'>// E-learning market — audio remediation via batch API</span>
 $399B e-learning market <span class='cm-source'>[SOURCE: Statista/HolonIQ]</span>
-&times; 0.3% audio remediation <span class='cm-estimate'>[ESTIMATE]</span>
-&times; 38% batch API addressable
-= <span class='cm-result'>$45M addressable market</span>
+&times; 0.3% audio remediation &times; 38% batch API
+= $45M e-learning
+
+Combined: <span class='cm-result'>$125M addressable market</span>
 
 <span class='cm-comment'>// Sanas Year 3 revenue</span>
-$45M &times; 0.5% capture
-= <span class='cm-result'>$225K</span></div></td>
-                            <td>$45M</td>
-                            <td>$225K</td>
-                            <td><button class="calc-btn" onclick="openCalcModal('E-Learning Audio Remediation &mdash; $45M / $225K', this.closest('tr').querySelector('.calc-data').innerHTML)"><svg viewBox="0 0 16 16"><path d="M2 2a2 2 0 012-2h8a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V2zm2 1v2h8V3H4zm0 4v1h3V7H4zm0 3v1h3v-1H4zm5-3v1h3V7H9zm0 3v1h3v-1H9z"/></svg>View</button></td>
+$125M &times; 0.5% capture
+= <span class='cm-result'>$625K Year 3 revenue</span></div></td>
+                            <td>$125M</td>
+                            <td>$625K</td>
+                            <td><button class="calc-btn" onclick="openCalcModal('Content Production &amp; Media &mdash; $125M / $625K', this.closest('tr').querySelector('.calc-data').innerHTML)"><svg viewBox="0 0 16 16"><path d="M2 2a2 2 0 012-2h8a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V2zm2 1v2h8V3H4zm0 4v1h3V7H4zm0 3v1h3v-1H4zm5-3v1h3V7H9zm0 3v1h3v-1H9z"/></svg>View</button></td>
                         </tr>
                         <tr>
-                            <td><strong>Forensic / Evidence Audio Enhancement</strong><div class="calc-data" hidden><span class='cm-comment'>// Legal tech + law enforcement audio recovery</span>
-Niche: legal tech + law enforcement audio recovery
-<span class='cm-estimate'>[ESTIMATE: specialized, high-value, low-volume]</span>
-= <span class='cm-result'>$30M addressable market</span>
+                            <td><strong>Audio Intelligence Preprocessing</strong><div class="calc-data" hidden><span class='cm-comment'>// STT + forensic — enhancement before downstream AI</span>
+$3.81B STT market <span class='cm-source'>[SOURCE: Grand View Research STT]</span>
+&times; 5% needing audio enhancement before transcription <span class='cm-estimate'>[ESTIMATE]</span>
+&times; 50% batch processing
+= $95M ASR preprocessing
+
+Forensic / legal audio enhancement (niche, high-value)
+<span class='cm-estimate'>[ESTIMATE: specialized]</span>
+= $30M forensic
+
+Combined: <span class='cm-result'>$125M addressable market</span>
 
 <span class='cm-comment'>// Sanas Year 3 revenue</span>
-$30M &times; 0.5% capture
-= <span class='cm-result'>$150K</span></div></td>
-                            <td>$30M</td>
-                            <td>$150K</td>
-                            <td><button class="calc-btn" onclick="openCalcModal('Forensic / Evidence Audio Enhancement &mdash; $30M / $150K', this.closest('tr').querySelector('.calc-data').innerHTML)"><svg viewBox="0 0 16 16"><path d="M2 2a2 2 0 012-2h8a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V2zm2 1v2h8V3H4zm0 4v1h3V7H4zm0 3v1h3v-1H4zm5-3v1h3V7H9zm0 3v1h3v-1H9z"/></svg>View</button></td>
+$125M &times; 0.5% capture
+= <span class='cm-result'>$625K Year 3 revenue</span></div></td>
+                            <td>$125M</td>
+                            <td>$625K</td>
+                            <td><button class="calc-btn" onclick="openCalcModal('Audio Intelligence Preprocessing &mdash; $125M / $625K', this.closest('tr').querySelector('.calc-data').innerHTML)"><svg viewBox="0 0 16 16"><path d="M2 2a2 2 0 012-2h8a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V2zm2 1v2h8V3H4zm0 4v1h3V7H4zm0 3v1h3v-1H4zm5-3v1h3V7H9zm0 3v1h3v-1H9z"/></svg>View</button></td>
                         </tr>
                         <tr style="background:rgba(46,204,113,0.08); font-weight:600;">
                             <td>Developer Subtotal</td>
@@ -1669,69 +1678,34 @@ $30M &times; 0.5% capture
                     </thead>
                     <tbody>
                         <tr>
-                            <td><strong>Podcast Episode Cleanup (backlog remediation)</strong><div class="calc-data" hidden><span class='cm-comment'>// Non-dev podcast cleanup — subset of developer podcast market</span>
-50% of developer podcast market; non-dev web upload users
+                            <td><strong>Content &amp; Media Cleanup</strong><div class="calc-data" hidden><span class='cm-comment'>// Non-dev content creators uploading audio for enhancement</span>
+50% of developer content/media market ($125M); web upload users
+Podcast episode cleanup, training/lecture remediation, video audio
 <span class='cm-estimate'>[ESTIMATE: lower volume, self-serve pricing]</span>
-= <span class='cm-result'>$40M addressable market</span>
+= <span class='cm-result'>$65M addressable market</span>
 
 <span class='cm-comment'>// Sanas Year 3 revenue</span>
-$40M &times; 0.6% capture
-= <span class='cm-result'>$240K</span></div></td>
-                            <td>$40M</td>
-                            <td>$240K</td>
-                            <td><button class="calc-btn" onclick="openCalcModal('Podcast Episode Cleanup &mdash; $40M / $240K', this.closest('tr').querySelector('.calc-data').innerHTML)"><svg viewBox="0 0 16 16"><path d="M2 2a2 2 0 012-2h8a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V2zm2 1v2h8V3H4zm0 4v1h3V7H4zm0 3v1h3v-1H4zm5-3v1h3V7H9zm0 3v1h3v-1H9z"/></svg>View</button></td>
+$65M &times; 0.6% capture
+= <span class='cm-result'>$390K</span></div></td>
+                            <td>$65M</td>
+                            <td>$390K</td>
+                            <td><button class="calc-btn" onclick="openCalcModal('Content &amp; Media Cleanup &mdash; $65M / $390K', this.closest('tr').querySelector('.calc-data').innerHTML)"><svg viewBox="0 0 16 16"><path d="M2 2a2 2 0 012-2h8a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V2zm2 1v2h8V3H4zm0 4v1h3V7H4zm0 3v1h3v-1H4zm5-3v1h3V7H9zm0 3v1h3v-1H9z"/></svg>View</button></td>
                         </tr>
                         <tr>
-                            <td><strong>Meeting / Webinar Recording Enhancement</strong><div class="calc-data" hidden><span class='cm-comment'>// Virtual events — audio cleanup tools</span>
-$45B virtual events market
-&times; 0.07% audio cleanup tools <span class='cm-estimate'>[ESTIMATE: competes with free tools]</span>
-= <span class='cm-result'>$30M addressable market</span>
+                            <td><strong>Recording &amp; Meeting Enhancement</strong><div class="calc-data" hidden><span class='cm-comment'>// Meetings, interviews, personal audio cleanup</span>
+$45B virtual events market &times; 0.07% audio cleanup = $30M meetings
+Research/journalism audio = $15M interviews
+Consumer/personal audio = $10M personal
+<span class='cm-estimate'>[ESTIMATE: competes with free tools]</span>
+
+Combined: <span class='cm-result'>$55M addressable market</span>
 
 <span class='cm-comment'>// Sanas Year 3 revenue</span>
-$30M &times; 0.6% capture
-= <span class='cm-result'>$180K</span></div></td>
-                            <td>$30M</td>
-                            <td>$180K</td>
-                            <td><button class="calc-btn" onclick="openCalcModal('Meeting / Webinar Recording Enhancement &mdash; $30M / $180K', this.closest('tr').querySelector('.calc-data').innerHTML)"><svg viewBox="0 0 16 16"><path d="M2 2a2 2 0 012-2h8a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V2zm2 1v2h8V3H4zm0 4v1h3V7H4zm0 3v1h3v-1H4zm5-3v1h3V7H9zm0 3v1h3v-1H9z"/></svg>View</button></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Training / Lecture Audio Remediation</strong><div class="calc-data" hidden><span class='cm-comment'>// E-learning subset — non-dev faculty/L&amp;D uploading recordings</span>
-Subset of e-learning; non-dev faculty/L&amp;D uploading recordings
-<span class='cm-estimate'>[ESTIMATE]</span>
-= <span class='cm-result'>$25M addressable market</span>
-
-<span class='cm-comment'>// Sanas Year 3 revenue</span>
-$25M &times; 0.6% capture
-= <span class='cm-result'>$150K</span></div></td>
-                            <td>$25M</td>
-                            <td>$150K</td>
-                            <td><button class="calc-btn" onclick="openCalcModal('Training / Lecture Audio Remediation &mdash; $25M / $150K', this.closest('tr').querySelector('.calc-data').innerHTML)"><svg viewBox="0 0 16 16"><path d="M2 2a2 2 0 012-2h8a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V2zm2 1v2h8V3H4zm0 4v1h3V7H4zm0 3v1h3v-1H4zm5-3v1h3V7H9zm0 3v1h3v-1H9z"/></svg>View</button></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Interview / Research Recording Cleanup</strong><div class="calc-data" hidden><span class='cm-comment'>// Research/journalism audio cleanup</span>
-Research/journalism audio; small per-user volume
-<span class='cm-estimate'>[ESTIMATE]</span>
-= <span class='cm-result'>$15M addressable market</span>
-
-<span class='cm-comment'>// Sanas Year 3 revenue</span>
-$15M &times; 0.6% capture
-= <span class='cm-result'>$90K</span></div></td>
-                            <td>$15M</td>
-                            <td>$90K</td>
-                            <td><button class="calc-btn" onclick="openCalcModal('Interview / Research Recording Cleanup &mdash; $15M / $90K', this.closest('tr').querySelector('.calc-data').innerHTML)"><svg viewBox="0 0 16 16"><path d="M2 2a2 2 0 012-2h8a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V2zm2 1v2h8V3H4zm0 4v1h3V7H4zm0 3v1h3v-1H4zm5-3v1h3V7H9zm0 3v1h3v-1H9z"/></svg>View</button></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Personal Audio Quality Improvement</strong><div class="calc-data" hidden><span class='cm-comment'>// Consumer segment</span>
-Consumer segment; heavily competed by Adobe free
-<span class='cm-estimate'>[ESTIMATE]</span>
-= <span class='cm-result'>$10M addressable market</span>
-
-<span class='cm-comment'>// Sanas Year 3 revenue</span>
-$10M &times; 0.6% capture
-= <span class='cm-result'>$60K</span></div></td>
-                            <td>$10M</td>
-                            <td>$60K</td>
-                            <td><button class="calc-btn" onclick="openCalcModal('Personal Audio Quality Improvement &mdash; $10M / $60K', this.closest('tr').querySelector('.calc-data').innerHTML)"><svg viewBox="0 0 16 16"><path d="M2 2a2 2 0 012-2h8a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V2zm2 1v2h8V3H4zm0 4v1h3V7H4zm0 3v1h3v-1H4zm5-3v1h3V7H9zm0 3v1h3v-1H9z"/></svg>View</button></td>
+$55M &times; 0.6% capture
+= <span class='cm-result'>$330K</span></div></td>
+                            <td>$55M</td>
+                            <td>$330K</td>
+                            <td><button class="calc-btn" onclick="openCalcModal('Recording &amp; Meeting Enhancement &mdash; $55M / $330K', this.closest('tr').querySelector('.calc-data').innerHTML)"><svg viewBox="0 0 16 16"><path d="M2 2a2 2 0 012-2h8a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V2zm2 1v2h8V3H4zm0 4v1h3V7H4zm0 3v1h3v-1H4zm5-3v1h3V7H9zm0 3v1h3v-1H9z"/></svg>View</button></td>
                         </tr>
                         <tr style="background:rgba(233,69,96,0.08); font-weight:600;">
                             <td>Non-Developer Subtotal</td>
