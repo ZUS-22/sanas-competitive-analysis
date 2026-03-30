@@ -791,8 +791,8 @@
                 </tr>
                 <tr>
                     <td class="product-col">Speech Enhancement</td>
-                    <td class="decision-cell"><span class="decision-tag tag-bundle">Bundle</span></td>
-                    <td class="rationale-col">Solves reverb, mic upscaling, low-energy speech, network artifacts. Crowded standalone (Adobe free, Dolby.io). Bundle into AT pipeline at $0 incremental.</td>
+                    <td class="decision-cell"><span class="decision-tag tag-build">Build</span></td>
+                    <td class="rationale-col">Solves reverb, mic upscaling, low-energy speech, network artifacts. Already in AT pipeline; standalone API addresses broader market (podcast, media, VoIP, e-learning).</td>
                     <td class="number-col">$600M</td>
                     <td class="number-col" style="color:#e67e22;">$3.12M</td>
                 </tr>
@@ -830,7 +830,7 @@
                 </tr>
             </tfoot>
         </table>
-        <p class="exec-footnote">* ASR revenue is partner revenue share (20% margin), not direct Sanas revenue. Speech Enhancement is bundled at $0 incremental to the AT pipeline.</p>
+        <p class="exec-footnote">* ASR revenue is partner revenue share (20% margin), not direct Sanas revenue.</p>
     </div>
 </div>
 
@@ -1321,7 +1321,7 @@ $40M &times; 0.6% capture at lower self-serve ACV
     <div class="container">
         <div class="section-header">
             <h2>Product: Speech Enhancement</h2>
-            <span class="product-tag tag-bundle">Bundle</span>
+            <span class="product-tag tag-build">Build</span>
             <span class="market-captured">~20% Captured &mdash; $120M of $600M</span>
         </div>
 
@@ -1330,8 +1330,8 @@ $40M &times; 0.6% capture at lower self-serve ACV
         </div>
 
         <div class="decision-box">
-            <h3>Executive Decision: BUILD LIGHT &mdash; Bundle into AT Pipeline</h3>
-            <p>The standalone speech enhancement market is crowded: Adobe Enhance Speech is free and excellent, Dolby.io owns the API space, and Auphonic dominates podcast post-production. Building a standalone product is not viable. However, speech enhancement is a <strong>critical preprocessing step</strong> that directly improves Accent Translation output quality. Since AT already includes Noise Cancellation, bundling reverb removal, mic upscaling, and energy normalization into the AT pipeline (Enhancement &rarr; AT) creates a differentiated end-to-end audio processing pipeline that no competitor offers. The AI-powered audio enhancer market is $1.26B (2025), growing at 33.4% CAGR &mdash; the opportunity is real, but only as part of a combined offering.</p>
+            <h3>Executive Decision: BUILD &mdash; Standalone Non-Streaming SE API</h3>
+            <p>Speech enhancement capabilities (reverb removal, mic upscaling, energy normalization, network audio repair) are already included in the Accent Translation pipeline. As a standalone non-streaming API, SE addresses a broader market beyond AT users &mdash; podcast producers, media companies, e-learning platforms, and VoIP providers who need audio quality improvement without accent conversion. The AI-powered audio enhancer market is $1.26B (2025), growing at 33.4% CAGR. While Adobe Enhance Speech is free and Dolby.io dominates the API space, neither offers a comprehensive batch API with reverb + mic upscale + energy normalization + network repair in a single call at competitive pricing.</p>
         </div>
 
         <h3 class="sub-heading">Competitors</h3>
@@ -1565,14 +1565,15 @@ $40M &times; 0.6% capture at lower self-serve ACV
                     </thead>
                     <tbody>
                         <tr>
-                            <td><strong>Call Recording Quality Enhancement (pre-AT pipeline)</strong><div class="calc-data" hidden><span class='cm-comment'>// AI audio enhancer market — call center segment</span>
+                            <td><strong>Call Recording Quality Enhancement</strong><div class="calc-data" hidden><span class='cm-comment'>// AI audio enhancer market — call center segment</span>
 $1.26B AI enhancer market <span class='cm-source'>[SOURCE: Market.us]</span>
 &times; 38% call center segment <span class='cm-estimate'>[ESTIMATE]</span>
 &times; 33% batch/offline processing
 = <span class='cm-result'>$160M addressable market</span>
 
-<span class='cm-comment'>// Sanas Year 3 revenue (bundled with AT)</span>
-Bundled at $0 incremental; attributed <span class='cm-result'>$800K</span> <span class='cm-estimate'>[ESTIMATE: AT pipeline attribution]</span></div></td>
+<span class='cm-comment'>// Sanas Year 3 revenue</span>
+$160M &times; 0.5% capture
+= <span class='cm-result'>$800K Year 3 revenue</span></div></td>
                             <td>$160M</td>
                             <td>$800K</td>
                             <td><button class="calc-btn" onclick="openCalcModal('Call Recording Quality Enhancement &mdash; $160M / $800K', this.closest('tr').querySelector('.calc-data').innerHTML)"><svg viewBox="0 0 16 16"><path d="M2 2a2 2 0 012-2h8a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V2zm2 1v2h8V3H4zm0 4v1h3V7H4zm0 3v1h3v-1H4zm5-3v1h3V7H9zm0 3v1h3v-1H9z"/></svg>View</button></td>
@@ -1584,8 +1585,9 @@ $3.81B STT market <span class='cm-source'>[SOURCE: Grand View Research STT]</spa
 &times; 50% batch processing
 = <span class='cm-result'>$95M addressable market</span>
 
-<span class='cm-comment'>// Sanas Year 3 revenue (bundled with AT)</span>
-Bundled at $0 incremental; attributed <span class='cm-result'>$475K</span></div></td>
+<span class='cm-comment'>// Sanas Year 3 revenue</span>
+$95M &times; 0.5% capture
+= <span class='cm-result'>$475K Year 3 revenue</span></div></td>
                             <td>$95M</td>
                             <td>$475K</td>
                             <td><button class="calc-btn" onclick="openCalcModal('ASR Preprocessing &mdash; $95M / $475K', this.closest('tr').querySelector('.calc-data').innerHTML)"><svg viewBox="0 0 16 16"><path d="M2 2a2 2 0 012-2h8a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V2zm2 1v2h8V3H4zm0 4v1h3V7H4zm0 3v1h3v-1H4zm5-3v1h3V7H9zm0 3v1h3v-1H9z"/></svg>View</button></td>
@@ -1747,7 +1749,7 @@ $10M &times; 0.6% capture
                     <span style="font-size:12px; color:var(--accent);"><strong>Developer:</strong> $480M market &rarr; $2.4M rev (77%)</span>
                     <span style="font-size:12px; color:var(--highlight);"><strong>Non-Developer:</strong> $120M market &rarr; $720K rev (23%)</span>
                 </div>
-                <p style="font-size:12px; color:var(--muted); margin-top:4px;"><strong>Revenue model note:</strong> Top two developer use cases (call recording + ASR preprocessing) are bundled at $0 incremental &mdash; they increase AT pipeline stickiness and justify the $0.05&ndash;$0.08/min AT pricing. Standalone revenue comes from media, VoIP, e-learning, and forensic use cases only.</p>
+                <p style="font-size:12px; color:var(--muted); margin-top:4px;"><strong>Revenue model:</strong> Usage-based batch API at $0.03&ndash;$0.05/min. Speech enhancement capabilities are already included in the AT pipeline, so SE as a standalone API targets the broader market beyond AT users &mdash; podcast producers, media companies, VoIP providers, and e-learning platforms who need audio quality improvement without accent conversion.</p>
             </div>
         </div>
 
