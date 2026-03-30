@@ -672,28 +672,86 @@
             padding: 20px 24px 24px;
         }
         .calc-modal-body .calc-step {
-            font-family: 'SF Mono', 'Fira Code', monospace;
-            font-size: 12.5px;
-            line-height: 1.7;
+            font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+            font-size: 13px;
+            line-height: 1.8;
             white-space: pre-wrap;
             color: var(--text);
+            background: #f8fafb;
+            border-radius: 8px;
+            padding: 20px 24px;
+            border: 1px solid #e8ecf0;
         }
-        .calc-modal-body .calc-step .cm-comment { color: #6c757d; font-style: italic; }
-        .calc-modal-body .calc-step .cm-source { color: #2980b9; font-weight: 600; font-size: 11px; }
-        .calc-modal-body .calc-step .cm-estimate { color: #e67e22; font-size: 11px; }
-        .calc-modal-body .calc-step .cm-result { color: #27ae60; font-weight: 700; }
+        .calc-modal-body .calc-step .cm-comment {
+            display: block;
+            color: #5a6a7a;
+            font-style: italic;
+            font-size: 12px;
+            margin-top: 14px;
+            padding-bottom: 4px;
+            border-bottom: 1px solid #e0e6ec;
+            margin-bottom: 4px;
+        }
+        .calc-modal-body .calc-step .cm-comment:first-child { margin-top: 0; }
+        .calc-modal-body .calc-step .cm-source {
+            display: inline-block;
+            color: #2471a3;
+            font-weight: 600;
+            font-size: 10.5px;
+            background: #eaf2f8;
+            padding: 1px 6px;
+            border-radius: 3px;
+        }
+        .calc-modal-body .calc-step .cm-estimate {
+            display: inline-block;
+            color: #b45309;
+            font-size: 10.5px;
+            background: #fef3e2;
+            padding: 1px 6px;
+            border-radius: 3px;
+        }
+        .calc-modal-body .calc-step .cm-result {
+            color: #1a7f37;
+            font-weight: 700;
+            background: #e6f9ed;
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
         .calc-modal-body .calc-step .cm-line { display: block; padding: 2px 0; }
         .calc-modal-body .calc-step .cm-divider { border-top: 1px dashed var(--border); margin: 10px 0; }
-
-        /* Clickable table rows */
-        tr.calc-clickable { cursor: pointer; transition: background 0.15s; }
-        tr.calc-clickable:hover { background: rgba(52,152,219,0.06) !important; }
-        tr.calc-clickable td:first-child::after {
-            content: ' \u24d8';
-            font-size: 11px;
-            color: var(--blue);
-            opacity: 0.6;
+        .calc-modal-body .calc-legend {
+            display: flex; gap: 16px; margin-top: 16px; padding-top: 12px;
+            border-top: 1px solid #e0e6ec; font-size: 11px; color: var(--muted);
         }
+        .calc-modal-body .calc-legend span { display: flex; align-items: center; gap: 4px; }
+        .calc-modal-body .calc-legend .dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+        .calc-modal-body .calc-legend .dot-source { background: #2471a3; }
+        .calc-modal-body .calc-legend .dot-estimate { background: #b45309; }
+        .calc-modal-body .calc-legend .dot-result { background: #1a7f37; }
+
+        /* Calculation button */
+        .calc-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 5px 12px;
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            white-space: nowrap;
+            box-shadow: 0 1px 3px rgba(52,152,219,0.3);
+        }
+        .calc-btn:hover {
+            background: linear-gradient(135deg, #2980b9 0%, #2471a3 100%);
+            box-shadow: 0 2px 6px rgba(52,152,219,0.4);
+            transform: translateY(-1px);
+        }
+        .calc-btn svg { width: 12px; height: 12px; fill: currentColor; }
     </style>
 </head>
 <body>
@@ -1039,26 +1097,26 @@
                 </div>
                 <table>
                     <thead>
-                        <tr><th>Use Case</th><th>Addressable Market</th><th>Sanas Revenue (Yr 3)</th><th>Revenue Model</th></tr>
+                        <tr><th>Use Case</th><th>Addressable Market</th><th>Sanas Revenue (Yr 3)</th><th>Calculation</th></tr>
                     </thead>
                     <tbody>
-                        <tr class="calc-clickable" onclick="openCalcModal('Media Content Localization &mdash; $175M / $1.4M', this.querySelector('.calc-data').innerHTML)">
+                        <tr>
                             <td><strong>Media Content Localization</strong><div class="calc-data" hidden><span class=\'cm-comment\'>// Media localization market — accent conversion subset</span>\n$3.98B media localization market <span class=\'cm-source\'>[SOURCE: Grand View Research]</span>\n&times; 8% audio-only accent work (vs full dubbing/translation) <span class=\'cm-estimate\'>[ESTIMATE]</span>\n= <span class=\'cm-result\'>$318M accent-relevant media localization</span>\n\n<span class=\'cm-comment\'>// Podcast market — accent conversion subset</span>\n$28.4B podcast market <span class=\'cm-source\'>[SOURCE: Grand View Research]</span>\n&times; 2% audio processing spend &times; 8% needing accent conversion\n= <span class=\'cm-result\'>$45M accent-relevant podcast market</span>\n\n<span class=\'cm-comment\'>// Combined addressable via API</span>\n($318M + $45M) &times; 48% addressable via API\n= <span class=\'cm-result\'>$175M addressable market</span>\n\n<span class=\'cm-comment\'>// Sanas Year 3 revenue</span>\n$175M &times; 0.8% market capture\n= <span class=\'cm-result\'>$1.4M Year 3 revenue</span> <span class=\'cm-estimate\'>[10-15 platform integrations]</span></div></td>
                             <td>$175M</td>
                             <td>$1.4M</td>
-                            <td>Usage-based: $0.05&ndash;$0.08/min</td>
+                            <td><button class="calc-btn" onclick="openCalcModal('Media Content Localization &mdash; $175M / $1.4M', this.closest('tr').querySelector('.calc-data').innerHTML)"><svg viewBox="0 0 16 16"><path d="M2 2a2 2 0 012-2h8a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V2zm2 1v2h8V3H4zm0 4v1h3V7H4zm0 3v1h3v-1H4zm5-3v1h3V7H9zm0 3v1h3v-1H9z"/></svg>View</button></td>
                         </tr>
-                        <tr class="calc-clickable" onclick="openCalcModal('Accessibility Tools &mdash; $150M / $1.2M', this.querySelector('.calc-data').innerHTML)">
+                        <tr>
                             <td><strong>Accessibility Tools</strong><div class="calc-data" hidden><span class=\'cm-comment\'>// E-learning market — accessibility-driven accent adaptation</span>\n$399B global e-learning market <span class=\'cm-source\'>[SOURCE: Statista/HolonIQ]</span>\n&times; 12% audio/video content &times; 15% needing accent adaptation\n= <span class=\'cm-result\'>$7.2B accent-relevant e-learning audio</span>\n\n<span class=\'cm-comment\'>// Government &amp; accessibility platform subset</span>\n$2.1B accessibility compliance market <span class=\'cm-source\'>[SOURCE: Market Research Future]</span>\n&times; 8% audio needing accent clarity\n= <span class=\'cm-result\'>$168M accessibility audio market</span>\n\n<span class=\'cm-comment\'>// Combined addressable via API</span>\n($7.2B &times; 1.5%) + ($168M &times; 30%) = $108M + $50M\n= <span class=\'cm-result\'>$150M addressable market</span>\n\n<span class=\'cm-comment\'>// Sanas Year 3 revenue</span>\n$150M &times; 0.8% capture\n= <span class=\'cm-result\'>$1.2M Year 3 revenue</span> <span class=\'cm-estimate\'>[~12 EdTech/accessibility customers]</span></div></td>
                             <td>$150M</td>
                             <td>$1.2M</td>
-                            <td>Usage-based: $0.05&ndash;$0.07/min</td>
+                            <td><button class="calc-btn" onclick="openCalcModal('Accessibility Tools &mdash; $150M / $1.2M', this.closest('tr').querySelector('.calc-data').innerHTML)"><svg viewBox="0 0 16 16"><path d="M2 2a2 2 0 012-2h8a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V2zm2 1v2h8V3H4zm0 4v1h3V7H4zm0 3v1h3v-1H4zm5-3v1h3V7H9zm0 3v1h3v-1H9z"/></svg>View</button></td>
                         </tr>
-                        <tr class="calc-clickable" onclick="openCalcModal('Voice Dubbing Pipelines &mdash; $130M / $1.04M', this.querySelector('.calc-data').innerHTML)">
+                        <tr>
                             <td><strong>Voice Dubbing Pipelines</strong><div class="calc-data" hidden><span class=\'cm-comment\'>// Media production dubbing market</span>\n$3.98B media localization <span class=\'cm-source\'>[SOURCE: Grand View Research]</span>\n&times; 22% voice dubbing share\n= <span class=\'cm-result\'>$876M voice dubbing market</span>\n\n<span class=\'cm-comment\'>// Corporate L&amp;D dubbing — accent-specific</span>\n$399B e-learning <span class=\'cm-source\'>[SOURCE: Statista/HolonIQ]</span>\n&times; 40% corporate L&amp;D &times; 3% accent-specific dubbing\n= <span class=\'cm-result\'>$4.8B corporate training dubbing</span>\n\n<span class=\'cm-comment\'>// Combined addressable via API</span>\n($876M &times; 10% &times; 50%) + ($4.8B &times; 2%)\n= $43.8M + $96M = <span class=\'cm-result\'>$130M addressable market</span>\n\n<span class=\'cm-comment\'>// Sanas Year 3 revenue</span>\n$130M &times; 0.8% capture\n= <span class=\'cm-result\'>$1.04M Year 3 revenue</span> <span class=\'cm-estimate\'>[8-12 integrations]</span></div></td>
                             <td>$130M</td>
                             <td>$1.04M</td>
-                            <td>Per-project + volume tiers</td>
+                            <td><button class="calc-btn" onclick="openCalcModal('Voice Dubbing Pipelines &mdash; $130M / $1.04M', this.closest('tr').querySelector('.calc-data').innerHTML)"><svg viewBox="0 0 16 16"><path d="M2 2a2 2 0 012-2h8a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V2zm2 1v2h8V3H4zm0 4v1h3V7H4zm0 3v1h3v-1H4zm5-3v1h3V7H9zm0 3v1h3v-1H9z"/></svg>View</button></td>
                         </tr>
                         <tr style="background:rgba(46,204,113,0.08); font-weight:600;">
                             <td>Developer Subtotal</td>
@@ -1078,10 +1136,10 @@
                 </div>
                 <table>
                     <thead>
-                        <tr><th>Use Case</th><th>Addressable Market</th><th>Sanas Revenue (Yr 3)</th><th>Revenue Model</th></tr>
+                        <tr><th>Use Case</th><th>Addressable Market</th><th>Sanas Revenue (Yr 3)</th><th>Calculation</th></tr>
                     </thead>
                     <tbody>
-                        <tr class="calc-clickable" onclick="openCalcModal('Media Content Localization (Self-Serve) &mdash; $55M / $330K', this.querySelector('.calc-data').innerHTML)">
+                        <tr>
                             <td><strong>Media Content Localization (Self-Serve)</strong><div class="calc-data" hidden><span class='cm-comment'>// Non-technical content creators needing accent conversion</span>
 $175M developer addressable (from API market above)
 &times; 31% non-dev adjacent market <span class='cm-estimate'>[ESTIMATE: freelance podcasters, YouTubers, small production teams uploading files]</span>
@@ -1092,9 +1150,9 @@ $55M &times; 0.6% capture at lower self-serve ACV
 = <span class='cm-result'>$330K Year 3 revenue</span></div></td>
                             <td>$55M</td>
                             <td>$330K</td>
-                            <td>Subscription tiers</td>
+                            <td><button class="calc-btn" onclick="openCalcModal('Media Content Localization (Self-Serve) &mdash; $55M / $330K', this.closest('tr').querySelector('.calc-data').innerHTML)"><svg viewBox="0 0 16 16"><path d="M2 2a2 2 0 012-2h8a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V2zm2 1v2h8V3H4zm0 4v1h3V7H4zm0 3v1h3v-1H4zm5-3v1h3V7H9zm0 3v1h3v-1H9z"/></svg>View</button></td>
                         </tr>
-                        <tr class="calc-clickable" onclick="openCalcModal('Accessibility Tools (Self-Serve) &mdash; $45M / $270K', this.querySelector('.calc-data').innerHTML)">
+                        <tr>
                             <td><strong>Accessibility Tools (Self-Serve)</strong><div class="calc-data" hidden><span class='cm-comment'>// Non-technical educators and accessibility teams</span>
 $150M developer addressable (from API market above)
 &times; 30% non-dev adjacent market <span class='cm-estimate'>[ESTIMATE: individual educators, small institutions, government staff uploading lecture/training audio]</span>
@@ -1105,9 +1163,9 @@ $45M &times; 0.6% capture at lower self-serve ACV
 = <span class='cm-result'>$270K Year 3 revenue</span></div></td>
                             <td>$45M</td>
                             <td>$270K</td>
-                            <td>Subscription tiers</td>
+                            <td><button class="calc-btn" onclick="openCalcModal('Accessibility Tools (Self-Serve) &mdash; $45M / $270K', this.closest('tr').querySelector('.calc-data').innerHTML)"><svg viewBox="0 0 16 16"><path d="M2 2a2 2 0 012-2h8a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V2zm2 1v2h8V3H4zm0 4v1h3V7H4zm0 3v1h3v-1H4zm5-3v1h3V7H9zm0 3v1h3v-1H9z"/></svg>View</button></td>
                         </tr>
-                        <tr class="calc-clickable" onclick="openCalcModal('Voice Dubbing (Self-Serve) &mdash; $40M / $240K', this.querySelector('.calc-data').innerHTML)">
+                        <tr>
                             <td><strong>Voice Dubbing (Self-Serve)</strong><div class="calc-data" hidden><span class='cm-comment'>// Non-technical corporate L&amp;D and small media teams</span>
 $130M developer addressable (from API market above)
 &times; 31% non-dev adjacent market <span class='cm-estimate'>[ESTIMATE: L&amp;D teams, small studios uploading voiceover files for accent adjustment]</span>
@@ -1118,7 +1176,7 @@ $40M &times; 0.6% capture at lower self-serve ACV
 = <span class='cm-result'>$240K Year 3 revenue</span></div></td>
                             <td>$40M</td>
                             <td>$240K</td>
-                            <td>Per-file pricing</td>
+                            <td><button class="calc-btn" onclick="openCalcModal('Voice Dubbing (Self-Serve) &mdash; $40M / $240K', this.closest('tr').querySelector('.calc-data').innerHTML)"><svg viewBox="0 0 16 16"><path d="M2 2a2 2 0 012-2h8a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V2zm2 1v2h8V3H4zm0 4v1h3V7H4zm0 3v1h3v-1H4zm5-3v1h3V7H9zm0 3v1h3v-1H9z"/></svg>View</button></td>
                         </tr>
                         <tr style="background:rgba(233,69,96,0.08); font-weight:600;">
                             <td>Non-Developer Subtotal</td>
@@ -2318,10 +2376,10 @@ $40M &times; 0.6% capture at lower self-serve ACV
                 </div>
                 <table>
                     <thead>
-                        <tr><th>Use Case</th><th>Addressable Market</th><th>Sanas Revenue (Yr 3)</th><th>Revenue Model</th></tr>
+                        <tr><th>Use Case</th><th>Addressable Market</th><th>Sanas Revenue (Yr 3)</th><th>Calculation</th></tr>
                     </thead>
                     <tbody>
-                        <tr class="calc-clickable" onclick="openCalcModal('Call Recording Quality Enhancement &mdash; $160M / $800K', this.querySelector('.calc-data').innerHTML)">
+                        <tr>
                             <td><strong>Call Recording Quality Enhancement (pre-AT pipeline)</strong><div class="calc-data" hidden><span class='cm-comment'>// AI audio enhancer market — call center segment</span>
 $1.26B AI enhancer market <span class='cm-source'>[SOURCE: Market.us]</span>
 &times; 38% call center segment <span class='cm-estimate'>[ESTIMATE]</span>
@@ -2332,9 +2390,9 @@ $1.26B AI enhancer market <span class='cm-source'>[SOURCE: Market.us]</span>
 Bundled at $0 incremental; attributed <span class='cm-result'>$800K</span> <span class='cm-estimate'>[ESTIMATE: AT pipeline attribution]</span></div></td>
                             <td>$160M</td>
                             <td>$800K</td>
-                            <td>Bundled: $0 incremental to AT pricing</td>
+                            <td><button class="calc-btn" onclick="openCalcModal('Call Recording Quality Enhancement &mdash; $160M / $800K', this.closest('tr').querySelector('.calc-data').innerHTML)"><svg viewBox="0 0 16 16"><path d="M2 2a2 2 0 012-2h8a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V2zm2 1v2h8V3H4zm0 4v1h3V7H4zm0 3v1h3v-1H4zm5-3v1h3V7H9zm0 3v1h3v-1H9z"/></svg>View</button></td>
                         </tr>
-                        <tr class="calc-clickable" onclick="openCalcModal('ASR Preprocessing &mdash; $95M / $475K', this.querySelector('.calc-data').innerHTML)">
+                        <tr>
                             <td><strong>ASR Preprocessing (de-reverb + mic upscale + energy)</strong><div class="calc-data" hidden><span class='cm-comment'>// STT market — audio enhancement preprocessing</span>
 $3.81B STT market <span class='cm-source'>[SOURCE: Grand View Research STT]</span>
 &times; 5% needing audio enhancement before transcription <span class='cm-estimate'>[ESTIMATE]</span>
@@ -2345,9 +2403,9 @@ $3.81B STT market <span class='cm-source'>[SOURCE: Grand View Research STT]</spa
 Bundled at $0 incremental; attributed <span class='cm-result'>$475K</span></div></td>
                             <td>$95M</td>
                             <td>$475K</td>
-                            <td>Bundled: $0 incremental to AT pricing</td>
+                            <td><button class="calc-btn" onclick="openCalcModal('ASR Preprocessing &mdash; $95M / $475K', this.closest('tr').querySelector('.calc-data').innerHTML)"><svg viewBox="0 0 16 16"><path d="M2 2a2 2 0 012-2h8a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V2zm2 1v2h8V3H4zm0 4v1h3V7H4zm0 3v1h3v-1H4zm5-3v1h3V7H9zm0 3v1h3v-1H9z"/></svg>View</button></td>
                         </tr>
-                        <tr class="calc-clickable" onclick="openCalcModal('Podcast / Media Post-Production API &mdash; $80M / $400K', this.querySelector('.calc-data').innerHTML)">
+                        <tr>
                             <td><strong>Podcast / Media Post-Production API</strong><div class="calc-data" hidden><span class='cm-comment'>// AI audio editing — podcast/media enhancement API</span>
 $5.68B AI audio editing market <span class='cm-source'>[SOURCE: GlobeNewsWire]</span>
 &times; 4.2% podcast/media enhancement API <span class='cm-estimate'>[ESTIMATE]</span>
@@ -2359,9 +2417,9 @@ $80M &times; 0.5% capture
 = <span class='cm-result'>$400K</span> (standalone pricing: $0.03&ndash;$0.05/min)</div></td>
                             <td>$80M</td>
                             <td>$400K</td>
-                            <td>Usage-based: $0.03&ndash;$0.05/min</td>
+                            <td><button class="calc-btn" onclick="openCalcModal('Podcast / Media Post-Production API &mdash; $80M / $400K', this.closest('tr').querySelector('.calc-data').innerHTML)"><svg viewBox="0 0 16 16"><path d="M2 2a2 2 0 012-2h8a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V2zm2 1v2h8V3H4zm0 4v1h3V7H4zm0 3v1h3v-1H4zm5-3v1h3V7H9zm0 3v1h3v-1H9z"/></svg>View</button></td>
                         </tr>
-                        <tr class="calc-clickable" onclick="openCalcModal('VoIP / Network Audio Recovery &mdash; $70M / $350K', this.querySelector('.calc-data').innerHTML)">
+                        <tr>
                             <td><strong>VoIP / Network Audio Recovery Pipeline</strong><div class="calc-data" hidden><span class='cm-comment'>// Contact center outsourcing — audio recovery tools</span>
 $117B contact center outsourcing market <span class='cm-source'>[SOURCE: Market Data Forecast CC Outsourcing]</span>
 &times; 0.18% audio recovery tools <span class='cm-estimate'>[ESTIMATE]</span>
@@ -2373,9 +2431,9 @@ $70M &times; 0.5% capture
 = <span class='cm-result'>$350K</span></div></td>
                             <td>$70M</td>
                             <td>$350K</td>
-                            <td>Usage-based: $0.03&ndash;$0.05/min</td>
+                            <td><button class="calc-btn" onclick="openCalcModal('VoIP / Network Audio Recovery &mdash; $70M / $350K', this.closest('tr').querySelector('.calc-data').innerHTML)"><svg viewBox="0 0 16 16"><path d="M2 2a2 2 0 012-2h8a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V2zm2 1v2h8V3H4zm0 4v1h3V7H4zm0 3v1h3v-1H4zm5-3v1h3V7H9zm0 3v1h3v-1H9z"/></svg>View</button></td>
                         </tr>
-                        <tr class="calc-clickable" onclick="openCalcModal('E-Learning Audio Remediation &mdash; $45M / $225K', this.querySelector('.calc-data').innerHTML)">
+                        <tr>
                             <td><strong>E-Learning Audio Remediation</strong><div class="calc-data" hidden><span class='cm-comment'>// E-learning market — audio remediation via batch API</span>
 $399B e-learning market <span class='cm-source'>[SOURCE: Statista/HolonIQ]</span>
 &times; 0.3% audio remediation <span class='cm-estimate'>[ESTIMATE]</span>
@@ -2387,9 +2445,9 @@ $45M &times; 0.5% capture
 = <span class='cm-result'>$225K</span></div></td>
                             <td>$45M</td>
                             <td>$225K</td>
-                            <td>Per-project + volume tiers</td>
+                            <td><button class="calc-btn" onclick="openCalcModal('E-Learning Audio Remediation &mdash; $45M / $225K', this.closest('tr').querySelector('.calc-data').innerHTML)"><svg viewBox="0 0 16 16"><path d="M2 2a2 2 0 012-2h8a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V2zm2 1v2h8V3H4zm0 4v1h3V7H4zm0 3v1h3v-1H4zm5-3v1h3V7H9zm0 3v1h3v-1H9z"/></svg>View</button></td>
                         </tr>
-                        <tr class="calc-clickable" onclick="openCalcModal('Forensic / Evidence Audio Enhancement &mdash; $30M / $150K', this.querySelector('.calc-data').innerHTML)">
+                        <tr>
                             <td><strong>Forensic / Evidence Audio Enhancement</strong><div class="calc-data" hidden><span class='cm-comment'>// Legal tech + law enforcement audio recovery</span>
 Niche: legal tech + law enforcement audio recovery
 <span class='cm-estimate'>[ESTIMATE: specialized, high-value, low-volume]</span>
@@ -2400,7 +2458,7 @@ $30M &times; 0.5% capture
 = <span class='cm-result'>$150K</span></div></td>
                             <td>$30M</td>
                             <td>$150K</td>
-                            <td>Per-project pricing</td>
+                            <td><button class="calc-btn" onclick="openCalcModal('Forensic / Evidence Audio Enhancement &mdash; $30M / $150K', this.closest('tr').querySelector('.calc-data').innerHTML)"><svg viewBox="0 0 16 16"><path d="M2 2a2 2 0 012-2h8a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V2zm2 1v2h8V3H4zm0 4v1h3V7H4zm0 3v1h3v-1H4zm5-3v1h3V7H9zm0 3v1h3v-1H9z"/></svg>View</button></td>
                         </tr>
                         <tr style="background:rgba(46,204,113,0.08); font-weight:600;">
                             <td>Developer Subtotal</td>
@@ -2420,10 +2478,10 @@ $30M &times; 0.5% capture
                 </div>
                 <table>
                     <thead>
-                        <tr><th>Use Case</th><th>Addressable Market</th><th>Sanas Revenue (Yr 3)</th><th>Revenue Model</th></tr>
+                        <tr><th>Use Case</th><th>Addressable Market</th><th>Sanas Revenue (Yr 3)</th><th>Calculation</th></tr>
                     </thead>
                     <tbody>
-                        <tr class="calc-clickable" onclick="openCalcModal('Podcast Episode Cleanup &mdash; $40M / $240K', this.querySelector('.calc-data').innerHTML)">
+                        <tr>
                             <td><strong>Podcast Episode Cleanup (backlog remediation)</strong><div class="calc-data" hidden><span class='cm-comment'>// Non-dev podcast cleanup — subset of developer podcast market</span>
 50% of developer podcast market; non-dev web upload users
 <span class='cm-estimate'>[ESTIMATE: lower volume, self-serve pricing]</span>
@@ -2434,9 +2492,9 @@ $40M &times; 0.6% capture
 = <span class='cm-result'>$240K</span></div></td>
                             <td>$40M</td>
                             <td>$240K</td>
-                            <td>Subscription tiers</td>
+                            <td><button class="calc-btn" onclick="openCalcModal('Podcast Episode Cleanup &mdash; $40M / $240K', this.closest('tr').querySelector('.calc-data').innerHTML)"><svg viewBox="0 0 16 16"><path d="M2 2a2 2 0 012-2h8a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V2zm2 1v2h8V3H4zm0 4v1h3V7H4zm0 3v1h3v-1H4zm5-3v1h3V7H9zm0 3v1h3v-1H9z"/></svg>View</button></td>
                         </tr>
-                        <tr class="calc-clickable" onclick="openCalcModal('Meeting / Webinar Recording Enhancement &mdash; $30M / $180K', this.querySelector('.calc-data').innerHTML)">
+                        <tr>
                             <td><strong>Meeting / Webinar Recording Enhancement</strong><div class="calc-data" hidden><span class='cm-comment'>// Virtual events — audio cleanup tools</span>
 $45B virtual events market
 &times; 0.07% audio cleanup tools <span class='cm-estimate'>[ESTIMATE: competes with free tools]</span>
@@ -2447,9 +2505,9 @@ $30M &times; 0.6% capture
 = <span class='cm-result'>$180K</span></div></td>
                             <td>$30M</td>
                             <td>$180K</td>
-                            <td>Subscription tiers</td>
+                            <td><button class="calc-btn" onclick="openCalcModal('Meeting / Webinar Recording Enhancement &mdash; $30M / $180K', this.closest('tr').querySelector('.calc-data').innerHTML)"><svg viewBox="0 0 16 16"><path d="M2 2a2 2 0 012-2h8a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V2zm2 1v2h8V3H4zm0 4v1h3V7H4zm0 3v1h3v-1H4zm5-3v1h3V7H9zm0 3v1h3v-1H9z"/></svg>View</button></td>
                         </tr>
-                        <tr class="calc-clickable" onclick="openCalcModal('Training / Lecture Audio Remediation &mdash; $25M / $150K', this.querySelector('.calc-data').innerHTML)">
+                        <tr>
                             <td><strong>Training / Lecture Audio Remediation</strong><div class="calc-data" hidden><span class='cm-comment'>// E-learning subset — non-dev faculty/L&amp;D uploading recordings</span>
 Subset of e-learning; non-dev faculty/L&amp;D uploading recordings
 <span class='cm-estimate'>[ESTIMATE]</span>
@@ -2460,9 +2518,9 @@ $25M &times; 0.6% capture
 = <span class='cm-result'>$150K</span></div></td>
                             <td>$25M</td>
                             <td>$150K</td>
-                            <td>Subscription tiers</td>
+                            <td><button class="calc-btn" onclick="openCalcModal('Training / Lecture Audio Remediation &mdash; $25M / $150K', this.closest('tr').querySelector('.calc-data').innerHTML)"><svg viewBox="0 0 16 16"><path d="M2 2a2 2 0 012-2h8a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V2zm2 1v2h8V3H4zm0 4v1h3V7H4zm0 3v1h3v-1H4zm5-3v1h3V7H9zm0 3v1h3v-1H9z"/></svg>View</button></td>
                         </tr>
-                        <tr class="calc-clickable" onclick="openCalcModal('Interview / Research Recording Cleanup &mdash; $15M / $90K', this.querySelector('.calc-data').innerHTML)">
+                        <tr>
                             <td><strong>Interview / Research Recording Cleanup</strong><div class="calc-data" hidden><span class='cm-comment'>// Research/journalism audio cleanup</span>
 Research/journalism audio; small per-user volume
 <span class='cm-estimate'>[ESTIMATE]</span>
@@ -2473,9 +2531,9 @@ $15M &times; 0.6% capture
 = <span class='cm-result'>$90K</span></div></td>
                             <td>$15M</td>
                             <td>$90K</td>
-                            <td>Per-file pricing</td>
+                            <td><button class="calc-btn" onclick="openCalcModal('Interview / Research Recording Cleanup &mdash; $15M / $90K', this.closest('tr').querySelector('.calc-data').innerHTML)"><svg viewBox="0 0 16 16"><path d="M2 2a2 2 0 012-2h8a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V2zm2 1v2h8V3H4zm0 4v1h3V7H4zm0 3v1h3v-1H4zm5-3v1h3V7H9zm0 3v1h3v-1H9z"/></svg>View</button></td>
                         </tr>
-                        <tr class="calc-clickable" onclick="openCalcModal('Personal Audio Quality Improvement &mdash; $10M / $60K', this.querySelector('.calc-data').innerHTML)">
+                        <tr>
                             <td><strong>Personal Audio Quality Improvement</strong><div class="calc-data" hidden><span class='cm-comment'>// Consumer segment</span>
 Consumer segment; heavily competed by Adobe free
 <span class='cm-estimate'>[ESTIMATE]</span>
@@ -2486,7 +2544,7 @@ $10M &times; 0.6% capture
 = <span class='cm-result'>$60K</span></div></td>
                             <td>$10M</td>
                             <td>$60K</td>
-                            <td>Freemium + subscription</td>
+                            <td><button class="calc-btn" onclick="openCalcModal('Personal Audio Quality Improvement &mdash; $10M / $60K', this.closest('tr').querySelector('.calc-data').innerHTML)"><svg viewBox="0 0 16 16"><path d="M2 2a2 2 0 012-2h8a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V2zm2 1v2h8V3H4zm0 4v1h3V7H4zm0 3v1h3v-1H4zm5-3v1h3V7H9zm0 3v1h3v-1H9z"/></svg>View</button></td>
                         </tr>
                         <tr style="background:rgba(233,69,96,0.08); font-weight:600;">
                             <td>Non-Developer Subtotal</td>
@@ -2582,7 +2640,12 @@ $10M &times; 0.6% capture
 <script>
 function openCalcModal(title, calcHtml) {
     document.getElementById('calcModalTitle').textContent = title;
-    document.getElementById('calcModalBody').innerHTML = calcHtml;
+    document.getElementById('calcModalBody').innerHTML = calcHtml +
+        '<div class="calc-legend">' +
+        '<span><span class="dot dot-source"></span> Cited Source</span>' +
+        '<span><span class="dot dot-estimate"></span> Estimate / Assumption</span>' +
+        '<span><span class="dot dot-result"></span> Calculated Result</span>' +
+        '</div>';
     document.getElementById('calcModal').classList.add('active');
     document.body.style.overflow = 'hidden';
 }
